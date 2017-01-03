@@ -1,0 +1,12 @@
+#include "init.h"
+#include "Affichage.h"
+#include "Source.h"
+
+
+int main()
+{
+	//Lancer le menu
+	srand(time(NULL));
+	mainMenu(0);
+	return 0;
+}

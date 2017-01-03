@@ -1,0 +1,4 @@
+﻿  Affichage.cpp
+d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(147): warning C4309: 'argument' : troncation de valeur de constante
+  Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.exe
+  Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.pdb (Full PDB)

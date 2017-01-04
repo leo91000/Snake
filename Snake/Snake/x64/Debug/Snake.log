@@ -1,6 +1,16 @@
-﻿  Init.cpp
+﻿  Affichage.cpp
+d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(255): warning C4309: 'argument' : troncation de valeur de constante
+  Génération de code en cours...
+  Compilation en cours...
+  Source.cpp
+d:\cloud\drive\programmation\c\snake\snake\snake\source.cpp(9): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  Init.cpp
 d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(196): warning C4309: 'argument' : troncation de valeur de constante
 d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(197): warning C4309: 'argument' : troncation de valeur de constante
 d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(198): warning C4309: 'argument' : troncation de valeur de constante
+  Commandes_Calculs.cpp
+d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(168): warning C4101: 'c' : variable locale non référencée
+  Génération de code en cours...
+d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(175): warning C4715: 'indiceElement' : les chemins de contrôle ne retournent pas tous une valeur
   Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.exe
   Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.pdb (Full PDB)

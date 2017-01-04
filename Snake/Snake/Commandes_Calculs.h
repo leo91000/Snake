@@ -6,7 +6,7 @@
 #include <conio.h>
 #include <windows.h>
 
-#define NOMBRE_FRUIT 5
+#define NOMBRE_FRUIT 20
 #define MAX 1000
 
 #define HAUT				0
@@ -36,6 +36,7 @@ int indiceElement(coordonnee a, element e);
 void avancer(element * snake, element * lastSnake, int direction);
 int action(element* snake, element* lastSnake, element obstacle, element *nourriture, int direction, int lastDirection, int* vie, int* score);
 void executeSnakeStandart(element * snake, element * lastSnake, element obstacle, element * nourriture, int * vie, int * score, int * lastDirection);
+void executeSnakeIntermediaire(element * snake, element * lastSnake, element obstacle, element * nourriture, int * vie, int * score, int * direction, int * lastDirection, int niveau);
 int directionTouche(char frappe);
 int check1(element e, int numero, element obstacle, element snake);
 int verifPointExistant(element e1, int numero, element e2);

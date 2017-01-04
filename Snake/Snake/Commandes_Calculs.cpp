@@ -280,6 +280,20 @@ void executeSnakeStandart(element* snake, element* lastSnake, element obstacle, 
 		*lastDirection = direction;
 }
 
+void executeSnakeIntermediaire(element* snake, element* lastSnake, element obstacle, element *nourriture, int* vie, int* score, int* direction, int* lastDirection, int niveau)
+{
+	char frappe;
+	if (_kbhit)
+	{
+		frappe = _getch();
+		if (directionTouche(frappe) != -1)
+			*direction = directionTouche(frappe);
+	}
+	if (!action(snake, lastSnake, obstacle, nourriture, *direction, *lastDirection, vie, score))
+		*lastDirection = *direction;
+	Sleep(600 / niveau);
+}
+
 int directionTouche(char frappe)
 {
 	int direction = -1;

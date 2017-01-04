@@ -154,6 +154,26 @@ int verificationAvancement(element snake, element obstacle, element nourriture, 
 	return rep;
 }
 
+void supprimerNourriture(element* nourriture, int indice)
+{
+	(nourriture->taille)--;
+	for (int i = indice; i < nourriture->taille; i++)
+	{
+		nourriture->point[i].X = nourriture->point[i + 1].X, nourriture->point[i].Y = nourriture->point[i + 1].Y;
+	}
+}
+
+int indiceElement(coordonnee a, element e)
+{
+	coordonnee c;
+	for (int i = 0; i < e.taille; i++)
+	{
+		if (e.point[i].X == a.X && e.point[i].Y == a.Y)
+			return i;
+	}
+
+}
+
 void avancer(element* snake, element* lastSnake, int direction)
 {
 	copyElement(snake, lastSnake);
@@ -194,6 +214,7 @@ void feedSnake(element* snake, element* lastSnake, element *nourriture, int dire
 	avancer(snake, lastSnake, direction);
 	(snake->taille)++;
 	snake->point[snake->taille - 1].X = lastSnake->point[lastSnake->taille - 1].X, snake->point[snake->taille - 1].Y = lastSnake->point[lastSnake->taille - 1].Y;
+	supprimerNourriture(nourriture, indiceElement(snake->point[0], *nourriture));
 }
 
 int action(element* snake, element* lastSnake, element obstacle, element *nourriture, int direction, int lastDirection, int* vie, int* score)

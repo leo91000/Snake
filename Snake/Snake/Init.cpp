@@ -136,14 +136,14 @@ int snakeStandart()
 	genererCadre();
 	element snake, lastSnake, obstacles, nourriture;
 	int score = 0, vies = 1, lastDirection = -1;
-	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, 10, NOURRITURE);
+	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, NOMBRE_FRUIT, NOURRITURE);
 	printfElement(obstacles, POINT);
 	printfElement(nourriture, POINT);
 	printfElement(snake, POINT);
 	/*
 	FIN INITIALISATION SNAKE
 	*/
-	while (vies > 0)
+	while (vies > 0 || score != NOMBRE_FRUIT)
 	{
 		executeSnakeStandart(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection);
 	}

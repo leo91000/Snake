@@ -27,7 +27,7 @@ void genererCase(int numero, element* element)
 	element->point[numero].Y = random(0, 37);
 }
 
-void genererElement(element obstacle, element* element, int taille, int type)
+void genererElement(element obstacle, element snake, element* element, int taille, int type)
 {
 	element->taille = taille;
 	element->type = type;
@@ -35,11 +35,11 @@ void genererElement(element obstacle, element* element, int taille, int type)
 	{
 		do {
 			genererCase(i, element);
-		} while (!(check1((*element), i, obstacle)));
+		} while (!(check1((*element), i, obstacle, snake)));
 	}
 }
 
-int check1(element e, int numero, element obstacle)
+int check1(element e, int numero, element obstacle, element snake)
 {
 	//On vérifie que la position n'existe pas déja
 	for (int i = 0; i < e.taille; i++)
@@ -51,6 +51,12 @@ int check1(element e, int numero, element obstacle)
 	for (int i = 0; i < obstacle.taille; i++)
 	{
 		if (obstacle.point[i].X == e.point[numero].X && obstacle.point[i].Y == e.point[numero].Y)
+			return 1;
+	}
+	//On verifie que la position n'existe pas deja en tant que snake
+	for (int i = 0; i < snake.taille; i++)
+	{
+		if (snake.point[i].X == e.point[numero].X && snake.point[i].Y == e.point[numero].Y)
 			return 1;
 	}
 	return 0;

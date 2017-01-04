@@ -87,7 +87,7 @@ int snakeStandart()
 	system("CLS");
 	genererCadre();
 	element snake, lastSnake, obstacles, nourriture;
-	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, &nourriture, 10, NOURRITURE);
+	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, 10, NOURRITURE);
 	printfElement(snake);
 
 	_getch();

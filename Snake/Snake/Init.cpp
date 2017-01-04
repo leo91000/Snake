@@ -225,6 +225,35 @@ int menuSnakeIntermediaire()
 
 int snakeIntermediaire(int niveau)
 {
+	/*
+	DEBUT INITIALISATION SNAKE
+	*/
+	system("CLS");
+	genererCadre();
+	element snake, lastSnake, obstacles, nourriture;
+	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, NOMBRE_FRUIT, NOURRITURE);
+	int score = 0, vies = 1, lastDirection = -1, direction = GAUCHE, rejouer = 0;
+	printfElement(obstacles, POINT);
+	printfElement(nourriture, POINT);
+	printfElement(snake, POINT);
+	/*
+	FIN INITIALISATION SNAKE
+	*/
+	while (vies > 0 && score != NOMBRE_FRUIT)
+	{
+		executeSnakeIntermediaire(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection, &direction, niveau);
+	}
+
+	if (score == NOMBRE_FRUIT) {
+		system("CLS");
+		menu_victoire();
+	}
+	else if (vies == 0) {
+		system("CLS");
+		menu_gameover();
+	}
+
+	return 0;
 	return 0;
 }
 

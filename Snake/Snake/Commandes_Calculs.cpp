@@ -192,7 +192,7 @@ void feedSnake(element* snake, element* lastSnake, element *nourriture, int dire
 
 void action(element* snake, element* lastSnake, element obstacle, element *nourriture, int direction, int lastDirection, int* vie, int* score)
 {
-	if (direction != 0)
+	if (direction != -1)
 	{
 		int estRentreeDansMur = 0;
 		element snakeTest, lastSnakeTest;
@@ -245,7 +245,7 @@ void executeSnakeStandart(element* snake, element* lastSnake, element obstacle, 
 
 int directionTouche(char frappe)
 {
-	int direction = 0;
+	int direction = -1;
 	switch (frappe)
 	{
 	case 'z':
@@ -261,7 +261,7 @@ int directionTouche(char frappe)
 		direction = DROITE;
 		break;
 	default:
-		direction = 0;
+		direction = -1;
 		break;
 	}
 	return direction;

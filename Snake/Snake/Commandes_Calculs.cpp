@@ -1,4 +1,5 @@
 #include "Commandes_Calculs.h"
+#include "Affichage.h"
 
 int bind()
 {	//Rentrer commande
@@ -188,14 +189,32 @@ void feedSnake(element* snake, element* lastSnake, element *nourriture, int dire
 	snake->point[snake->taille].X = lastSnake->point[lastSnake->taille - 1].X, snake->point[snake->taille].Y = lastSnake->point[lastSnake->taille - 1].Y;
 }
 
-void action(element* snake, element* lastSnake, element obstacle, element *nourriture, int direction, int lastDirection)
+void action(element* snake, element* lastSnake, element obstacle, element *nourriture, int direction, int lastDirection, int* vie, int* score)
 {
 	element snakeTest;
 	copyElement(snake, &snakeTest);
 	avancer(&snakeTest, lastSnake, direction);
-	switch (verificationAvancement(snakeTest, obstacle, *nourriture))
+	switch (verificationAvancement(snakeTest, obstacle, *nourriture, direction, lastDirection))
 	{
 	case 0:
-		avancer()
+		avancer(snake, lastSnake, direction);
+		
+		break;
+	case 1:
+		(*vie)--;
+		break;
+	case 2:
+		feedSnake(snake, lastSnake, nourriture, direction);
+		(*score)++;
+		break;
+	case 3:  
+		(*vie)--;
+		break;
+	case 4:
+
+		break;
+	default:
+
+		break;
 	}
 }

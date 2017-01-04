@@ -6,6 +6,7 @@
 #include <conio.h>
 #include <windows.h>
 
+
 #define MAX 1000
 
 #define HAUT				0
@@ -31,7 +32,7 @@ void copyElement(element * source, element * target);
 int positiondansCadre(coordonnee point);
 int verificationAvancement(element snake, element obstacle, element nourriture, int direction, int lastDirection);
 void avancer(element * snake, element * lastSnake, int direction);
-void action(element* snake, element* lastSnake, element obstacle, element *nourriture, int direction, int lastDirection);
+void action(element* snake, element* lastSnake, element obstacle, element *nourriture, int direction, int lastDirection, int* vie, int* score);
 int check1(element e, int numero, element obstacle, element snake);
 int verifPointExistant(element e1, int numero, element e2);
 void genererElement(element obstacle, element snake, element* element, int taille, int type);

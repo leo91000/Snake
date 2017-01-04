@@ -88,9 +88,10 @@ int random(int iMin, int iMax)
 	return (iMin + (rand() % (iMax - iMin + 1)));
 }
 
-void copyTableauElement(element* source, element* target)
+void copyElement(element* source, element* target)
 {
 	target->taille = source->taille;
+	target->type = source->type;
 	for (int i = 0; i < source->taille; i++)
 	{
 		target->point[i].X = source->point[i].X;
@@ -98,16 +99,46 @@ void copyTableauElement(element* source, element* target)
 	}
 }
 
-int verificationAvancement(element snake, element obstacle, element nourriture)
+int positiondansCadre(coordonnee point)
+{
+	if (point.X < 0 || point.Y < 0 || point.X > 37 || point.Y > 37)
+	{
+		return 0;
+	}
+	else {
+		return 1;
+	}
+}
+
+int directionOppose(int direction1, int direction2)
+{
+	if (((direction1 == HAUT) && (direction2 == BAS)) || ((direction1 == BAS) && (direction2 == HAUT)) || ((direction1 == DROITE) && (direction2 == GAUCHE)) || ((direction1 == GAUCHE) && (direction2 == DROITE)))
+	{
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
+int verificationAvancement(element snake, element obstacle, element nourriture, int direction, int lastDirection)
 {
 	int rep = 0;
-	if (verifPointExistant(snake, 0, obstacle))
+	if (verifPointExistant(snake, 0, obstacle))//Si il rencontre un obstacle
 	{
 		rep = 1;
 	}
-	else if (verifPointExistant(snake, 0, nourriture))
+	else if (verifPointExistant(snake, 0, nourriture))//Si il rencontre la nourriture
 	{
 		rep = 2;
+	}
+	else if (!positiondansCadre(snake.point[0]))
+	{
+		rep = 3;
+	}
+	else if (directionOppose(direction, lastDirection))
+	{
+		rep = 4;
 	}
 	else
 	{
@@ -118,41 +149,53 @@ int verificationAvancement(element snake, element obstacle, element nourriture)
 
 void avancer(element* snake, element* lastSnake, int direction)
 {
-	copyTableauElement(snake, lastSnake);
+	copyElement(snake, lastSnake);
 	for (int i = 0; i < snake->taille; i++)
 	{
 		switch (direction)
 		{
-		case HAUT :
+		case HAUT:
 			if (i == 0)
 				snake->point[i].Y--;
 			else
-				printf("");
+				snake->point[i].X = lastSnake->point[i - 1].X, snake->point[i].Y = lastSnake->point[i - 1].Y;
+			break;
+		case BAS:
+			if (i == 0)
+				snake->point[i].Y++;
+			else
+				snake->point[i].X = lastSnake->point[i - 1].X, snake->point[i].Y = lastSnake->point[i - 1].Y;
+			break;
+		case DROITE:
+			if (i == 0)
+				snake->point[i].X--;
+			else
+				snake->point[i].X = lastSnake->point[i - 1].X, snake->point[i].Y = lastSnake->point[i - 1].Y;
+			break;
+		case GAUCHE:
+			if (i == 0)
+				snake->point[i].X++;
+			else
+				snake->point[i].X = lastSnake->point[i - 1].X, snake->point[i].Y = lastSnake->point[i - 1].Y;
+			break;
 		}
 	}
 }
 
-void action(element* snake, element* lastSnake, element obstacle, element nourriture, int direction, int lastDirection)
+void feedSnake(element* snake, element* lastSnake, element *nourriture, int direction)
 {
-	switch (direction)
+	avancer(snake, lastSnake, direction);
+	snake->point[snake->taille].X = lastSnake->point[lastSnake->taille - 1].X, snake->point[snake->taille].Y = lastSnake->point[lastSnake->taille - 1].Y;
+}
+
+void action(element* snake, element* lastSnake, element obstacle, element *nourriture, int direction, int lastDirection)
+{
+	element snakeTest;
+	copyElement(snake, &snakeTest);
+	avancer(&snakeTest, lastSnake, direction);
+	switch (verificationAvancement(snakeTest, obstacle, *nourriture))
 	{
-	case HAUT:
-		switch (verificationAvancement(*snake, obstacle, nourriture))
-		{
-
-		}
-		break;
-	case BAS:
-
-		break;
-	case DROITE:
-
-		break;
-	case GAUCHE:
-
-		break;
-	default:
-
-		break;
+	case 0:
+		avancer()
 	}
 }

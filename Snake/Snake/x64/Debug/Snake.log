@@ -1,4 +1,4 @@
-﻿  Affichage.cpp
-d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(147): warning C4309: 'argument' : troncation de valeur de constante
+﻿  Commandes_Calculs.cpp
+d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(143): warning C4060: l'instruction switch ne contient aucune étiquette 'case' ou 'default'
   Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.exe
   Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.pdb (Full PDB)

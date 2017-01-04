@@ -48,15 +48,20 @@ int check1(element e, int numero, element obstacle, element snake)
 			return 1;
 	}
 	//On verifie que la position n'existe pas deja en tant qu'obstacle
-	for (int i = 0; i < obstacle.taille; i++)
-	{
-		if (obstacle.point[i].X == e.point[numero].X && obstacle.point[i].Y == e.point[numero].Y)
-			return 1;
-	}
+	if (!verifPointExistant(e, numero, obstacle))
+		return 1;
+
 	//On verifie que la position n'existe pas deja en tant que snake
-	for (int i = 0; i < snake.taille; i++)
+	if (!verifPointExistant(e, numero, snake))
+		return 1;
+	return 0;
+}
+
+int verifPointExistant(element e1, int numero, element e2)
+{
+	for (int i = 0; i < e2.taille; i++)
 	{
-		if (snake.point[i].X == e.point[numero].X && snake.point[i].Y == e.point[numero].Y)
+		if (e2.point[i].X == e1.point[numero].X && e2.point[i].Y == e1.point[numero].Y)
 			return 1;
 	}
 	return 0;
@@ -71,13 +76,83 @@ void initSnake(element * e)
 
 void initObstacle(element * o)
 {
-	o->type = 0;
-	o->taille = 4;// demander à Gournay
-	o->point[0].X = 5, o->point[0].Y = 18, o->point[1].X = 19, o->point[1].Y = 18, o->point[2].X = 20, o->point[2].Y = 18, o->point[3].X = 21, o->point[3].Y = 18;
+	o->type = 2;
+	o->taille = 8;
+	o->point[0].X = 5, o->point[0].Y = 18, o->point[1].X = 17, o->point[1].Y = 26, o->point[2].X = 31, o->point[2].Y = 7, o->point[3].X = 9, o->point[3].Y = 10;
+	o->point[4].X = 25, o->point[4].Y = 22, o->point[5].X = 32, o->point[5].Y = 15, o->point[6].X = 2, o->point[6].Y = 27, o->point[7].X = 17, o->point[7].Y = 34;
 }
 
 
 int random(int iMin, int iMax)
 {
 	return (iMin + (rand() % (iMax - iMin + 1)));
+}
+
+void copyTableauElement(element* source, element* target)
+{
+	target->taille = source->taille;
+	for (int i = 0; i < source->taille; i++)
+	{
+		target->point[i].X = source->point[i].X;
+		target->point[i].Y = source->point[i].Y;
+	}
+}
+
+int verificationAvancement(element snake, element obstacle, element nourriture)
+{
+	int rep = 0;
+	if (verifPointExistant(snake, 0, obstacle))
+	{
+		rep = 1;
+	}
+	else if (verifPointExistant(snake, 0, nourriture))
+	{
+		rep = 2;
+	}
+	else
+	{
+		rep = 0;
+	}
+	return rep;
+}
+
+void avancer(element* snake, element* lastSnake, int direction)
+{
+	copyTableauElement(snake, lastSnake);
+	for (int i = 0; i < snake->taille; i++)
+	{
+		switch (direction)
+		{
+		case HAUT :
+			if (i == 0)
+				snake->point[i].Y--;
+			else
+				printf("");
+		}
+	}
+}
+
+void action(element* snake, element* lastSnake, element obstacle, element nourriture, int direction, int lastDirection)
+{
+	switch (direction)
+	{
+	case HAUT:
+		switch (verificationAvancement(*snake, obstacle, nourriture))
+		{
+
+		}
+		break;
+	case BAS:
+
+		break;
+	case DROITE:
+
+		break;
+	case GAUCHE:
+
+		break;
+	default:
+
+		break;
+	}
 }

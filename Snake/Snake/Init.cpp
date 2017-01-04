@@ -89,6 +89,8 @@ int snakeStandart()
 	element snake, lastSnake, obstacles, nourriture;
 	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, 10, NOURRITURE);
 	printfElement(snake);
+	printfElement(obstacles);
+	printfElement(nourriture);
 
 	_getch();
 	fin(MAIN_MENU);

@@ -13,6 +13,8 @@
 
 int mainMenu(int init);
 int launch(int selection);
+int menu_gameover();
+int launch_gameover(int selection);
 int snakeStandart();
 int menuSnakeIntermediaire();
 int snakeIntermediaire(int niveau);

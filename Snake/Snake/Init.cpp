@@ -82,6 +82,51 @@ int launch(int selection)
 	return 0;
 }
 
+int menu_gameover() {
+	char frappe = 0;
+	int selection = 0, rejouer = 0;
+	while (selection == 0)
+	{
+		affichage_gameover(rejouer);
+		frappe = bind();
+		switch (frappe)
+		{
+		case 'z':
+			rejouer--;
+			break;
+		case 's':
+			rejouer++;
+			break;
+		case 13:
+			selection = 1;
+			break;
+		default:
+			selection = 0;
+			break;
+		}
+	}
+	launch_gameover(rejouer);
+	return 1;
+}
+
+int launch_gameover(int selection)
+{
+	switch (selection)
+	{
+	case 0:
+		snakeStandart();
+		break;
+	case 1:
+		quitter();
+		break;
+	default:
+		fin(EXIT);
+		break;
+	}
+	return 0;
+}
+
+
 int snakeStandart()
 {
 	system("CLS");
@@ -114,6 +159,8 @@ int snakeIntermediaire(int niveau)
 
 int snakeAvance()
 {
+	system("CLS");
+	menu_gameover();
 	return 0;
 }
 
@@ -148,6 +195,7 @@ int scores(int modeDeJeu)
 
 int quitter()
 {
+	fin(EXIT);
 	return 0;
 }
 

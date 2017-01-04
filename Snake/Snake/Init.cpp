@@ -87,11 +87,15 @@ int snakeStandart()
 	system("CLS");
 	genererCadre();
 	element snake, lastSnake, obstacles, nourriture;
+	int score = 0, vies = 1, lastDirection = 0;
 	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, 10, NOURRITURE);
 	printfElement(obstacles);
 	printfElement(nourriture);
-	avancer(&snake, &lastSnake, HAUT);
 	printfElement(snake);
+	while (vies > 0)
+	{
+		executeSnakeStandart(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection);
+	}
 
 	_getch();
 	fin(MAIN_MENU);

@@ -27,5 +27,6 @@ void gotoxy(int x, int y);
 void printfCase(int x, int y, char caractere, int couleurDuTexte, int couleurDeFond);
 void printfElement(element e);
 int colorType(int type);
+void refreshSnake(element snake, element lastSnake, int isFeeding, int score);
 void hideCursor();
-void afficher_score();
+void afficher_score(int score);

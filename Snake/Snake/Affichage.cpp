@@ -169,6 +169,15 @@ int colorType(int type)
 	return color;
 }
 
+void refreshSnake(element snake, element lastSnake, int isFeeding, int score)
+{
+	printfCase(snake.point[0].X, snake.point[0].Y, 219, GREEN, BLACK);
+	if(!isFeeding)
+		printfCase(lastSnake.point[lastSnake.taille - 1].X, snake.point[lastSnake.taille - 1].Y, ' ', GREEN, BLACK);
+	afficher_score(score);
+	hideCursor();
+}
+
 void hideCursor()
 {
 	gotoxy(79, 43);

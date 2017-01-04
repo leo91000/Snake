@@ -108,6 +108,7 @@ int affichage_gameover(int rejouer)
 		printf("           OO    OO    OOO    OO       OO OO \n");
 		printf("            OOOOOO      O     OOOOOOO  OO  OO\n\n\n\n");
 		printf("           > Rejouer \n");
+		printf("             Retour au menu principal \n");
 		printf("             Quitter le jeu \n");
 		hideCursor();
 		break;
@@ -127,6 +128,27 @@ int affichage_gameover(int rejouer)
 		printf("           OO    OO    OOO    OO       OO OO \n");
 		printf("            OOOOOO      O     OOOOOOO  OO  OO\n\n\n\n");
 		printf("             Rejouer \n");
+		printf("           > Retour au menu principal \n");
+		printf("             Quitter le jeu \n");
+		hideCursor();
+		break;
+	case 2 :
+		printf("             OOOOOO    OOO    OO   OO  OOOOOO\n");
+		printf("            OO        OO OO   OOO OOO  OO\n");
+		printf("           OO        OO   OO  OOOOOOO  OO\n");
+		printf("           OO  OOOO  OO   OO  OOOOOOO  OOOOOO\n");
+		printf("           OO    OO  OOOOOOO  OO O OO  OO\n");
+		printf("            OO   OO  OO   OO  OO   OO  OO\n");
+		printf("             OOOOO   OO   OO  OO   OO  OOOOOO\n\n\n");
+		printf("            OOOOOO   OO   OO  OOOOOOO  OOOOO\n");
+		printf("           OO    OO  OO   OO  OO       OO  OO\n");
+		printf("           OO    OO  OO   OO  OO       OO  OO\n");
+		printf("           OO    OO  OO   OO  OOOOOOO  OO OOO\n");
+		printf("           OO    OO   OO OO   OO       OOOO\n");
+		printf("           OO    OO    OOO    OO       OO OO \n");
+		printf("            OOOOOO      O     OOOOOOO  OO  OO\n\n\n\n");
+		printf("             Rejouer \n");
+		printf("             Retour au menu principal \n");
 		printf("           > Quitter le jeu \n");
 		hideCursor();
 		break;
@@ -148,6 +170,7 @@ int affichage_victoire(int rejouer) {
 		printf("             OOOOO   OO   OO   OOOOO  OO     OO OOOOOO\n\n\n");
 		printf("           > Rejouer \n");
 		printf("             Retour au menu principal \n");
+		printf("             Quitter le jeu \n");
 		hideCursor();
 		break;
 	case 1:
@@ -160,11 +183,24 @@ int affichage_victoire(int rejouer) {
 		printf("             OOOOO   OO   OO   OOOOO  OO     OO OOOOOO\n\n\n");
 		printf("             Rejouer \n");
 		printf("           > Retour au menu principal \n");
+		printf("             Quitter le jeu \n");
+		hideCursor();
+		break;
+	case 2 : 
+		printf("             OOOOOO    OOO     OOOOOO OO     OO OOOOOO\n");
+		printf("            OO        OO OO   OO      OOO    OO OO\n");
+		printf("           OO        OO   OO OO       OO O   OO OO\n");
+		printf("           OO  OOOO  OO   OO OO  OOOO OO  O  OO OOOOOO\n");
+		printf("           OO    OO  OOOOOOO OO    OO OO   O OO OO\n");
+		printf("            OO   OO  OO   OO  OO   OO OO    OOO OO\n");
+		printf("             OOOOO   OO   OO   OOOOO  OO     OO OOOOOO\n\n\n");
+		printf("             Rejouer \n");
+		printf("             Retour au menu principal \n");
+		printf("           > Quitter le jeu \n");
 		hideCursor();
 		break;
 	}
 	return 1;
-
 }
 
 int affichage_menuSnakeIntermediaire(int niveau) {
@@ -190,6 +226,35 @@ int affichage_menuSnakeIntermediaire(int niveau) {
 		printf("             Niveau 1 \n");
 		printf("             Niveau 2 \n");
 		printf("           > Niveau 3 \n");
+		hideCursor();
+		break;
+	}
+	return 1;
+}
+
+int affichage_menu_fin_intermediaire(int rejouer) {
+	system("CLS");
+	switch (rejouer)
+	{
+	case 0:
+		printf("         Merci d'avoir joue ! \n\n");
+		printf("           > Rejouer \n");
+		printf("             Retour au menu principal \n");
+		printf("             Quitter le jeu \n");
+		hideCursor();
+		break;
+	case 1:
+		printf("         Merci d'avoir joue ! \n\n");
+		printf("             Rejouer \n");
+		printf("           > Retour au menu principal \n");
+		printf("             Quitter le jeu \n");
+		hideCursor();
+		break;
+	case 2:
+		printf("         Merci d'avoir joue ! \n\n");
+		printf("             Rejouer \n");
+		printf("             Retour au menu principal \n");
+		printf("           > Quitter le jeu \n");
 		hideCursor();
 		break;
 	}

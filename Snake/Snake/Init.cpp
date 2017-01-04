@@ -123,8 +123,10 @@ int launch_gameover(int selection)
 		snakeStandart();
 		break;
 	case 1:
-		quitter();
+		fin(0);
 		break;
+	case 2 :
+		quitter();
 	default:
 		fin(EXIT);
 		break;
@@ -160,8 +162,6 @@ int menu_victoire() {
 		else if (rejouer > NOMBRE_SELECTION_MENU_GAMEOVER_VICTOIRE)
 			rejouer = 0;
 	}
-
-
 	launch_victoire(rejouer);
 	return 1;
 }
@@ -175,12 +175,13 @@ int launch_victoire(int selection) {
 	case 1:
 		fin(0);
 		break;
+	case 2:
+		quitter();
 	default:
 		fin(EXIT);
 		break;
 	}
 	return 0;
-
 }
 
 int menuSnakeIntermediaire() {
@@ -235,6 +236,60 @@ int launch_snakeintermediaire(int selection)
 	}
 	return 0;
 }
+
+int menu_fin_intermediaire() {
+	char frappe = 0;
+	int selection = 0, rejouer = 0;
+	while (selection == 0)
+	{
+		affichage_menu_fin_intermediaire(rejouer);
+		frappe = bind();
+		switch (frappe)
+		{
+		case 'z':
+			rejouer--;
+			break;
+		case 's':
+			rejouer++;
+			break;
+		case 13:
+			selection = 1;
+			break;
+		default:
+			selection = 0;
+			break;
+		}
+
+		if (rejouer < 0)
+			rejouer = NOMBRE_SELECTION_MENU_FIN_INTERM;
+		else if (rejouer > NOMBRE_SELECTION_MENU_FIN_INTERM)
+			rejouer = 0;
+	}
+	
+	launch_menu_fin_intermediaire(rejouer);
+	return 1;
+}
+
+int launch_menu_fin_intermediaire(int selection) {
+	switch (selection)
+	{
+	case 0:
+		menuSnakeIntermediaire();
+		break;
+	case 1:
+		fin(0);
+		break;
+	case 2:
+		quitter();
+		break;
+	default:
+		fin(EXIT);
+		break;
+	}
+	return 0;
+}
+
+
 
 int snakeStandart()
 {
@@ -299,7 +354,7 @@ int snakeIntermediaire(int niveau)
 	}
 	else if (vies == 0) {
 		system("CLS");
-		menu_gameover();
+		menu_fin_intermediaire();
 	}
 	return 0;
 }

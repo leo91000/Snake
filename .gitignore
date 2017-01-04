@@ -45,3 +45,21 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+*.db
+Snake/.vs/Snake/v14/.suo
+*.obj
+Snake/Snake/x64/Debug/Affichage.sbr
+*.sbr
+*.suo
+Snake/Snake.VC.db
+*.opendb
+*.sbr
+Snake/Snake/x64/Debug/Commandes_Calculs.obj
+*.sbr
+*.log
+Snake/Snake/x64/Debug/Snake.tlog/CL.write.1.tlog
+*.tlog
+*.idb
+Snake/x64/Debug/Snake.bsc
+*.exe
+Snake/x64/Debug/Snake.ilk

@@ -147,7 +147,7 @@ int affichage_victoire(int rejouer) {
 		printf("            OO   OO  OO   OO  OO   OO OO    OOO OO\n");
 		printf("             OOOOO   OO   OO   OOOOO  OO     OO OOOOOO\n\n\n");
 		printf("           > Rejouer \n");
-		printf("             Quitter le jeu \n");
+		printf("             Retour au menu principal \n");
 		hideCursor();
 		break;
 	case 1:
@@ -159,7 +159,7 @@ int affichage_victoire(int rejouer) {
 		printf("            OO   OO  OO   OO  OO   OO OO    OOO OO\n");
 		printf("             OOOOO   OO   OO   OOOOO  OO     OO OOOOOO\n\n\n");
 		printf("             Rejouer \n");
-		printf("           > Quitter le jeu \n");
+		printf("           > Retour au menu principal \n");
 		hideCursor();
 		break;
 	}

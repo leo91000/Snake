@@ -9,7 +9,7 @@ Si oui, on fixe la taille de la console, etc
 int mainMenu(int init)
 {
 	//Initialisation de la console à la bonne taille
-	if(init == 0)
+	if (init == 0)
 		system("MODE CON COLS=80 LINES=44");
 
 	color(WHITE, BLACK);
@@ -36,9 +36,9 @@ int mainMenu(int init)
 			break;
 		}
 
-		if(position < 0)
+		if (position < 0)
 			position = NOMBRE_SELECTION_MENU;
-		else if(position > NOMBRE_SELECTION_MENU)
+		else if (position > NOMBRE_SELECTION_MENU)
 			position = 0;
 	}
 	//On lance la sélection
@@ -104,6 +104,12 @@ int menu_gameover() {
 			selection = 0;
 			break;
 		}
+
+		if (rejouer < 0)
+			rejouer = NOMBRE_SELECTION_MENU_GAMEOVER_VICTOIRE;
+		else if (rejouer > NOMBRE_SELECTION_MENU_GAMEOVER_VICTOIRE)
+			rejouer = 0;
+
 	}
 	launch_gameover(rejouer);
 	return 1;
@@ -126,6 +132,56 @@ int launch_gameover(int selection)
 	return 0;
 }
 
+int menu_victoire() {
+	char frappe = 0;
+	int selection = 0, rejouer = 0;
+	while (selection == 0)
+	{
+		affichage_victoire(rejouer);
+		frappe = bind();
+		switch (frappe)
+		{
+		case 'z':
+			rejouer--;
+			break;
+		case 's':
+			rejouer++;
+			break;
+		case 13:
+			selection = 1;
+			break;
+		default:
+			selection = 0;
+			break;
+		}
+
+		if (rejouer < 0)
+			rejouer = NOMBRE_SELECTION_MENU_GAMEOVER_VICTOIRE;
+		else if (rejouer > NOMBRE_SELECTION_MENU_GAMEOVER_VICTOIRE)
+			rejouer = 0;
+	}
+
+
+	launch_victoire(rejouer);
+	return 1;
+}
+
+int launch_victoire(int selection) {
+	switch (selection)
+	{
+	case 0:
+		snakeStandart();
+		break;
+	case 1:
+		quitter();
+		break;
+	default:
+		fin(EXIT);
+		break;
+	}
+	return 0;
+
+}
 
 int snakeStandart()
 {
@@ -135,7 +191,7 @@ int snakeStandart()
 	system("CLS");
 	genererCadre();
 	element snake, lastSnake, obstacles, nourriture;
-	int score = 0, vies = 1, lastDirection = -1;
+	int score = 0, vies = 1, lastDirection = -1, rejouer = 0;
 	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, 10, NOURRITURE);
 	printfElement(obstacles, POINT);
 	printfElement(nourriture, POINT);
@@ -147,9 +203,17 @@ int snakeStandart()
 	{
 		executeSnakeStandart(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection);
 	}
+	
+	if (NOMBRE_FRUIT == 20) {
+		system("CLS");
+		menu_victoire();
+	}
 
-	_getch();
-	fin(MAIN_MENU);
+	if (vies == 0) {
+		system("CLS");
+		menu_gameover();
+	}
+
 	return 0;
 }
 
@@ -166,7 +230,7 @@ int snakeIntermediaire(int niveau)
 int snakeAvance()
 {
 	system("CLS");
-	menu_gameover();
+	menu_victoire();
 	return 0;
 }
 

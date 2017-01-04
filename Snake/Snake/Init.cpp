@@ -173,7 +173,7 @@ int launch_victoire(int selection) {
 		snakeStandart();
 		break;
 	case 1:
-		quitter();
+		fin(0);
 		break;
 	default:
 		fin(EXIT);
@@ -209,10 +209,10 @@ int snakeStandart()
 		executeSnakeStandart(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection);
 	}
 	
-	if (NOMBRE_FRUIT == 20) {
+	/*if (NOMBRE_FRUIT == 20) {
 		system("CLS");
 		menu_victoire();
-	}
+	}*/
 
 	if (vies == 0) {
 		system("CLS");

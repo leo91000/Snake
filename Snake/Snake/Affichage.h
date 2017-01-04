@@ -28,3 +28,4 @@ void printfCase(int x, int y, char caractere, int couleurDuTexte, int couleurDeF
 void printfElement(element e);
 int colorType(int type);
 void hideCursor();
+void afficher_score();

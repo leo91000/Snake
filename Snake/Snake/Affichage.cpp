@@ -123,7 +123,6 @@ void genererCadre()
 			}
 		}
 	}
-
 }
 
 void gotoxy(int x, int y)
@@ -173,4 +172,10 @@ int colorType(int type)
 void hideCursor()
 {
 	gotoxy(79, 43);
+}
+
+void afficher_score(int score) {
+	gotoxy(0, 40);
+	color(WHITE, BLACK);
+	printf("Score = %d", score);
 }

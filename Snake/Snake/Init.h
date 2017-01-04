@@ -10,11 +10,14 @@
 #include "Source.h"
 
 #define NOMBRE_SELECTION_MENU 6
+#define NOMBRE_SELECTION_MENU_GAMEOVER_VICTOIRE 1
 
 int mainMenu(int init);
 int launch(int selection);
 int menu_gameover();
 int launch_gameover(int selection);
+int menu_vitoire();
+int launch_victoire(int selection);
 int snakeStandart();
 int menuSnakeIntermediaire();
 int snakeIntermediaire(int niveau);

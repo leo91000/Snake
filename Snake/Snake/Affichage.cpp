@@ -134,6 +134,39 @@ int affichage_gameover(int rejouer)
 	return 1;
 }
 
+int affichage_victoire(int rejouer) {
+	system("CLS");
+	switch (rejouer)
+	{
+	case 0:
+		printf("             OOOOOO    OOO     OOOOOO OO     OO OOOOOO\n");
+		printf("            OO        OO OO   OO      OOO    OO OO\n");
+		printf("           OO        OO   OO OO       OO O   OO OO\n");
+		printf("           OO  OOOO  OO   OO OO  OOOO OO  O  OO OOOOOO\n");
+		printf("           OO    OO  OOOOOOO OO    OO OO   O OO OO\n");
+		printf("            OO   OO  OO   OO  OO   OO OO    OOO OO\n");
+		printf("             OOOOO   OO   OO   OOOOO  OO     OO OOOOOO\n\n\n");
+		printf("           > Rejouer \n");
+		printf("             Quitter le jeu \n");
+		hideCursor();
+		break;
+	case 1:
+		printf("             OOOOOO    OOO     OOOOOO OO     OO OOOOOO\n");
+		printf("            OO        OO OO   OO      OOO    OO OO\n");
+		printf("           OO        OO   OO OO       OO O   OO OO\n");
+		printf("           OO  OOOO  OO   OO OO  OOOO OO  O  OO OOOOOO\n");
+		printf("           OO    OO  OOOOOOO OO    OO OO   O OO OO\n");
+		printf("            OO   OO  OO   OO  OO   OO OO    OOO OO\n");
+		printf("             OOOOO   OO   OO   OOOOO  OO     OO OOOOOO\n\n\n");
+		printf("             Rejouer \n");
+		printf("           > Quitter le jeu \n");
+		hideCursor();
+		break;
+	}
+	return 1;
+
+}
+
 void color(int couleurDuTexte, int couleurDeFond) // Fonction des couleurs
 {
 	HANDLE H = GetStdHandle(STD_OUTPUT_HANDLE);

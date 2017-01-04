@@ -34,7 +34,7 @@ int verificationAvancement(element snake, element obstacle, element nourriture, 
 void supprimerNourriture(element * nourriture, int numero);
 int indiceElement(coordonnee a, element e);
 void avancer(element * snake, element * lastSnake, int direction);
-int action(element* snake, element* lastSnake, element obstacle, element *nourriture, int direction, int lastDirection, int* vie, int* score);
+int action(element* snake, element* lastSnake, element obstacle, element *nourriture, int direction, int lastDirection, int* vie, int* score, int modeDeJeu);
 void executeSnakeStandart(element * snake, element * lastSnake, element obstacle, element * nourriture, int * vie, int * score, int * lastDirection);
 void executeSnakeIntermediaire(element * snake, element * lastSnake, element obstacle, element * nourriture, int * vie, int * score, int * direction, int * lastDirection, int niveau);
 int directionTouche(char frappe);

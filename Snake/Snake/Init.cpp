@@ -209,7 +209,7 @@ int menuSnakeIntermediaire() {
 		if (niveau < 0)
 			niveau = NOMBRE_SELECTION_NIVEAU;
 		else if (niveau > NOMBRE_SELECTION_NIVEAU)
-			niveau = 0;
+			niveau = 1;
 	}
 	launch_snakeintermediaire(niveau);
 	return 1;
@@ -226,7 +226,7 @@ int launch_snakeintermediaire(int selection)
 	case 1:
 		snakeIntermediaire(2);
 		break;
-	case 3:
+	case 2:
 		snakeIntermediaire(3);
 		break;
 	default:
@@ -280,7 +280,7 @@ int snakeIntermediaire(int niveau)
 	system("CLS");
 	genererCadre();
 	element snake, lastSnake, obstacles, nourriture;
-	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, NOMBRE_FRUIT, NOURRITURE);
+	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, 1, NOURRITURE);
 	int score = 0, vies = 1, lastDirection = -1, direction = GAUCHE, rejouer = 0;
 	printfElement(obstacles, POINT);
 	printfElement(nourriture, POINT);
@@ -288,7 +288,7 @@ int snakeIntermediaire(int niveau)
 	/*
 	FIN INITIALISATION SNAKE
 	*/
-	while (vies > 0 && score != NOMBRE_FRUIT)
+	while (vies > 0)
 	{
 		executeSnakeIntermediaire(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection, &direction, niveau);
 	}
@@ -301,8 +301,6 @@ int snakeIntermediaire(int niveau)
 		system("CLS");
 		menu_gameover();
 	}
-
-	return 0;
 	return 0;
 }
 

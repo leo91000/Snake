@@ -283,12 +283,6 @@ void refreshSnake(element snake, element lastSnake, int score)
 {
 	printfElement(lastSnake, ' ');
 	printfElement(snake, POINT);
-
-	/*
-	printfCase(snake.point[0].X, snake.point[0].Y, 219, GREEN, BLACK);
-	if(!isFeeding)
-		printfCase(lastSnake.point[lastSnake.taille - 1].X, snake.point[lastSnake.taille - 1].Y, ' ', GREEN, BLACK);
-		*/
 	afficher_score(score);
 	hideCursor();
 }

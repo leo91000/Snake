@@ -87,11 +87,10 @@ int affichageMenu(int position)
 	return 1;
 }
 
-int affichage_gameover()
+int affichage_gameover(int rejouer)
 {
-
 	system("CLS");
-	switch ()
+	switch (rejouer)
 	{
 	case 0:
 		printf("             OOOOOO    OOO    OO   OO  OOOOOO\n");

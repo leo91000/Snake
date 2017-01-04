@@ -21,6 +21,7 @@
 #define POINT 219
 
 int affichageMenu(int position);
+int affichage_gameover(int rejouer);
 void color(int couleurDuTexte, int couleurDeFond);
 void genererCadre();
 void gotoxy(int x, int y);

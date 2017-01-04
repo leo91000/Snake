@@ -191,30 +191,26 @@ int snakeStandart()
 	system("CLS");
 	genererCadre();
 	element snake, lastSnake, obstacles, nourriture;
-<<<<<<< HEAD
-	int score = 0, vies = 1, lastDirection = -1;
 	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, NOMBRE_FRUIT, NOURRITURE);
-=======
 	int score = 0, vies = 1, lastDirection = -1, rejouer = 0;
-	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, 10, NOURRITURE);
->>>>>>> b1b5e735bd9c077c0c97298273a8eadfb9e9b921
 	printfElement(obstacles, POINT);
 	printfElement(nourriture, POINT);
 	printfElement(snake, POINT);
 	/*
 	FIN INITIALISATION SNAKE
 	*/
-	while (vies > 0 || score != NOMBRE_FRUIT)
+	while (vies > 0 && score != NOMBRE_FRUIT)
 	{
 		executeSnakeStandart(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection);
+		gotoxy(0, 41);
+
 	}
 	
-	/*if (NOMBRE_FRUIT == 20) {
+	if(score == NOMBRE_FRUIT) {
 		system("CLS");
 		menu_victoire();
-	}*/
-
-	if (vies == 0) {
+	}
+	else if (vies == 0) {
 		system("CLS");
 		menu_gameover();
 	}

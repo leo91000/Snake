@@ -6,7 +6,7 @@
 #include <conio.h>
 #include <windows.h>
 
-#define NOMBRE_FRUIT 20
+#define NOMBRE_FRUIT 5
 #define MAX 1000
 
 #define HAUT				0

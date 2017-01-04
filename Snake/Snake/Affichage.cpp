@@ -186,11 +186,11 @@ void printfCase(int x, int y, char caractere, int couleurDuTexte, int couleurDeF
 	printf("%c%c", caractere, caractere);
 }
 
-void printfElement(element e)
+void printfElement(element e, char caractere)
 {
 	for (int i = 0; i < e.taille; i++)
 	{
-		printfCase(e.point[i].X, e.point[i].Y, POINT, colorType(e.type), BLACK);
+		printfCase(e.point[i].X, e.point[i].Y, caractere, colorType(e.type), BLACK);
 	}
 	hideCursor();
 }
@@ -218,9 +218,14 @@ int colorType(int type)
 
 void refreshSnake(element snake, element lastSnake, int isFeeding, int score)
 {
+	printfElement(lastSnake, ' ');
+	printfElement(snake, POINT);
+
+	/*
 	printfCase(snake.point[0].X, snake.point[0].Y, 219, GREEN, BLACK);
 	if(!isFeeding)
 		printfCase(lastSnake.point[lastSnake.taille - 1].X, snake.point[lastSnake.taille - 1].Y, ' ', GREEN, BLACK);
+		*/
 	afficher_score(score);
 	hideCursor();
 }

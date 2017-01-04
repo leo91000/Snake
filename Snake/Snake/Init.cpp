@@ -84,14 +84,20 @@ int launch(int selection)
 
 int snakeStandart()
 {
+	/*
+	DEBUT INITIALISATION SNAKE
+	*/
 	system("CLS");
 	genererCadre();
 	element snake, lastSnake, obstacles, nourriture;
-	int score = 0, vies = 1, lastDirection = 0;
+	int score = 0, vies = 1, lastDirection = -1;
 	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, 10, NOURRITURE);
-	printfElement(obstacles);
-	printfElement(nourriture);
-	printfElement(snake);
+	printfElement(obstacles, POINT);
+	printfElement(nourriture, POINT);
+	printfElement(snake, POINT);
+	/*
+	FIN INITIALISATION SNAKE
+	*/
 	while (vies > 0)
 	{
 		executeSnakeStandart(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection);

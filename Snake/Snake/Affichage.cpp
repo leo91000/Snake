@@ -87,6 +87,54 @@ int affichageMenu(int position)
 	return 1;
 }
 
+int affichage_gameover()
+{
+
+	system("CLS");
+	switch ()
+	{
+	case 0:
+		printf("             OOOOOO    OOO    OO   OO  OOOOOO\n");
+		printf("            OO        OO OO   OOO OOO  OO\n");
+		printf("           OO        OO   OO  OOOOOOO  OO\n");
+		printf("           OO  OOOO  OO   OO  OOOOOOO  OOOOOO\n");
+		printf("           OO    OO  OOOOOOO  OO O OO  OO\n");
+		printf("            OO   OO  OO   OO  OO   OO  OO\n");
+		printf("             OOOOO   OO   OO  OO   OO  OOOOOO\n\n\n");
+		printf("            OOOOOO   OO   OO  OOOOOOO  OOOOO\n");
+		printf("           OO    OO  OO   OO  OO       OO  OO\n");
+		printf("           OO    OO  OO   OO  OO       OO  OO\n");
+		printf("           OO    OO  OO   OO  OOOOOOO  OO OOO\n");
+		printf("           OO    OO   OO OO   OO       OOOO\n");
+		printf("           OO    OO    OOO    OO       OO OO \n");
+		printf("            OOOOOO      O     OOOOOOO  OO  OO\n\n\n\n");
+		printf("           > Rejouer \n");
+		printf("             Quitter le jeu \n");
+		hideCursor();
+		break;
+	case 1:
+		printf("             OOOOOO    OOO    OO   OO  OOOOOO\n");
+		printf("            OO        OO OO   OOO OOO  OO\n");
+		printf("           OO        OO   OO  OOOOOOO  OO\n");
+		printf("           OO  OOOO  OO   OO  OOOOOOO  OOOOOO\n");
+		printf("           OO    OO  OOOOOOO  OO O OO  OO\n");
+		printf("            OO   OO  OO   OO  OO   OO  OO\n");
+		printf("             OOOOO   OO   OO  OO   OO  OOOOOO\n\n\n");
+		printf("            OOOOOO   OO   OO  OOOOOOO  OOOOO\n");
+		printf("           OO    OO  OO   OO  OO       OO  OO\n");
+		printf("           OO    OO  OO   OO  OO       OO  OO\n");
+		printf("           OO    OO  OO   OO  OOOOOOO  OO OOO\n");
+		printf("           OO    OO   OO OO   OO       OOOO\n");
+		printf("           OO    OO    OOO    OO       OO OO \n");
+		printf("            OOOOOO      O     OOOOOOO  OO  OO\n\n\n\n");
+		printf("             Rejouer \n");
+		printf("           > Quitter le jeu \n");
+		hideCursor();
+		break;
+	}
+	return 1;
+}
+
 void color(int couleurDuTexte, int couleurDeFond) // Fonction des couleurs
 {
 	HANDLE H = GetStdHandle(STD_OUTPUT_HANDLE);

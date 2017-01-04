@@ -211,7 +211,7 @@ int menuSnakeIntermediaire() {
 		else if (niveau > NOMBRE_SELECTION_NIVEAU)
 			niveau = 0;
 	}
-	launch_snakeintermediaire(selection);
+	launch_snakeintermediaire(niveau);
 	return 1;
 
 }
@@ -274,9 +274,6 @@ int snakeStandart()
 
 int snakeIntermediaire(int niveau)
 {
-<<<<<<< HEAD
-	menuSnakeIntermediaire();
-=======
 	/*
 	DEBUT INITIALISATION SNAKE
 	*/
@@ -306,14 +303,11 @@ int snakeIntermediaire(int niveau)
 	}
 
 	return 0;
->>>>>>> origin/master
 	return 0;
 }
 
 int snakeAvance()
 {
-	system("CLS");
-	menu_victoire();
 	return 0;
 }
 

@@ -23,6 +23,7 @@
 int affichageMenu(int position);
 int affichage_gameover(int rejouer);
 int affichage_victoire(int rejouer);
+int affichage_menuSnakeIntermediaire(int niveau);
 void color(int couleurDuTexte, int couleurDeFond);
 void genererCadre();
 void gotoxy(int x, int y);

@@ -11,6 +11,7 @@
 
 #define NOMBRE_SELECTION_MENU 6
 #define NOMBRE_SELECTION_MENU_GAMEOVER_VICTOIRE 1
+#define NOMBRE_SELECTION_NIVEAU 2
 
 int mainMenu(int init);
 int launch(int selection);
@@ -18,6 +19,8 @@ int menu_gameover();
 int launch_gameover(int selection);
 int menu_victoire();
 int launch_victoire(int selection);
+int menuSnakeIntermediaire();
+int launch_snakeintermediaire(int selection);
 int snakeStandart();
 int menuSnakeIntermediaire();
 int snakeIntermediaire(int niveau);

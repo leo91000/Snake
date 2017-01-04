@@ -167,6 +167,36 @@ int affichage_victoire(int rejouer) {
 
 }
 
+int affichage_menuSnakeIntermediaire(int niveau) {
+	system("CLS");
+	switch (niveau)
+	{
+	case 0:
+		printf("      **SNAKE INTERMEDIAIRE** \n\n");
+		printf("           > Niveau 1 \n");
+		printf("             Niveau 2 \n");
+		printf("             Niveau 3 \n");
+		hideCursor();
+		break;
+	case 1:
+		printf("      **SNAKE INTERMEDIAIRE** \n\n");
+		printf("             Niveau 1 \n");
+		printf("           > Niveau 2 \n");
+		printf("             Niveau 3 \n");
+		hideCursor();
+		break;
+	case 2 :
+		printf("      **SNAKE INTERMEDIAIRE** \n\n");
+		printf("             Niveau 1 \n");
+		printf("             Niveau 2 \n");
+		printf("           > Niveau 3 \n");
+		hideCursor();
+		break;
+	}
+	return 1;
+
+}
+
 void color(int couleurDuTexte, int couleurDeFond) // Fonction des couleurs
 {
 	HANDLE H = GetStdHandle(STD_OUTPUT_HANDLE);

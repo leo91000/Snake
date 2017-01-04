@@ -183,6 +183,59 @@ int launch_victoire(int selection) {
 
 }
 
+int menuSnakeIntermediaire() {
+	char frappe = 0;
+	int selection = 0, niveau = 0;
+	while (selection == 0)
+	{
+		affichage_menuSnakeIntermediaire(niveau);
+		frappe = bind();
+		switch (frappe)
+		{
+		case 'z':
+			niveau--;
+			break;
+		case 's':
+			niveau++;
+			break;
+		case 13:
+			selection = 1;
+			break;
+		default:
+			selection = 0;
+			break;
+		}
+
+		if (niveau < 0)
+			niveau = NOMBRE_SELECTION_NIVEAU;
+		else if (niveau > NOMBRE_SELECTION_NIVEAU)
+			niveau = 0;
+	}
+	launch_snakeintermediaire(selection);
+	return 1;
+
+}
+
+int launch_snakeintermediaire(int selection)
+{
+	switch (selection)
+	{
+	case 0:
+		snakeIntermediaire(1);
+		break;
+	case 1:
+		snakeIntermediaire(2);
+		break;
+	case 3:
+		snakeIntermediaire(3);
+		break;
+	default:
+		fin(EXIT);
+		break;
+	}
+	return 0;
+}
+
 int snakeStandart()
 {
 	/*
@@ -218,13 +271,10 @@ int snakeStandart()
 	return 0;
 }
 
-int menuSnakeIntermediaire()
-{
-	return 0;
-}
 
 int snakeIntermediaire(int niveau)
 {
+	menuSnakeIntermediaire();
 	return 0;
 }
 

@@ -216,7 +216,7 @@ int colorType(int type)
 	return color;
 }
 
-void refreshSnake(element snake, element lastSnake, int isFeeding, int score)
+void refreshSnake(element snake, element lastSnake, int score)
 {
 	printfElement(lastSnake, ' ');
 	printfElement(snake, POINT);

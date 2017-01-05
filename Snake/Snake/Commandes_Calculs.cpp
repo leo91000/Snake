@@ -209,6 +209,25 @@ void avancer(element* snake, element* lastSnake, int direction)
 	}
 }
 
+void transposeSnake(element* snake, element* lastSnake, int direction)
+{
+	copyElement(snake, lastSnake);
+	switch (direction)
+	{
+	case(GAUCHE):
+		snake->point[0].X = 37;
+		break;
+	case(HAUT):
+		snake->point[0].Y = 37;
+		break;
+	case(DROITE):
+		snake->point[0].X = 0;
+		break;
+	case(BAS):
+		snake->point[0].Y = 0;
+	}
+}
+
 void feedSnake(element* snake, element* lastSnake, element *nourriture, int direction)
 {
 	avancer(snake, lastSnake, direction);
@@ -295,9 +314,14 @@ int action(element* snake, element* lastSnake, element obstacle, element *nourri
 			refreshSnake(*snake, *lastSnake, *score, *vie, 1);
 			break;
 		case 4://Event : sort du cadre  
-			if (!(*estRentreeDansMur))
+			if (!(*estRentreeDansMur) && modeDeJeu != 2)
 			{
 				*estRentreeDansMur = 1;
+				(*vie)--;
+			}
+			else if (modeDeJeu == 2)
+			{
+				transposeSnake(snake, lastSnake, *direction);
 				(*vie)--;
 			}
 			directionInv = 1;
@@ -327,16 +351,19 @@ void executeSnakeStandart(element* snake, element* lastSnake, element obstacle, 
 		*lastDirection = direction;
 }
 
-void executeSnakeIntermediaire(element* snake, element* lastSnake, element obstacle, element *nourriture, int* vie, int* score, int* direction, int* lastDirection, int niveau, int* estRentreeDansMur, int* estrentreeDansSerpent, int debugMode)
+void executeSnakeIntermediaire(element* snake, element* lastSnake, element obstacle, element *nourriture, int* vie, int* score, int* direction, int* lastDirection, int niveau, int* estRentreeDansMur, int* estrentreeDansSerpent, int debugMode, int typeSnake)
 {
 	char frappe;
+	int modeDeJeu = 1;
+	if (typeSnake == 1)
+		modeDeJeu++;
 	if (_kbhit())
 	{
 		frappe = _getch();
 		if (directionTouche(frappe) != -1)
 			*direction = directionTouche(frappe);
 	}
-	if(!action(snake, lastSnake, obstacle, nourriture, direction, lastDirection, vie, score, 1, estRentreeDansMur, estrentreeDansSerpent, debugMode))
+	if(!action(snake, lastSnake, obstacle, nourriture, direction, lastDirection, vie, score, modeDeJeu, estRentreeDansMur, estrentreeDansSerpent, debugMode))
 		*lastDirection = *direction;
 	if (niveau == 1)
 	{

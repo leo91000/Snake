@@ -31,7 +31,7 @@ int menu_fin_intermediaire();
 int launch_menu_fin_intermediaire(int selection);
 int snakeStandart();
 int menuSnakeIntermediaire();
-int snakeIntermediaire(int niveau);
+int snakeIntermediaire(int niveau, int typeSnake);
 int snakeAvance();
 int snakeTresAvance();
 int regle();

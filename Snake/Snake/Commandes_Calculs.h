@@ -38,7 +38,7 @@ void avancer(element * snake, element * lastSnake, int direction);
 int directionOppose(int direction);
 int action(element* snake, element* lastSnake, element obstacle, element *nourriture, int *direction, int *lastDirection, int* vie, int* score, int modeDeJeu, int * estRentreeDansMur, int * estRentreeDansSerpent, int debugMode);
 void executeSnakeStandart(element * snake, element * lastSnake, element obstacle, element * nourriture, int * vie, int * score, int * lastDirection, int* estRentreeDansMur, int* estrentreeDansSerpent, int debugMode);
-void executeSnakeIntermediaire(element * snake, element * lastSnake, element obstacle, element * nourriture, int * vie, int * score, int * direction, int * lastDirection, int niveau, int* estRentreeDansMur, int* estrentreeDansSerpent, int debugMode);
+void executeSnakeIntermediaire(element * snake, element * lastSnake, element obstacle, element * nourriture, int * vie, int * score, int * direction, int * lastDirection, int niveau, int* estRentreeDansMur, int* estrentreeDansSerpent, int debugMode, int typeSnake);
 int directionTouche(char frappe);
 int check1(element e, int numero, element obstacle, element snake);
 int verifPointExistant(element e1, int numero, element e2);

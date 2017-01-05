@@ -203,6 +203,7 @@ int affichage_victoire(int rejouer) {
 	return 1;
 }
 
+<<<<<<< HEAD
 int affichage_menuSnakeintermediaire(int snake) {
 	system("CLS");
 	switch (snake)
@@ -224,6 +225,9 @@ int affichage_menuSnakeintermediaire(int snake) {
 }
 
 int affichage_menuSnake_nocrosswall_crosswall(int niveau) {
+=======
+int affichage_menuSnakeIntermediaire(int niveau) {
+>>>>>>> origin/master
 	system("CLS");
 	switch (niveau)
 	{

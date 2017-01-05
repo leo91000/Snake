@@ -426,7 +426,7 @@ int snakeStandart()
 }
 
 
-int snakeIntermediaire(int niveau, int typeSnake)
+int snakeIntermediaire(int niveau)
 {
 	/*
 	DEBUT INITIALISATION SNAKE
@@ -444,7 +444,7 @@ int snakeIntermediaire(int niveau, int typeSnake)
 	*/
 	while (vies > 0)
 	{
-		executeSnakeIntermediaire(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection, &direction, niveau, &estRentreeDansMur, &estRentreeDansSerpent, 1, typeSnake);
+		executeSnakeIntermediaire(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection, &direction, niveau, &estRentreeDansMur, &estRentreeDansSerpent, 1);
 	}
 
 	if (score == NOMBRE_FRUIT) {

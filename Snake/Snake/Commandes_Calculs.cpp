@@ -274,7 +274,7 @@ int action(element* snake, element* lastSnake, element obstacle, element *nourri
 			break;
 		case 1:
 			directionInv = 1;
-			if (modeDeJeu == 1)
+			if (modeDeJeu == 1 || modeDeJeu == 2)
 			{
 				if (*estRentreeDansMur == 0 && *estRentreeDansSerpent == 0)
 				{
@@ -323,6 +323,7 @@ int action(element* snake, element* lastSnake, element obstacle, element *nourri
 			{
 				transposeSnake(snake, lastSnake, *direction);
 				(*vie)--;
+				refreshSnake(*snake, *lastSnake, *score, *vie, 2);
 			}
 			directionInv = 1;
 			break;

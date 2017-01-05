@@ -2,7 +2,6 @@
 
 int affichageMenu(int position)
 {
-
 	system("CLS");
 	switch (position)
 	{

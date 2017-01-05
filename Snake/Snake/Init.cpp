@@ -184,12 +184,62 @@ int launch_victoire(int selection) {
 	return 0;
 }
 
-int menuSnakeIntermediaire() {
+int menu_snakeintermediaire() {
+	char frappe = 0;
+	int selection = 0, snake = 0;
+	while (selection == 0)
+	{
+		affichage_menuSnakeintermediaire(snake);
+		frappe = bind();
+		switch (frappe)
+		{
+		case 'z':
+			snake--;
+			break;
+		case 's':
+			snake++;
+			break;
+		case 13:
+			selection = 1;
+			break;
+		default:
+			selection = 0;
+			break;
+		}
+
+		if (snake < 0)
+			snake = NOMBRE_SELECTION_MENU_INTERM;
+		else if (snake > NOMBRE_SELECTION_MENU_INTERM)
+			snake = 1;
+	}
+	launch_menu_snakeinterm(snake);
+	return 1;
+}
+
+int launch_menu_snakeinterm(int selection) {
+	switch (selection)
+	{
+	case 0:
+		menuSnakeIntermediaire_nocrosswall();
+		break;
+	case 1:
+		menuSnakeIntermediaire_crosswall();
+		break;
+	case 2:
+		quitter();
+	default:
+		fin(EXIT);
+		break;
+	}
+return 0;
+}
+
+int menuSnakeIntermediaire_nocrosswall() {
 	char frappe = 0;
 	int selection = 0, niveau = 0;
 	while (selection == 0)
 	{
-		affichage_menuSnakeIntermediaire(niveau);
+		affichage_menuSnake_nocrosswall_crosswall(niveau);
 		frappe = bind();
 		switch (frappe)
 		{
@@ -212,23 +262,74 @@ int menuSnakeIntermediaire() {
 		else if (niveau > NOMBRE_SELECTION_NIVEAU)
 			niveau = 1;
 	}
-	launch_snakeintermediaire(niveau);
+	launch_snakeintermediaire_nocrosswall(niveau);
 	return 1;
 
 }
 
-int launch_snakeintermediaire(int selection)
+int launch_snakeintermediaire_nocrosswall(int selection)
 {
 	switch (selection)
 	{
 	case 0:
-		snakeIntermediaire(1);
+		snakeIntermediaire(1,0);
 		break;
 	case 1:
-		snakeIntermediaire(2);
+		snakeIntermediaire(2,0);
 		break;
 	case 2:
-		snakeIntermediaire(3);
+		snakeIntermediaire(3,0);
+		break;
+	default:
+		fin(EXIT);
+		break;
+	}
+	return 0;
+}
+
+int menuSnakeIntermediaire_crosswall() {
+	char frappe = 0;
+	int selection = 0, niveau = 0;
+	while (selection == 0)
+	{
+		affichage_menuSnake_nocrosswall_crosswall(niveau);
+		frappe = bind();
+		switch (frappe)
+		{
+		case 'z':
+			niveau--;
+			break;
+		case 's':
+			niveau++;
+			break;
+		case 13:
+			selection = 1;
+			break;
+		default:
+			selection = 0;
+			break;
+		}
+
+		if (niveau < 0)
+			niveau = NOMBRE_SELECTION_NIVEAU;
+		else if (niveau > NOMBRE_SELECTION_NIVEAU)
+			niveau = 1;
+	}
+	launch_snakeintermediaire_crosswall(niveau);
+	return 1;
+}
+
+int launch_snakeintermediaire_crosswall(int selection) {
+	switch (selection)
+	{
+	case 0:
+		snakeIntermediaire(1, 1);
+		break;
+	case 1:
+		snakeIntermediaire(2, 1);
+		break;
+	case 2:
+		snakeIntermediaire(3, 1);
 		break;
 	default:
 		fin(EXIT);

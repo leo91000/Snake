@@ -203,7 +203,27 @@ int affichage_victoire(int rejouer) {
 	return 1;
 }
 
-int affichage_menuSnakeIntermediaire(int niveau) {
+int affichage_menuSnakeintermediaire(int snake) {
+	system("CLS");
+	switch (snake)
+	{
+	case 0:
+		printf("      **SNAKE INTERMEDIAIRE** \n\n");
+		printf("           > No crosswall \n");
+		printf("             Crosswall \n");
+		hideCursor();
+		break;
+	case 1:
+		printf("      **SNAKE INTERMEDIAIRE** \n\n");
+		printf("             No crosswall \n");
+		printf("            > Crosswall \n");
+		hideCursor();
+		break;
+	}
+	return 1;
+}
+
+int affichage_menuSnake_nocrosswall_crosswall(int niveau) {
 	system("CLS");
 	switch (niveau)
 	{

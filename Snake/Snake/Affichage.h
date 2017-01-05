@@ -23,7 +23,8 @@
 int affichageMenu(int position);
 int affichage_gameover(int rejouer);
 int affichage_victoire(int rejouer);
-int affichage_menuSnakeIntermediaire(int niveau);
+int affichage_menuSnakeintermediaire(int snake);
+int affichage_menuSnake_nocrosswall_crosswall(int niveau);
 int affichage_menu_fin_intermediaire(int rejouer);
 void color(int couleurDuTexte, int couleurDeFond);
 void genererCadre();

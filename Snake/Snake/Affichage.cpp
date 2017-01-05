@@ -344,12 +344,30 @@ int colorType(int type)
 	return color;
 }
 
-void refreshSnake(element snake, element lastSnake, int score)
+void refreshSnake(element snake, element lastSnake, int score, int vies, int isFeeding)
 {
+	/*
 	printfElement(lastSnake, ' ');
 	printfElement(snake, POINT);
 	afficher_score(score);
+	afficher_vies(vies);
 	hideCursor();
+	*/
+	printfCase(snake.point[0].X, snake.point[0].Y, POINT, GREEN, BLACK);
+	if (!isFeeding)
+		printfCase(lastSnake.point[lastSnake.taille - 1].X, lastSnake.point[lastSnake.taille - 1].Y, ' ', BLACK, BLACK);
+
+	afficher_score(score);
+	afficher_vies(vies);
+	hideCursor();
+}
+
+void refreshDebug(int direction, int lastDirection, element snake)
+{
+	gotoxy(0, 41);
+	printf("                                                                                                                               ");
+	gotoxy(0, 41);
+	printf("direction : %d, lastDirection : %d, snakePosX : %d, snakePosY : %d, tailleSnake : %d", direction, lastDirection, snake.point[0].X, snake.point[0].Y, snake.taille);
 }
 
 void hideCursor()
@@ -361,4 +379,10 @@ void afficher_score(int score) {
 	gotoxy(0, 40);
 	color(WHITE, BLACK);
 	printf("Score = %d", score);
+}
+
+void afficher_vies(int vies) {
+	gotoxy(30, 40);
+	color(WHITE, BLACK);
+	printf("Vies = %d", vies);
 }

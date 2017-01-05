@@ -111,9 +111,9 @@ int positiondansCadre(coordonnee point)
 	}
 }
 
-int directionOppose(int direction1, int direction2)
+int estOppose(int direction1, int direction2)
 {
-	if (((direction1 == HAUT) && (direction2 == BAS)) || ((direction1 == BAS) && (direction2 == HAUT)) || ((direction1 == DROITE) && (direction2 == GAUCHE)) || ((direction1 == GAUCHE) && (direction2 == DROITE)))
+	if (directionOppose(direction1) == direction2)
 	{
 		return 1;
 	}
@@ -127,7 +127,7 @@ int verificationAvancement(element snake, element obstacle, element nourriture, 
 	int rep = 0;
 	element snakeModif;
 	copyElement(&snake, &snakeModif), snakeModif.point[0].X = -1, snakeModif.point[0].Y = -1;
-	if (directionOppose(direction, lastDirection))
+	if (estOppose(direction, lastDirection))
 	{
 		rep = 1;
 	}
@@ -238,62 +238,74 @@ int directionOppose(int direction)
 	return directionOp;
 }
 
-int action(element* snake, element* lastSnake, element obstacle, element *nourriture, int direction, int lastDirection, int* vie, int* score, int modeDeJeu)
+int action(element* snake, element* lastSnake, element obstacle, element *nourriture, int *direction, int *lastDirection, int* vie, int* score, int modeDeJeu, int * estRentreeDansMur, int * estRentreeDansSerpent, int debugMode)
 {
 	int directionInv = 0;
-	if (direction != -1)
+	if (*direction != -1 && *lastDirection != -1)
 	{
-		int estRentreeDansMur = 0, estRentreeDansSerpent = 0;
 		element snakeTest, lastSnakeTest;
 		copyElement(snake, &snakeTest), copyElement(lastSnake, &lastSnakeTest);
-		avancer(&snakeTest, &lastSnakeTest, direction);
-		switch (verificationAvancement(snakeTest, obstacle, *nourriture, direction, lastDirection))
+		avancer(&snakeTest, &lastSnakeTest, *direction);
+		switch (verificationAvancement(snakeTest, obstacle, *nourriture, *direction, *lastDirection))
 		{
 		case 0://Aucun event
-			avancer(snake, lastSnake, direction);
-			estRentreeDansMur = 0, estRentreeDansSerpent = 0;
-			refreshSnake(*snake, *lastSnake, *score);
+			avancer(snake, lastSnake, *direction);
+			*estRentreeDansMur = 0, *estRentreeDansSerpent = 0;
+			refreshSnake(*snake, *lastSnake, *score, *vie, 0);
 			break;
 		case 1:
 			directionInv = 1;
 			if (modeDeJeu == 1)
 			{
-				direction = directionOppose(direction);
-				avancer(snake, lastSnake, direction);
-				estRentreeDansMur = 0, estRentreeDansSerpent = 0;
-				refreshSnake(*snake, *lastSnake, *score);
+				if (*estRentreeDansMur == 0 && *estRentreeDansSerpent == 0)
+				{
+					avancer(snake, lastSnake, directionOppose(*direction));
+					*direction = directionOppose(*direction);
+					refreshSnake(*snake, *lastSnake, *score, *vie, 0);
+				}
+				else
+				{
+					if (*lastDirection != directionOppose(*direction))
+					{
+						avancer(snake, lastSnake, *direction);
+						*estRentreeDansMur = 0, *estRentreeDansSerpent = 0;
+						refreshSnake(*snake, *lastSnake, *score, *vie, 0);
+					}
+				}
 			}
 			break;
 		case 2://Event : obstacle
-			if (!estRentreeDansMur)
+			if (!(*estRentreeDansMur))
 			{
-				estRentreeDansMur = 1;
+				*estRentreeDansMur = 1;
 				(*vie)--;
 			}
+			directionInv = 1;
 			break;
 		case 3://Event : nourriture
-			feedSnake(snake, lastSnake, nourriture, direction);
+			feedSnake(snake, lastSnake, nourriture, *direction);
 			(*score)++;
-			estRentreeDansMur = 0;
-			estRentreeDansSerpent = 0;
+			*estRentreeDansMur = 0;
+			*estRentreeDansSerpent = 0;
 			if (modeDeJeu != 0)
 			{
 				genererElement(obstacle, *snake, nourriture, 1, NOURRITURE);
 				printfElement(*nourriture, POINT);
 			}
-			refreshSnake(*snake, *lastSnake, *score);
+			refreshSnake(*snake, *lastSnake, *score, *vie, 1);
 			break;
 		case 4://Event : sort du cadre  
-			if (!estRentreeDansMur)
+			if (!(*estRentreeDansMur))
 			{
-				estRentreeDansMur = 1;
+				*estRentreeDansMur = 1;
 				(*vie)--;
 			}
+			directionInv = 1;
 			break;
 		case 5://Event :  se mange
-			if (!estRentreeDansSerpent)
+			if (!(*estRentreeDansSerpent))
 			{
-				estRentreeDansSerpent = 1;
+				*estRentreeDansSerpent = 1;
 				(*vie)--;
 			}
 			break;
@@ -302,18 +314,20 @@ int action(element* snake, element* lastSnake, element obstacle, element *nourri
 			break;
 		}
 	}
+	if (debugMode)
+		refreshDebug(*direction, *lastDirection, *snake);
 	return directionInv;
 }
 
-void executeSnakeStandart(element* snake, element* lastSnake, element obstacle, element *nourriture, int* vie, int* score, int* lastDirection)
+void executeSnakeStandart(element* snake, element* lastSnake, element obstacle, element *nourriture, int* vie, int* score, int* lastDirection, int* estRentreeDansMur, int* estrentreeDansSerpent, int debugMode)
 {
 	char frappe = bind();
 	int direction = directionTouche(frappe);
-	if(!action(snake, lastSnake, obstacle, nourriture, direction, *lastDirection, vie, score, 0))
+	if (!action(snake, lastSnake, obstacle, nourriture, &direction, lastDirection, vie, score, 0, estRentreeDansMur, estrentreeDansSerpent, debugMode))
 		*lastDirection = direction;
 }
 
-void executeSnakeIntermediaire(element* snake, element* lastSnake, element obstacle, element *nourriture, int* vie, int* score, int* direction, int* lastDirection, int niveau)
+void executeSnakeIntermediaire(element* snake, element* lastSnake, element obstacle, element *nourriture, int* vie, int* score, int* direction, int* lastDirection, int niveau, int* estRentreeDansMur, int* estrentreeDansSerpent, int debugMode)
 {
 	char frappe;
 	if (_kbhit())
@@ -322,7 +336,7 @@ void executeSnakeIntermediaire(element* snake, element* lastSnake, element obsta
 		if (directionTouche(frappe) != -1)
 			*direction = directionTouche(frappe);
 	}
-	if (!action(snake, lastSnake, obstacle, nourriture, *direction, *lastDirection, vie, score, 1))
+	if(!action(snake, lastSnake, obstacle, nourriture, direction, lastDirection, vie, score, 1, estRentreeDansMur, estrentreeDansSerpent, debugMode))
 		*lastDirection = *direction;
 	if (niveau == 1)
 	{

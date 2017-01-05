@@ -1,6 +1,4 @@
-﻿  Commandes_Calculs.cpp
-d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(168): warning C4101: 'c' : variable locale non référencée
-d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(282): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(175): warning C4715: 'indiceElement' : les chemins de contrôle ne retournent pas tous une valeur
+﻿  Affichage.cpp
+d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(356): warning C4309: 'argument' : troncation de valeur de constante
   Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.exe
   Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.pdb (Full PDB)

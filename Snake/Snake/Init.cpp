@@ -300,7 +300,7 @@ int snakeStandart()
 	genererCadre();
 	element snake, lastSnake, obstacles, nourriture;
 	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, NOMBRE_FRUIT, NOURRITURE);
-	int score = 0, vies = 1, lastDirection = -1, rejouer = 0;
+	int score = 0, vies = 1, lastDirection = -1, rejouer = 0, estRentreeDansMur = 0, estRentreeDansSerpent = 0;
 	printfElement(obstacles, POINT);
 	printfElement(nourriture, POINT);
 	printfElement(snake, POINT);
@@ -309,9 +309,7 @@ int snakeStandart()
 	*/
 	while (vies > 0 && score != NOMBRE_FRUIT)
 	{
-		executeSnakeStandart(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection);
-		gotoxy(0, 41);
-
+		executeSnakeStandart(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection, &estRentreeDansMur, &estRentreeDansSerpent, 0);
 	}
 	
 	if(score == NOMBRE_FRUIT) {
@@ -336,7 +334,7 @@ int snakeIntermediaire(int niveau)
 	genererCadre();
 	element snake, lastSnake, obstacles, nourriture;
 	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, 1, NOURRITURE);
-	int score = 0, vies = 1, lastDirection = -1, direction = GAUCHE, rejouer = 0;
+	int score = 0, vies = 5, lastDirection = DROITE, direction = GAUCHE, rejouer = 0, estRentreeDansMur = 0, estRentreeDansSerpent = 0;
 	printfElement(obstacles, POINT);
 	printfElement(nourriture, POINT);
 	printfElement(snake, POINT);
@@ -345,7 +343,7 @@ int snakeIntermediaire(int niveau)
 	*/
 	while (vies > 0)
 	{
-		executeSnakeIntermediaire(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection, &direction, niveau);
+		executeSnakeIntermediaire(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection, &direction, niveau, &estRentreeDansMur, &estRentreeDansSerpent, 1);
 	}
 
 	if (score == NOMBRE_FRUIT) {

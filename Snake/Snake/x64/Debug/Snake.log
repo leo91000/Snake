@@ -1,4 +1,9 @@
-﻿  Affichage.cpp
-d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(356): warning C4309: 'argument' : troncation de valeur de constante
-  Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.exe
-  Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.pdb (Full PDB)
+﻿  Init.cpp
+c:\users\nicolas\source\repos\snake\snake\snake\init.cpp(403): warning C4309: 'argument' : troncation de valeur de constante
+c:\users\nicolas\source\repos\snake\snake\snake\init.cpp(404): warning C4309: 'argument' : troncation de valeur de constante
+c:\users\nicolas\source\repos\snake\snake\snake\init.cpp(405): warning C4309: 'argument' : troncation de valeur de constante
+c:\users\nicolas\source\repos\snake\snake\snake\init.cpp(437): warning C4309: 'argument' : troncation de valeur de constante
+c:\users\nicolas\source\repos\snake\snake\snake\init.cpp(438): warning C4309: 'argument' : troncation de valeur de constante
+c:\users\nicolas\source\repos\snake\snake\snake\init.cpp(439): warning C4309: 'argument' : troncation de valeur de constante
+  Snake.vcxproj -> C:\Users\Nicolas\Source\Repos\Snake\Snake\x64\Debug\Snake.exe
+  Snake.vcxproj -> C:\Users\Nicolas\Source\Repos\Snake\Snake\x64\Debug\Snake.pdb (Full PDB)

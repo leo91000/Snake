@@ -21,7 +21,7 @@ int menu_gameover();
 int launch_gameover(int selection);
 int menu_victoire();
 int launch_victoire(int selection);
-int menu_snakeintermediaire();;
+int menu_snakeintermediaire();
 int launch_menu_snakeinterm(int selection);
 int menuSnakeIntermediaire_nocrosswall();
 int launch_snakeintermediaire_nocrosswall(int selection);

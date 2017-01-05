@@ -216,7 +216,7 @@ int affichage_menuSnakeintermediaire(int snake) {
 	case 1:
 		printf("      **SNAKE INTERMEDIAIRE** \n\n");
 		printf("             No crosswall \n");
-		printf("            > Crosswall \n");
+		printf("           > Crosswall \n");
 		hideCursor();
 		break;
 	}

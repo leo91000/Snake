@@ -58,7 +58,7 @@ int launch(int selection)
 		snakeStandart();
 		break;
 	case 1:
-		menuSnakeIntermediaire();
+		menu_snakeintermediaire();
 		break;
 	case 2:
 		snakeAvance();
@@ -264,7 +264,6 @@ int menuSnakeIntermediaire_nocrosswall() {
 	}
 	launch_snakeintermediaire_nocrosswall(niveau);
 	return 1;
-
 }
 
 int launch_snakeintermediaire_nocrosswall(int selection)
@@ -366,7 +365,6 @@ int menu_fin_intermediaire() {
 		else if (rejouer > NOMBRE_SELECTION_MENU_FIN_INTERM)
 			rejouer = 0;
 	}
-	
 	launch_menu_fin_intermediaire(rejouer);
 	return 1;
 }
@@ -375,7 +373,7 @@ int launch_menu_fin_intermediaire(int selection) {
 	switch (selection)
 	{
 	case 0:
-		menuSnakeIntermediaire();
+		menu_snakeintermediaire();
 		break;
 	case 1:
 		fin(0);

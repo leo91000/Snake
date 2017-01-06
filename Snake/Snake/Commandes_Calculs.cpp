@@ -1,5 +1,6 @@
 #include "Commandes_Calculs.h"
 #include "Affichage.h"
+#include "Init.h"
 
 int bind()
 {	//Rentrer commande
@@ -332,9 +333,12 @@ int action(element* snake, element* lastSnake, element obstacle, element *nourri
 			}
 			break;
 		case 2://Event : obstacle
-			if (!(*estRentreeDansMur))
+			if (!(*estRentreeDansMur) && modeDeJeu == 2) {
+				menu_fin_intermediaire();
+			}
+			else if (!(*estRentreeDansMur))
 			{
-				*estRentreeDansMur = 1;
+				*estRentreeDansSerpent = 1;
 				(*vie)--;
 			}
 			directionInv = 1;
@@ -366,7 +370,9 @@ int action(element* snake, element* lastSnake, element obstacle, element *nourri
 			directionInv = 1;
 			break;
 		case 5://Event :  se mange
-			if (!(*estRentreeDansSerpent))
+			if (!(*estRentreeDansSerpent) && modeDeJeu == 2){
+				menu_fin_intermediaire();
+			} else if (!(*estRentreeDansSerpent))
 			{
 				*estRentreeDansSerpent = 1;
 				(*vie)--;

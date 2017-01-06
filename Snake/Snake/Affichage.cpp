@@ -92,6 +92,7 @@ int affichage_gameover(int rejouer)
 	switch (rejouer)
 	{
 	case 0:
+		color(RED, BLACK);
 		printf("             OOOOOO    OOO    OO   OO  OOOOOO\n");
 		printf("            OO        OO OO   OOO OOO  OO\n");
 		printf("           OO        OO   OO  OOOOOOO  OO\n");
@@ -160,6 +161,7 @@ int affichage_victoire(int rejouer) {
 	switch (rejouer)
 	{
 	case 0:
+		color(RED, BLACK);
 		printf("             OOOOOO    OOO     OOOOOO OO     OO OOOOOO\n");
 		printf("            OO        OO OO   OO      OOO    OO OO\n");
 		printf("           OO        OO   OO OO       OO O   OO OO\n");

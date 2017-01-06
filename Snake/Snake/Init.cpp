@@ -10,7 +10,10 @@ int mainMenu(int init)
 {
 	//Initialisation de la console à la bonne taille
 	if (init == 0)
+	{
 		system("MODE CON COLS=80 LINES=44");
+		HideConsoleCursor(GetStdHandle(STD_OUTPUT_HANDLE));
+	}
 
 	color(WHITE, BLACK);
 	//Lancement du menu

@@ -131,7 +131,7 @@ int affichage_gameover(int rejouer)
 		printf("             Quitter le jeu \n");
 		hideCursor();
 		break;
-	case 2 :
+	case 2:
 		printf("             OOOOOO    OOO    OO   OO  OOOOOO\n");
 		printf("            OO        OO OO   OOO OOO  OO\n");
 		printf("           OO        OO   OO  OOOOOOO  OO\n");
@@ -185,7 +185,7 @@ int affichage_victoire(int rejouer) {
 		printf("             Quitter le jeu \n");
 		hideCursor();
 		break;
-	case 2 : 
+	case 2:
 		printf("             OOOOOO    OOO     OOOOOO OO     OO OOOOOO\n");
 		printf("            OO        OO OO   OO      OOO    OO OO\n");
 		printf("           OO        OO   OO OO       OO O   OO OO\n");
@@ -240,7 +240,7 @@ int affichage_menuSnake_nocrosswall_crosswall(int niveau) {
 		printf("             Niveau 3 \n");
 		hideCursor();
 		break;
-	case 2 :
+	case 2:
 		printf("      **SNAKE INTERMEDIAIRE** \n\n");
 		printf("             Niveau 1 \n");
 		printf("             Niveau 2 \n");
@@ -249,6 +249,14 @@ int affichage_menuSnake_nocrosswall_crosswall(int niveau) {
 		break;
 	}
 	return 1;
+}
+
+void HideConsoleCursor(HANDLE hConsole)
+{
+	CONSOLE_CURSOR_INFO info;
+	info.dwSize = 100;
+	info.bVisible = FALSE;
+	SetConsoleCursorInfo(hConsole, &info);
 }
 
 int affichage_menu_fin_intermediaire(int rejouer) {
@@ -363,30 +371,22 @@ int colorType(int type)
 	return color;
 }
 
-void refreshSnake(element snake, element lastSnake, int score, int vies, int isFeeding)
+void refreshSnake(element snake, element lastSnake, int score, int vies, int mode)
 {
-	/*
-	printfElement(lastSnake, ' ');
-	printfElement(snake, POINT);
-	afficher_score(score);
-	afficher_vies(vies);
-	hideCursor();
-	*/
-	printfCase(snake.point[0].X, snake.point[0].Y, POINT, GREEN, BLACK);
-	if (!isFeeding)
+	if (mode != 1)
 		printfCase(lastSnake.point[lastSnake.taille - 1].X, lastSnake.point[lastSnake.taille - 1].Y, ' ', BLACK, BLACK);
-
+	printfCase(snake.point[0].X, snake.point[0].Y, POINT, GREEN, BLACK);
 	afficher_score(score);
 	afficher_vies(vies);
 	hideCursor();
 }
 
-void refreshDebug(int direction, int lastDirection, element snake)
+void refreshDebug(int direction, int lastDirection, element snake, element lastSnake)
 {
 	gotoxy(0, 41);
 	printf("                                                                                                                               ");
 	gotoxy(0, 41);
-	printf("direction : %d, lastDirection : %d, snakePosX : %d, snakePosY : %d, tailleSnake : %d", direction, lastDirection, snake.point[0].X, snake.point[0].Y, snake.taille);
+	printf("direction : %d, lastDirection : %d, snakePosX : %d, snakePosY : %d, lastSnakePosX : %d, lastSnakePosY : %d, tailleSnake : %d", direction, lastDirection, snake.point[0].X, snake.point[0].Y, lastSnake.point[0].X, lastSnake.point[0].Y, snake.taille);
 }
 
 void hideCursor()

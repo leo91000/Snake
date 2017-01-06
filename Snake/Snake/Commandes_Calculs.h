@@ -36,6 +36,7 @@ void supprimerNourriture(element * nourriture, int numero);
 int indiceElement(coordonnee a, element e);
 void avancer(element * snake, element * lastSnake, int direction);
 int directionOppose(int direction);
+void casModeDeJeu2(int cas, int * vie, int * estRentreeDansMur, int * estRentreeDansSerpent, int * score, int * direction, element * snake, element * lastSnake, element nourriture, element obstacle, int modeDeJeu);
 int action(element* snake, element* lastSnake, element obstacle, element *nourriture, int *direction, int *lastDirection, int* vie, int* score, int modeDeJeu, int * estRentreeDansMur, int * estRentreeDansSerpent, int debugMode);
 void executeSnakeStandart(element * snake, element * lastSnake, element obstacle, element * nourriture, int * vie, int * score, int * lastDirection, int* estRentreeDansMur, int* estrentreeDansSerpent, int debugMode);
 void executeSnakeIntermediaire(element * snake, element * lastSnake, element obstacle, element * nourriture, int * vie, int * score, int * direction, int * lastDirection, int niveau, int* estRentreeDansMur, int* estrentreeDansSerpent, int debugMode, int typeSnake);

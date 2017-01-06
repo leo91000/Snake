@@ -18,6 +18,10 @@
 #define NOURRITURE			1
 #define OBSTACLE			2
 
+#define NORMAL 0
+#define ISFEEDING 1
+#define CROSSWALL 2
+
 #define POINT 219
 
 int affichageMenu(int position);
@@ -25,6 +29,7 @@ int affichage_gameover(int rejouer);
 int affichage_victoire(int rejouer);
 int affichage_menuSnakeintermediaire(int snake);
 int affichage_menuSnake_nocrosswall_crosswall(int niveau);
+void HideConsoleCursor(HANDLE hConsole);
 int affichage_menu_fin_intermediaire(int rejouer);
 void color(int couleurDuTexte, int couleurDeFond);
 void genererCadre();
@@ -33,7 +38,7 @@ void printfCase(int x, int y, char caractere, int couleurDuTexte, int couleurDeF
 void printfElement(element e, char caractere);
 int colorType(int type);
 void refreshSnake(element snake, element lastSnake, int score, int vies, int isFeeding);
-void refreshDebug(int direction, int lastDirection, element snake);
+void refreshDebug(int direction, int lastDirection, element snake, element lastSnake);
 void hideCursor();
 void afficher_score(int score);
 void afficher_vies(int vies);

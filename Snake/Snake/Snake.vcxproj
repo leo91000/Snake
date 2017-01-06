@@ -21,14 +21,21 @@
   <ItemGroup>
     <ClCompile Include="Affichage.cpp" />
     <ClCompile Include="Commandes_Calculs.cpp" />
+    <ClCompile Include="Fichiers.cpp" />
     <ClCompile Include="Init.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Affichage.h" />
     <ClInclude Include="Commandes_Calculs.h" />
+    <ClInclude Include="Fichiers.h" />
     <ClInclude Include="Init.h" />
     <ClInclude Include="Source.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\Release\score_niveau1.txt" />
+    <Text Include="..\Release\score_niveau2.txt" />
+    <Text Include="..\Release\score_niveau3.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{66B3F008-67D3-4442-B61E-4652AFE6557D}</ProjectGuid>

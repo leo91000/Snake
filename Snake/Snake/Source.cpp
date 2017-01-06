@@ -6,7 +6,6 @@
 
 int main()
 {
-	//enregistrerScore(10, "Leo", 1);
 	//Lancer le menu
 	srand(time(NULL));
 	mainMenu(0);

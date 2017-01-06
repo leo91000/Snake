@@ -133,11 +133,12 @@ void afficherScore(int niveau)
 	}
 
 	//Affichage des score
-
+	gotoxy(30, 1);
+	printf("**SCORE**");
 	for (int i = 0; i < NOMBRE_SCORE; i++)
 	{
-		printf("%d. %s : %d\n", i, nomScores[i], score[i]);
+		gotoxy(30, 5 + i);
+		printf("%d. %s : %d\n", i + 1, nomScores[i], score[i]);
 	}
-	_getch();
-
+	fclose(fichier);
 }

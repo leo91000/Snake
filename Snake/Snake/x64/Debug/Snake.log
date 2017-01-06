@@ -1,5 +1,2 @@
-﻿  Fichiers.cpp
-d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(10): warning C4005: '_CRT_SECURE_NO_WARNINGS' : redéfinition de macro
-  d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(10): note: arguments de ligne de commande : voir la définition précédente de '_CRT_SECURE_NO_WARNINGS'
-  Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.exe
+﻿  Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.exe
   Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.pdb (Full PDB)

@@ -5,6 +5,7 @@
 #include <string.h>
 #include <conio.h>
 #include <windows.h>
+#include "Affichage.h"
 
 #ifdef _MSC_VER
 #define _CRT_SECURE_NO_WARNINGS

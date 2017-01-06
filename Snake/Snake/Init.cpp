@@ -240,6 +240,8 @@ return 0;
 int menuSnakeIntermediaire_nocrosswall() {
 	char frappe = 0;
 	int selection = 0, niveau = 0;
+	time_t depart, arrivee, temps;
+	time(&depart), time(&arrivee), time(&temps);
 	while (selection == 0)
 	{
 		affichage_menuSnake_nocrosswall_crosswall(niveau);

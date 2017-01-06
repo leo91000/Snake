@@ -35,7 +35,6 @@ int snakeIntermediaire(int niveau, int typeSnake);
 int snakeAvance();
 int snakeTresAvance();
 int regle();
-int menuScores();
 int scores(int modeDeJeu);
 int quitter();
 int fin(int quitRep);

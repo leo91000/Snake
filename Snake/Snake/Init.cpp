@@ -70,7 +70,7 @@ int launch(int selection)
 		snakeTresAvance();
 		break;
 	case 4:
-		menuScores();
+		menu_scores();
 		break;
 	case 5:
 		regle();

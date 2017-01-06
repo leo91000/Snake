@@ -340,9 +340,9 @@ int launch_snakeintermediaire_crosswall(int selection) {
 	return 0;
 }
 
-int menu_fin_intermediaire() {
+int menu_fin_intermediaire(int score, int niveau) {
 	char frappe = 0;
-	int selection = 0, rejouer = 0, int score;
+	int selection = 0, rejouer = 0;
 	while (selection == 0)
 	{
 		affichage_menu_fin_intermediaire(rejouer, score);
@@ -368,7 +368,7 @@ int menu_fin_intermediaire() {
 		else if (rejouer > NOMBRE_SELECTION_MENU_FIN_INTERM)
 			rejouer = 0;
 	}
-	launch_menu_fin_intermediaire(rejouer);
+	launch_menu_fin_intermediaire(rejouer, score, niveau);
 	return 1;
 }
 
@@ -383,7 +383,7 @@ int launch_menu_fin_intermediaire(int selection, int score, int niveau) {
 		system("CLS");
 		printf("Entrez votre nom :");
 		scanf("%s", nom);
-		enregistrer_score(score, nom, niveau);
+		enregistrerScore(score, nom, niveau);
 		break;
 	case 2:
 		fin(0);
@@ -467,7 +467,7 @@ int snakeIntermediaire(int niveau, int typeSnake)
 	}
 	else if (vies == 0) {
 		system("CLS");
-		menu_fin_intermediaire();
+		menu_fin_intermediaire(score, niveau);
 	}
 	return 0;
 }

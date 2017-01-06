@@ -334,7 +334,7 @@ int action(element* snake, element* lastSnake, element obstacle, element *nourri
 			break;
 		case 2://Event : obstacle
 			if (!(*estRentreeDansMur) && modeDeJeu == 2) {
-				menu_fin_intermediaire();
+				(*vie) = 0;
 			}
 			else if (!(*estRentreeDansMur))
 			{
@@ -371,7 +371,7 @@ int action(element* snake, element* lastSnake, element obstacle, element *nourri
 			break;
 		case 5://Event :  se mange
 			if (!(*estRentreeDansSerpent) && modeDeJeu == 2){
-				menu_fin_intermediaire();
+				(*vie) = 0;
 			} else if (!(*estRentreeDansSerpent))
 			{
 				*estRentreeDansSerpent = 1;

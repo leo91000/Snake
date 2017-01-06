@@ -1,5 +1,20 @@
-﻿  Fichiers.cpp
+﻿  Init.cpp
 d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(10): warning C4005: '_CRT_SECURE_NO_WARNINGS' : redéfinition de macro
   d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(10): note: arguments de ligne de commande : voir la définition précédente de '_CRT_SECURE_NO_WARNINGS'
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(412): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(413): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(414): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(415): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(453): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(454): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(455): warning C4309: 'argument' : troncation de valeur de constante
+  Commandes_Calculs.cpp
+d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(10): warning C4005: '_CRT_SECURE_NO_WARNINGS' : redéfinition de macro
+  d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(10): note: arguments de ligne de commande : voir la définition précédente de '_CRT_SECURE_NO_WARNINGS'
+d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(169): warning C4101: 'c' : variable locale non référencée
+d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(287): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(354): warning C4309: 'argument' : troncation de valeur de constante
+  Génération de code en cours...
+d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(176): warning C4715: 'indiceElement' : les chemins de contrôle ne retournent pas tous une valeur
   Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.exe
   Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.pdb (Full PDB)

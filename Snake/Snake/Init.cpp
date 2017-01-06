@@ -428,6 +428,8 @@ int menu_scores() {
 	}
 
 	afficherScore(niveau + 1);
+	_getch();
+	fin(MAIN_MENU);
 	return 1;
 }
 

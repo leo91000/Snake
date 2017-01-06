@@ -7,17 +7,17 @@ void enregistrerScore(int score, char nom[], int niveau)
 	switch (niveau)
 	{
 	case 1:
-		errorCode = fopen_s(&fichier, "D:\\Cloud\\Drive\\Programmation\\C\\Snake\\Snake\\Release\\score_niveau1.txt", "r+");
-		if(errorCode == 0)
+		errorCode = fopen_s(&fichier, "score_niveau1.txt", "r+");
+		if (errorCode == 0)
 			inscrireScore(score, placementScore(score, fichier), fichier, nom, 1);
 		break;
 	case 2:
-		errorCode = fopen_s(&fichier, "D:\\Cloud\\Drive\\Programmation\\C\\Snake\\Snake\\Release\\score_niveau1.txt", "r+");
+		errorCode = fopen_s(&fichier, "score_niveau1.txt", "r+");
 		if (errorCode == 0)
 			inscrireScore(score, placementScore(score, fichier), fichier, nom, 2);
 		break;
 	case 3:
-		errorCode = fopen_s(&fichier, "D:\\Cloud\\Drive\\Programmation\\C\\Snake\\Snake\\Release\\score_niveau1.txt", "r+");
+		errorCode = fopen_s(&fichier, "score_niveau1.txt", "r+");
 		if (errorCode == 0)
 			inscrireScore(score, placementScore(score, fichier), fichier, nom, 3);
 		break;
@@ -33,10 +33,7 @@ int placementScore(int scoreActuel, FILE* fichier)
 	int score[NOMBRE_SCORE] = { 0 };
 	// Tableau des 10 meilleurs scores
 
-	if (fichier != NULL)
-	{
-		fscanf_s(fichier, "%d %d %d %d %d %d %d %d %d %d", &score[0], &score[1], &score[2], &score[3], &score[4], &score[5], &score[6], &score[7], &score[8], &score[9]);
-	}
+	fscanf_s(fichier, "%d %d %d %d %d %d %d %d %d %d", &score[0], &score[1], &score[2], &score[3], &score[4], &score[5], &score[6], &score[7], &score[8], &score[9]);
 	for (int i = 0; i < NOMBRE_SCORE; i++)
 	{
 		if (scoreActuel > score[i])
@@ -50,13 +47,18 @@ void inscrireScore(int scoreActuel, int placement, FILE* fichier, char nom[], in
 {
 
 	int score[NOMBRE_SCORE] = { 0 }, saveScore[NOMBRE_SCORE] = { 0 };
-	char nomScores[NOMBRE_SCORE][SCORE_MAX], saveNomScores[SCORE_MAX][NOMBRE_SCORE], caractere = 0;
+	char nomScores[NOMBRE_SCORE][SCORE_MAX], saveNomScores[NOMBRE_SCORE][SCORE_MAX], caractere = 0;
 	// Tableau des 10 meilleurs scores
+	rewind(fichier);
 	if (placement != -1)
-	{
-		if (fichier != NULL)//Copie des score
-		{
-			fscanf_s(fichier, "%d %d %d %d %d %d %d %d %d %d\n%s %s %s %s %s %s %s %s %s %s", &score[0], &score[1], &score[2], &score[3], &score[4], &score[5], &score[6], &score[7], &score[8], &score[9], nomScores[0], nomScores[1], nomScores[2], nomScores[3], nomScores[4], nomScores[5], nomScores[6], nomScores[7], nomScores[8], nomScores[9]);
+	{//Copie des score
+		for (int i = 0; i < NOMBRE_SCORE; i++) {
+			fscanf_s(fichier, "%d", &score[i]);
+			fseek(fichier, 1, SEEK_CUR);
+		}
+		for (int i = 0; i < NOMBRE_SCORE; i++) {
+			fscanf(fichier, "%s", nomScores[i]);
+			fseek(fichier, 1, SEEK_CUR);
 		}
 		memcpy(saveScore, score, NOMBRE_SCORE);//Sauvegarde de la copie
 		score[placement] = scoreActuel;//Placement du nouveau score
@@ -78,21 +80,40 @@ void inscrireScore(int scoreActuel, int placement, FILE* fichier, char nom[], in
 		switch (niveau)
 		{
 		case 1:
-			errorCode = fopen_s(&fichier, "D:\\Cloud\\Drive\\Programmation\\C\\Snake\\Snake\\Release\\score_niveau1.txt", "r+");
+			errorCode = fopen_s(&fichier, "score_niveau1.txt", "w+");
 			break;
 		case 2:
-			errorCode = fopen_s(&fichier, "D:\\Cloud\\Drive\\Programmation\\C\\Snake\\Snake\\Release\\score_niveau1.txt", "r+");
+			errorCode = fopen_s(&fichier, "score_niveau2.txt", "w+");
 			break;
 		case 3:
-			errorCode = fopen_s(&fichier, "D:\\Cloud\\Drive\\Programmation\\C\\Snake\\Snake\\Release\\score_niveau1.txt", "r+");
+			errorCode = fopen_s(&fichier, "score_niveau3.txt", "w+");
 			break;
 		}
 
 		if (errorCode == 0)
 		{
 			// On écrit dans le fichier
-			fprintf(fichier, "%d %d %d %d %d %d %d %d %d %d\n%s %s %s %s %s %s %s %s %s %s", &score[0], &score[1], &score[2], &score[3], &score[4], &score[5], &score[6], &score[7], &score[8], &score[9], nomScores[0], nomScores[1], nomScores[2], nomScores[3], nomScores[4], nomScores[5], nomScores[6], nomScores[7], nomScores[8], nomScores[9]);
+			fprintf(fichier, "%d %d %d %d %d %d %d %d %d %d %s %s %s %s %s %s %s %s %s %s", score[0], score[1], score[2], score[3], score[4], score[5], score[6], score[7], score[8], score[9], nomScores[0], nomScores[1], nomScores[2], nomScores[3], nomScores[4], nomScores[5], nomScores[6], nomScores[7], nomScores[8], nomScores[9]);
 			fclose(fichier);
 		}
+	}
+}
+
+void afficherScore(int niveau)
+{
+
+	FILE* fichier;
+	errno_t errorCode = 0;
+	switch (niveau)
+	{
+	case 1:
+		errorCode = fopen_s(&fichier, "score_niveau1.txt", "w+");
+		break;
+	case 2:
+		errorCode = fopen_s(&fichier, "score_niveau2.txt", "w+");
+		break;
+	case 3:
+		errorCode = fopen_s(&fichier, "score_niveau3.txt", "w+");
+		break;
 	}
 }

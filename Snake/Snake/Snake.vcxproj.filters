@@ -13,12 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Fichiers de ressources\Levels">
-      <UniqueIdentifier>{f0ec4b6b-81ac-49b0-abff-6152adfa7833}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers de ressources\Scores">
-      <UniqueIdentifier>{3a85b66f-530e-4cf5-908c-ed13d4395d2c}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Init.cpp">
@@ -55,14 +49,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\Release\score_niveau2.txt">
-      <Filter>Fichiers de ressources\Scores</Filter>
+    <Text Include="score_niveau1.txt">
+      <Filter>Fichiers sources</Filter>
     </Text>
-    <Text Include="..\Release\score_niveau3.txt">
-      <Filter>Fichiers de ressources\Scores</Filter>
+    <Text Include="score_niveau2.txt">
+      <Filter>Fichiers sources</Filter>
     </Text>
-    <Text Include="..\Release\score_niveau1.txt">
-      <Filter>Fichiers de ressources\Scores</Filter>
+    <Text Include="score_niveau3.txt">
+      <Filter>Fichiers sources</Filter>
     </Text>
   </ItemGroup>
 </Project>

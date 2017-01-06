@@ -6,6 +6,10 @@
 #include <conio.h>
 #include <windows.h>
 
+#ifdef _MSC_VER
+#define _CRT_SECURE_NO_WARNINGS
+#endif
+
 #define SCORE_MAX 1000
 #define NOMBRE_SCORE 10
 

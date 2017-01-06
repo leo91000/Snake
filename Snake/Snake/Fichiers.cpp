@@ -116,4 +116,27 @@ void afficherScore(int niveau)
 		errorCode = fopen_s(&fichier, "score_niveau3.txt", "w+");
 		break;
 	}
+
+	int score[NOMBRE_SCORE] = { 0 };
+	char nomScores[NOMBRE_SCORE][SCORE_MAX];
+	// Tableau des 10 meilleurs scores
+	rewind(fichier);
+	//Copie des score
+	for (int i = 0; i < NOMBRE_SCORE; i++) 
+	{
+			fscanf_s(fichier, "%d", &score[i]);
+			fseek(fichier, 1, SEEK_CUR);
+	}
+	for (int i = 0; i < NOMBRE_SCORE; i++) {
+		fscanf(fichier, "%s", nomScores[i]);
+		fseek(fichier, 1, SEEK_CUR);
+	}
+
+	//Affichage des score
+
+	for (int i = 0; i < NOMBRE_SCORE; i++)
+	{
+		printf("%d. %s : %d", i, nomScores[i], score[i]);
+	}
+
 }

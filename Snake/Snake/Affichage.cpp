@@ -267,7 +267,7 @@ int affichage_menu_fin_intermediaire(int rejouer, int score) {
 	{
 	case 0:
 		printf("         Merci d'avoir joue ! \n\n");
-		printf("Score=%d", score);
+		printf("               Score=%d\n\n", score);
 		printf("           > Rejouer \n");
 		printf("             Enregistrer mon score \n");
 		printf("             Retour au menu principal \n");
@@ -276,6 +276,7 @@ int affichage_menu_fin_intermediaire(int rejouer, int score) {
 		break;
 	case 1:
 		printf("         Merci d'avoir joue ! \n\n");
+		printf("               Score=%d\n\n", score);
 		printf("             Rejouer \n");
 		printf("           > Enregistrer mon score \n");
 		printf("             Retour au menu principal \n");
@@ -284,6 +285,7 @@ int affichage_menu_fin_intermediaire(int rejouer, int score) {
 		break;
 	case 2:
 		printf("         Merci d'avoir joue ! \n\n");
+		printf("               Score=%d\n\n", score);
 		printf("             Rejouer \n");
 		printf("             Enregistrer mon score \n");
 		printf("           > Retour au menu principal \n");
@@ -292,10 +294,40 @@ int affichage_menu_fin_intermediaire(int rejouer, int score) {
 		break;
 	case 3:
 		printf("         Merci d'avoir joue ! \n\n");
+		printf("               Score=%d\n\n", score);
 		printf("             Rejouer \n");
 		printf("             Enregistrer mon score \n");
 		printf("             Retour au menu principal \n");
 		printf("           > Quitter le jeu \n");
+		hideCursor();
+		break;
+	}
+	return 1;
+}
+
+int affichage_menu_scores(int niveau) {
+	system("CLS");
+	switch (niveau)
+	{
+	case 0:
+		printf("      **MEILLEURS SCORES** \n\n");
+		printf("           > Niveau 1 \n");
+		printf("             Niveau 2 \n");
+		printf("             Niveau 3 \n");
+		hideCursor();
+		break;
+	case 1:
+		printf("      **MEILLEURS SCORES** \n\n");
+		printf("             Niveau 1 \n");
+		printf("           > Niveau 2 \n");
+		printf("             Niveau 3 \n");
+		hideCursor();
+		break;
+	case 2:
+		printf("      **MEILLEURS SCORES** \n\n");
+		printf("             Niveau 1 \n");
+		printf("             Niveau 2 \n");
+		printf("           > Niveau 3 \n");
 		hideCursor();
 		break;
 	}

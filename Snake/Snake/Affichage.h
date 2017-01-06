@@ -32,6 +32,7 @@ int affichage_menuSnakeintermediaire(int snake);
 int affichage_menuSnake_nocrosswall_crosswall(int niveau);
 void HideConsoleCursor(HANDLE hConsole);
 int affichage_menu_fin_intermediaire(int rejouer, int score);
+int affichage_menu_scores(int niveau);
 void color(int couleurDuTexte, int couleurDeFond);
 void genererCadre();
 void gotoxy(int x, int y);

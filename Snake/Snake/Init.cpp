@@ -263,7 +263,7 @@ int menuSnakeIntermediaire_nocrosswall() {
 		if (niveau < 0)
 			niveau = NOMBRE_SELECTION_NIVEAU;
 		else if (niveau > NOMBRE_SELECTION_NIVEAU)
-			niveau = 1;
+			niveau = 0;
 	}
 	launch_snakeintermediaire_nocrosswall(niveau);
 	return 1;
@@ -315,7 +315,7 @@ int menuSnakeIntermediaire_crosswall() {
 		if (niveau < 0)
 			niveau = NOMBRE_SELECTION_NIVEAU;
 		else if (niveau > NOMBRE_SELECTION_NIVEAU)
-			niveau = 1;
+			niveau = 0;
 	}
 	launch_snakeintermediaire_crosswall(niveau);
 	return 1;
@@ -384,6 +384,7 @@ int launch_menu_fin_intermediaire(int selection, int score, int niveau) {
 		printf("Entrez votre nom :");
 		scanf("%s", nom);
 		enregistrerScore(score, nom, niveau);
+		fin(0);
 		break;
 	case 2:
 		fin(0);
@@ -397,6 +398,38 @@ int launch_menu_fin_intermediaire(int selection, int score, int niveau) {
 	return 0;
 }
 
+int menu_scores() {
+	char frappe = 0;
+	int selection = 0, niveau = 0;
+	while (selection == 0)
+	{
+		affichage_menu_scores(niveau);
+		frappe = bind();
+		switch (frappe)
+		{
+		case 'z':
+			niveau--;
+			break;
+		case 's':
+			niveau++;
+			break;
+		case 13:
+			selection = 1;
+			break;
+		default:
+			selection = 0;
+			break;
+		}
+
+		if (niveau < 0)
+			niveau = NOMBRE_SELECTION_NIVEAU;
+		else if (niveau > NOMBRE_SELECTION_NIVEAU)
+			niveau = 0;
+	}
+
+	afficherScore(niveau + 1);
+	return 1;
+}
 
 
 int snakeStandart()

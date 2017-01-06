@@ -6,6 +6,7 @@
 #include <conio.h>
 #include <windows.h>
 #include "Commandes_Calculs.h"
+#include "Fichiers.h"
 
 #define BLACK              0
 #define RED                12
@@ -30,7 +31,7 @@ int affichage_victoire(int rejouer);
 int affichage_menuSnakeintermediaire(int snake);
 int affichage_menuSnake_nocrosswall_crosswall(int niveau);
 void HideConsoleCursor(HANDLE hConsole);
-int affichage_menu_fin_intermediaire(int rejouer);
+int affichage_menu_fin_intermediaire(int rejouer, int score);
 void color(int couleurDuTexte, int couleurDeFond);
 void genererCadre();
 void gotoxy(int x, int y);

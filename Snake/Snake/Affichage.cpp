@@ -261,13 +261,15 @@ void HideConsoleCursor(HANDLE hConsole)
 	SetConsoleCursorInfo(hConsole, &info);
 }
 
-int affichage_menu_fin_intermediaire(int rejouer) {
+int affichage_menu_fin_intermediaire(int rejouer, int score) {
 	system("CLS");
 	switch (rejouer)
 	{
 	case 0:
 		printf("         Merci d'avoir joue ! \n\n");
+		printf("Score=%d", score);
 		printf("           > Rejouer \n");
+		printf("             Enregistrer mon score \n");
 		printf("             Retour au menu principal \n");
 		printf("             Quitter le jeu \n");
 		hideCursor();
@@ -275,20 +277,29 @@ int affichage_menu_fin_intermediaire(int rejouer) {
 	case 1:
 		printf("         Merci d'avoir joue ! \n\n");
 		printf("             Rejouer \n");
-		printf("           > Retour au menu principal \n");
+		printf("           > Enregistrer mon score \n");
+		printf("             Retour au menu principal \n");
 		printf("             Quitter le jeu \n");
 		hideCursor();
 		break;
 	case 2:
 		printf("         Merci d'avoir joue ! \n\n");
 		printf("             Rejouer \n");
+		printf("             Enregistrer mon score \n");
+		printf("           > Retour au menu principal \n");
+		printf("             Quitter le jeu \n");
+		hideCursor();
+		break;
+	case 3:
+		printf("         Merci d'avoir joue ! \n\n");
+		printf("             Rejouer \n");
+		printf("             Enregistrer mon score \n");
 		printf("             Retour au menu principal \n");
 		printf("           > Quitter le jeu \n");
 		hideCursor();
 		break;
 	}
 	return 1;
-
 }
 
 void color(int couleurDuTexte, int couleurDeFond) // Fonction des couleurs

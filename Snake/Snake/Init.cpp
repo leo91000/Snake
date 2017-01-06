@@ -342,10 +342,10 @@ int launch_snakeintermediaire_crosswall(int selection) {
 
 int menu_fin_intermediaire() {
 	char frappe = 0;
-	int selection = 0, rejouer = 0;
+	int selection = 0, rejouer = 0, int score;
 	while (selection == 0)
 	{
-		affichage_menu_fin_intermediaire(rejouer);
+		affichage_menu_fin_intermediaire(rejouer, score);
 		frappe = bind();
 		switch (frappe)
 		{
@@ -372,18 +372,24 @@ int menu_fin_intermediaire() {
 	return 1;
 }
 
-int launch_menu_fin_intermediaire(int selection) {
+int launch_menu_fin_intermediaire(int selection, int score, int niveau) {
+	char nom[1000];
 	switch (selection)
 	{
 	case 0:
 		menu_snakeintermediaire();
 		break;
 	case 1:
-		fin(0);
+		system("CLS");
+		printf("Entrez votre nom :");
+		scanf("%s", nom);
+		enregistrer_score(score, nom, niveau);
 		break;
 	case 2:
-		quitter();
+		fin(0);
 		break;
+	case 3:
+		quitter();
 	default:
 		fin(EXIT);
 		break;

@@ -6,10 +6,10 @@
 
 int main()
 {
-	enregistrerScore(10, "Leo", 1);
+	//enregistrerScore(10, "Leo", 1);
 	//Lancer le menu
-	//srand(time(NULL));
-	//mainMenu(0);
-	_getch();
+	srand(time(NULL));
+	mainMenu(0);
+	//_getch();
 	return 0;
 }

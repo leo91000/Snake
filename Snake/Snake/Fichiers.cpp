@@ -142,3 +142,43 @@ void afficherScore(int niveau)
 	}
 	fclose(fichier);
 }
+
+void  loadLevel(element *obstacle, element *obstacleNonMortels, char filename[])
+{
+	FILE* fichier;
+	errno_t errorCode = 0;
+	errorCode = fopen_s(&fichier, filename, "r");
+	if (errorCode == 0)
+	{
+		//Obstacle mortels
+		int nombreElement = 0;
+		fscanf_s(fichier, "%d", &nombreElement);
+		fseek(fichier, 2, SEEK_CUR);
+		obstacle->taille = nombreElement;
+		obstacle->type = OBSTACLE;
+		for (int i = 0; i < nombreElement; i++)
+		{
+			fscanf_s(fichier, "%d", &(obstacle->point[i].X));
+			fseek(fichier, 1, SEEK_CUR);
+			fscanf_s(fichier, "%d", &(obstacle->point[i].Y));
+			fseek(fichier, 2, SEEK_CUR);
+		}
+		//Obstacle non mortels
+		fscanf_s(fichier, "%d", &nombreElement);
+		fseek(fichier, 2, SEEK_CUR);
+		obstacleNonMortels->taille = nombreElement;
+		obstacleNonMortels->type = OBSTACLE;
+		for (int i = 0; i < nombreElement; i++)
+		{
+			fscanf_s(fichier, "%d", &(obstacleNonMortels->point[i].X));
+			fseek(fichier, 1, SEEK_CUR);
+			fscanf_s(fichier, "%d", &(obstacleNonMortels->point[i].Y));
+			fseek(fichier, 2, SEEK_CUR);
+		}
+		fclose(fichier);
+	}
+	else
+	{
+		perror("Erreur lors de l'ouverture du fichier");
+	}
+}

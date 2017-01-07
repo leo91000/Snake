@@ -16,6 +16,9 @@
     <Filter Include="Fichiers sources\Scores">
       <UniqueIdentifier>{6d46280c-da53-470c-bcc7-b8d9989e6fc9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\Niveaux">
+      <UniqueIdentifier>{473369c3-c57e-415b-9190-2e7dc959c994}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Init.cpp">
@@ -60,6 +63,9 @@
     </Text>
     <Text Include="Scores\score_niveau1.txt">
       <Filter>Fichiers sources\Scores</Filter>
+    </Text>
+    <Text Include="Niveaux\niveau_test.txt">
+      <Filter>Fichiers sources\Niveaux</Filter>
     </Text>
   </ItemGroup>
 </Project>

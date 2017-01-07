@@ -18,3 +18,4 @@ void enregistrerScore(int score, char nom[], int niveau);
 int placementScore(int scoreActuel, FILE * fichier);
 void inscrireScore(int scoreActuel, int placement, FILE * fichier, char nom[], int niveau);
 void afficherScore(int niveau);
+void loadLevel(element * obstacle, element * obstacleNonMortels, char filename[]);

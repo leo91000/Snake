@@ -64,7 +64,7 @@ int launch(int selection)
 		menu_snakeintermediaire();
 		break;
 	case 2:
-		snakeAvance();
+		snakeAvance("Niveaux/test.txt", 0);
 		break;
 	case 3:
 		snakeTresAvance();
@@ -518,8 +518,38 @@ int snakeIntermediaire(int niveau, int typeSnake)
 	return 0;
 }
 
-int snakeAvance()
+int snakeAvance(char levelName[], int IA)
 {
+	/*
+	DEBUT INITIALISATION SNAKE
+	*/
+	system("CLS");
+	genererCadre();
+
+	time_t depart = 0, actuelle = 0;
+	time(&depart), time(&actuelle);
+
+	element snake, lastSnake, obstacles, obstaclesNonMortels, nourriture;
+	initSnake(&snake), loadLevel(&obstacles, &obstaclesNonMortels, levelName), genererElement(obstacles, obstaclesNonMortels, snake, &nourriture, 1, NOURRITURE);
+	int score = 0, vies = 5, lastDirection = GAUCHE, direction = GAUCHE, rejouer = 0, estRentreeDansMur = 0, estRentreeDansSerpent = 0, crossWall = 0;
+	int chronoActuelle = difftime(actuelle, depart);
+
+	printfElement(obstacles, PIQUE);
+	printfElement(obstaclesNonMortels, POINT);
+	printfElement(nourriture, POINT);
+	printfElement(snake, POINT);
+	/*
+	FIN INITIALISATION SNAKE
+	*/
+
+	while (vies > 0 && chronoActuelle < TEMPS_SNAKE)
+	{
+		executeSnakeIntermediaire(&snake, &lastSnake, obstacles, obstaclesNonMortels, &nourriture, &vies, &score, &lastDirection, &direction, 2, &estRentreeDansMur, &estRentreeDansSerpent, &crossWall, 0, 1, &depart, &actuelle);
+		chronoActuelle = difftime(actuelle, depart);
+	}
+
+	fin(0);
+
 	return 0;
 }
 

@@ -8,6 +8,7 @@
 #include "Commandes_Calculs.h"
 #include "Affichage.h"
 #include "Source.h"
+#include "Fichiers.h"
 
 #define NOMBRE_SELECTION_MENU 6
 #define NOMBRE_SELECTION_MENU_GAMEOVER_VICTOIRE 2
@@ -32,7 +33,7 @@ int launch_menu_fin_intermediaire(int selection, int score, int niveau);
 int menu_scores();
 int snakeStandart();
 int snakeIntermediaire(int niveau, int typeSnake);
-int snakeAvance();
+int snakeAvance(char levelName[], int IA);
 int snakeTresAvance();
 int regle();
 int scores(int modeDeJeu);

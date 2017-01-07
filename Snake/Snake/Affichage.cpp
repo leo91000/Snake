@@ -458,3 +458,8 @@ void afficher_vies(int vies) {
 	color(WHITE, BLACK);
 	printf("Vies = %d", vies);
 }
+
+void afficherListeNiveaux()
+{
+
+}

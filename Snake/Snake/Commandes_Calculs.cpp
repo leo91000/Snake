@@ -287,7 +287,7 @@ int directionOppose(int direction)
 	return directionOp;
 }
 
-int action(element* snake, element* lastSnake, element obstacle, element obstacleNonMortels, element *nourriture, int *direction, int *lastDirection, int* vie, int* score, int modeDeJeu, int * estRentreeDansMur, int * estRentreeDansSerpent, int* crossWall,int debugMode)
+int action(element* snake, element* lastSnake, element obstacle, element obstacleNonMortels, element *nourriture, int *direction, int *lastDirection, int* vie, int* score, int modeDeJeu, int * estRentreeDansMur, int * estRentreeDansSerpent, int* crossWall, int debugMode)
 {
 	int directionInv = 0, valeurDeRetour = 0;;
 	if (*direction != -1 && *lastDirection != -1)
@@ -354,7 +354,7 @@ int action(element* snake, element* lastSnake, element obstacle, element obstacl
 			*estRentreeDansSerpent = 0;
 			if (modeDeJeu != 0)
 			{
-				genererElement(obstacle, obstacleNonMortels,*snake, nourriture, 1, NOURRITURE);
+				genererElement(obstacle, obstacleNonMortels, *snake, nourriture, 1, NOURRITURE);
 				printfElement(*nourriture, POINT);
 			}
 			refreshSnake(*snake, *lastSnake, *score, *vie, 1);
@@ -368,9 +368,10 @@ int action(element* snake, element* lastSnake, element obstacle, element obstacl
 			}
 
 		case 4://Event :  se mange
-			if (!(*estRentreeDansSerpent) && modeDeJeu == 2){
+			if (!(*estRentreeDansSerpent) && modeDeJeu == 2) {
 				(*vie) = 0;
-			} else if (!(*estRentreeDansSerpent))
+			}
+			else if (!(*estRentreeDansSerpent))
 			{
 				*estRentreeDansSerpent = 1;
 				(*vie)--;

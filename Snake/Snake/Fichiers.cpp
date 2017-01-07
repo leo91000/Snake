@@ -7,17 +7,17 @@ void enregistrerScore(int score, char nom[], int niveau)
 	switch (niveau)
 	{
 	case 1:
-		errorCode = fopen_s(&fichier, "score_niveau1.txt", "r+");
+		errorCode = fopen_s(&fichier, "scores/score_niveau1.txt", "r+");
 		if (errorCode == 0)
 			inscrireScore(score, placementScore(score, fichier), fichier, nom, 1);
 		break;
 	case 2:
-		errorCode = fopen_s(&fichier, "score_niveau2.txt", "r+");
+		errorCode = fopen_s(&fichier, "scores/score_niveau2.txt", "r+");
 		if (errorCode == 0)
 			inscrireScore(score, placementScore(score, fichier), fichier, nom, 2);
 		break;
 	case 3:
-		errorCode = fopen_s(&fichier, "score_niveau3.txt", "r+");
+		errorCode = fopen_s(&fichier, "scores/score_niveau3.txt", "r+");
 		if (errorCode == 0)
 			inscrireScore(score, placementScore(score, fichier), fichier, nom, 3);
 		break;
@@ -80,13 +80,13 @@ void inscrireScore(int scoreActuel, int placement, FILE* fichier, char nom[], in
 		switch (niveau)
 		{
 		case 1:
-			errorCode = fopen_s(&fichier, "score_niveau1.txt", "w+");
+			errorCode = fopen_s(&fichier, "scores/score_niveau1.txt", "w+");
 			break;
 		case 2:
-			errorCode = fopen_s(&fichier, "score_niveau2.txt", "w+");
+			errorCode = fopen_s(&fichier, "scores/score_niveau2.txt", "w+");
 			break;
 		case 3:
-			errorCode = fopen_s(&fichier, "score_niveau3.txt", "w+");
+			errorCode = fopen_s(&fichier, "scores/score_niveau3.txt", "w+");
 			break;
 		}
 
@@ -107,13 +107,13 @@ void afficherScore(int niveau)
 	switch (niveau)
 	{
 	case 1:
-		errorCode = fopen_s(&fichier, "score_niveau1.txt", "r+");
+		errorCode = fopen_s(&fichier, "scores/score_niveau1.txt", "r+");
 		break;
 	case 2:
-		errorCode = fopen_s(&fichier, "score_niveau2.txt", "r+");
+		errorCode = fopen_s(&fichier, "scores/score_niveau2.txt", "r+");
 		break;
 	case 3:
-		errorCode = fopen_s(&fichier, "score_niveau3.txt", "r+");
+		errorCode = fopen_s(&fichier, "scores/score_niveau3.txt", "r+");
 		break;
 	}
 

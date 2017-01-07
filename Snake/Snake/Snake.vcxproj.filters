@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers sources\Scores">
+      <UniqueIdentifier>{6d46280c-da53-470c-bcc7-b8d9989e6fc9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Init.cpp">
@@ -49,14 +52,14 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="score_niveau1.txt">
-      <Filter>Fichiers sources</Filter>
+    <Text Include="Scores\score_niveau2.txt">
+      <Filter>Fichiers sources\Scores</Filter>
     </Text>
-    <Text Include="score_niveau2.txt">
-      <Filter>Fichiers sources</Filter>
+    <Text Include="Scores\score_niveau3.txt">
+      <Filter>Fichiers sources\Scores</Filter>
     </Text>
-    <Text Include="score_niveau3.txt">
-      <Filter>Fichiers sources</Filter>
+    <Text Include="Scores\score_niveau1.txt">
+      <Filter>Fichiers sources\Scores</Filter>
     </Text>
   </ItemGroup>
 </Project>

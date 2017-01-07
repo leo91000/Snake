@@ -434,6 +434,14 @@ void refreshDebug(int direction, int lastDirection, element snake, element lastS
 	printf("direction : %d, lastDirection : %d, snakePosX : %d, snakePosY : %d, lastSnakePosX : %d, lastSnakePosY : %d, tailleSnake : %d", direction, lastDirection, snake.point[0].X, snake.point[0].Y, lastSnake.point[0].X, lastSnake.point[0].Y, snake.taille);
 }
 
+void refreshTime(time_t depart, time_t actuelle)
+{
+	gotoxy(30, 40);
+	printf("                       ");
+	time_t tempsRestant = TEMPS_SNAKE - difftime(actuelle, depart);
+	printf("Temps restant: 0%d : %d", tempsRestant / 60, tempsRestant % 60);
+}
+
 void hideCursor()
 {
 	gotoxy(79, 43);
@@ -446,7 +454,7 @@ void afficher_score(int score) {
 }
 
 void afficher_vies(int vies) {
-	gotoxy(30, 40);
+	gotoxy(20, 40);
 	color(WHITE, BLACK);
 	printf("Vies = %d", vies);
 }

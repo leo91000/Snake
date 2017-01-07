@@ -5,6 +5,7 @@
 #include <string.h>
 #include <conio.h>
 #include <windows.h>
+#include <time.h>
 #include "Commandes_Calculs.h"
 #include "Fichiers.h"
 
@@ -26,6 +27,8 @@
 #define POINT 219
 #define PIQUE 178
 
+#define TEMPS_SNAKE 120
+
 int affichageMenu(int position);
 int affichage_gameover(int rejouer);
 int affichage_victoire(int rejouer);
@@ -42,6 +45,7 @@ void printfElement(element e, char caractere);
 int colorType(int type);
 void refreshSnake(element snake, element lastSnake, int score, int vies, int isFeeding);
 void refreshDebug(int direction, int lastDirection, element snake, element lastSnake);
+void refreshTime(time_t depart, time_t actuelle);
 void hideCursor();
 void afficher_score(int score);
 void afficher_vies(int vies);

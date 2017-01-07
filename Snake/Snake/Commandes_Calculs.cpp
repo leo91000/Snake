@@ -29,7 +29,7 @@ void genererCase(int numero, element* element)
 	element->point[numero].Y = random(0, 37);
 }
 
-void genererElement(element obstacle, element snake, element* element, int taille, int type)
+void genererElement(element obstacle, element obstacleNonMortel, element snake, element* element, int taille, int type)
 {
 	element->taille = taille;
 	element->type = type;
@@ -37,11 +37,11 @@ void genererElement(element obstacle, element snake, element* element, int taill
 	{
 		do {
 			genererCase(i, element);
-		} while (check1((*element), i, obstacle, snake));
+		} while (check1((*element), i, obstacle, obstacleNonMortel, snake));
 	}
 }
 
-int check1(element e, int numero, element obstacle, element snake)
+int check1(element e, int numero, element obstacle, element ObstacleNonMortel, element snake)
 {
 	//On vérifie que la position n'existe pas déja
 	for (int i = 0; i < e.taille; i++)
@@ -53,9 +53,14 @@ int check1(element e, int numero, element obstacle, element snake)
 	if (verifPointExistant(e, numero, obstacle))
 		return 1;
 
+	//
+	if (verifPointExistant(e, numero, ObstacleNonMortel))
+		return 1;
+
 	//On verifie que la position n'existe pas deja en tant que snake
 	if (verifPointExistant(e, numero, snake))
 		return 1;
+
 	return 0;
 }
 
@@ -89,6 +94,14 @@ void initObstacle(element * o)
 	o->taille = 8;
 	o->point[0].X = 5, o->point[0].Y = 18, o->point[1].X = 17, o->point[1].Y = 26, o->point[2].X = 31, o->point[2].Y = 7, o->point[3].X = 9, o->point[3].Y = 10;
 	o->point[4].X = 25, o->point[4].Y = 22, o->point[5].X = 32, o->point[5].Y = 15, o->point[6].X = 2, o->point[6].Y = 27, o->point[7].X = 17, o->point[7].Y = 34;
+}
+
+void initObstacleNonMortels(element * o)
+{
+	o->type = 2;
+	o->taille = 8;
+	o->point[0].X = 6, o->point[0].Y = 19, o->point[1].X = 26, o->point[1].Y = 17, o->point[2].X = 7, o->point[2].Y = 31, o->point[3].X = 11, o->point[3].Y = 9;
+	o->point[4].X = 24, o->point[4].Y = 25, o->point[5].X = 37, o->point[5].Y = 37, o->point[6].X = 0, o->point[6].Y = 0, o->point[7].X = 0, o->point[7].Y = 37;
 }
 
 
@@ -130,7 +143,7 @@ int estOppose(int direction1, int direction2)
 	}
 }
 
-int verificationAvancement(element snake, element obstacle, element nourriture, int direction, int lastDirection, int modeDeJeu)
+int verificationAvancement(element snake, element obstacle, element obstacleNonMortels, element nourriture, int direction, int lastDirection, int modeDeJeu)
 {
 	int rep = 0;
 	element snakeModif;
@@ -151,6 +164,10 @@ int verificationAvancement(element snake, element obstacle, element nourriture, 
 	else if (verifPointExistant(snake, 0, snakeModif))
 	{
 		rep = 4;
+	}
+	else if (verifPointExistant(snake, 0, obstacleNonMortels))
+	{
+		rep = 5;
 	}
 	else
 	{
@@ -267,7 +284,7 @@ int directionOppose(int direction)
 	return directionOp;
 }
 
-void casModeDeJeu2(int cas, int * vie, int *estRentreeDansMur, int *estRentreeDansSerpent, int *score, int * direction, element * snake, element * lastSnake, element nourriture, element obstacle, int modeDeJeu)
+void casModeDeJeu2(int cas, int * vie, int *estRentreeDansMur, int *estRentreeDansSerpent, int *score, int * direction, element * snake, element * lastSnake, element nourriture, element obstacle, element obstacleNonMortels, int modeDeJeu)
 {
 	switch (cas)
 	{
@@ -277,24 +294,36 @@ void casModeDeJeu2(int cas, int * vie, int *estRentreeDansMur, int *estRentreeDa
 		*estRentreeDansMur = 0, *estRentreeDansSerpent = 0;
 		refreshSnake(*snake, *lastSnake, *score, *vie, 0);
 		break;
-	case 2:
+	case 1:
 		if (!(*estRentreeDansMur))
 		{
 			*estRentreeDansMur = 1;
 			(*vie)--;
 		}
 		break;
-	case 3:
-		avancer(snake, lastSnake, *direction);
+	case 2:
+		transposeSnake(snake, lastSnake, *direction);
 		(snake->taille)++;
 		snake->point[snake->taille - 1].X = lastSnake->point[lastSnake->taille - 1].X, snake->point[snake->taille - 1].Y = lastSnake->point[lastSnake->taille - 1].Y;
 		supprimerNourriture(&nourriture, indiceElement(snake->point[0], nourriture));
 		(*score)++;
 		*estRentreeDansMur = 0;
 		*estRentreeDansSerpent = 0;
-		genererElement(obstacle, *snake, &nourriture, 1, NOURRITURE);
+		genererElement(obstacle, obstacleNonMortels ,*snake, &nourriture, 1, NOURRITURE);
 		printfElement(nourriture, POINT);
 		refreshSnake(*snake, *lastSnake, *score, *vie, 1);
+		break;
+	case 4:
+		if (!(*estRentreeDansMur))
+		{
+			*estRentreeDansSerpent = 1;
+		}
+
+	case 5:
+		if (!(*estRentreeDansMur))
+		{
+			*estRentreeDansMur = 1;
+		}
 		break;
 	default:
 		(*vie)--;
@@ -305,7 +334,7 @@ void casModeDeJeu2(int cas, int * vie, int *estRentreeDansMur, int *estRentreeDa
 	}
 }
 
-int action(element* snake, element* lastSnake, element obstacle, element *nourriture, int *direction, int *lastDirection, int* vie, int* score, int modeDeJeu, int * estRentreeDansMur, int * estRentreeDansSerpent, int* crossWall,int debugMode)
+int action(element* snake, element* lastSnake, element obstacle, element obstacleNonMortels, element *nourriture, int *direction, int *lastDirection, int* vie, int* score, int modeDeJeu, int * estRentreeDansMur, int * estRentreeDansSerpent, int* crossWall,int debugMode)
 {
 	int directionInv = 0, valeurDeRetour = 0;;
 	if (*direction != -1 && *lastDirection != -1)
@@ -331,7 +360,7 @@ int action(element* snake, element* lastSnake, element obstacle, element *nourri
 		}
 		copyElement(snake, &snakeTest), copyElement(lastSnake, &lastSnakeTest);
 		avancer(&snakeTest, &lastSnakeTest, *direction);
-		int eventAvancement = verificationAvancement(snakeTest, obstacle, *nourriture, *direction, *lastDirection, modeDeJeu);
+		int eventAvancement = verificationAvancement(snakeTest, obstacle, obstacleNonMortels, *nourriture, *direction, *lastDirection, modeDeJeu);
 
 		switch (eventAvancement)
 		{
@@ -362,7 +391,7 @@ int action(element* snake, element* lastSnake, element obstacle, element *nourri
 			*estRentreeDansSerpent = 0;
 			if (modeDeJeu != 0)
 			{
-				genererElement(obstacle, *snake, nourriture, 1, NOURRITURE);
+				genererElement(obstacle, obstacleNonMortels,*snake, nourriture, 1, NOURRITURE);
 				printfElement(*nourriture, POINT);
 			}
 			refreshSnake(*snake, *lastSnake, *score, *vie, 1);
@@ -380,7 +409,7 @@ int action(element* snake, element* lastSnake, element obstacle, element *nourri
 				(*crossWall)++;
 				copyElement(snake, &snakeTest), copyElement(lastSnake, &lastSnakeTest);
 				transposeSnake(&snakeTest, &lastSnakeTest, *direction);
-				casModeDeJeu2(verificationAvancement(snakeTest, obstacle, *nourriture, *direction, *lastDirection, modeDeJeu), vie, estRentreeDansMur, estRentreeDansSerpent, score, direction, snake, lastSnake, *nourriture, obstacle, modeDeJeu);
+				casModeDeJeu2(verificationAvancement(snakeTest, obstacle, obstacleNonMortels, *nourriture, *direction, *lastDirection, modeDeJeu), vie, estRentreeDansMur, estRentreeDansSerpent, score, direction, snake, lastSnake, *nourriture, obstacle, obstacleNonMortels, modeDeJeu);
 			}
 			break;
 
@@ -393,6 +422,12 @@ int action(element* snake, element* lastSnake, element obstacle, element *nourri
 				(*vie)--;
 			}
 			break;
+		case 5:
+			if (!(*estRentreeDansMur))
+			{
+				*estRentreeDansMur = 1;
+			}
+			break;
 		}
 	}
 	if (debugMode)
@@ -400,15 +435,16 @@ int action(element* snake, element* lastSnake, element obstacle, element *nourri
 	return valeurDeRetour;
 }
 
-void executeSnakeStandart(element* snake, element* lastSnake, element obstacle, element *nourriture, int* vie, int* score, int* lastDirection, int* estRentreeDansMur, int* estrentreeDansSerpent, int debugMode)
+void executeSnakeStandart(element* snake, element* lastSnake, element obstacle, element obstacleNonMortels, element *nourriture, int* vie, int* score, int* lastDirection, int* estRentreeDansMur, int* estrentreeDansSerpent, int debugMode)
 {
 	char frappe = bind();
+	int crossWall = 0;
 	int direction = directionTouche(frappe);
-	if (!action(snake, lastSnake, obstacle, nourriture, &direction, lastDirection, vie, score, 0, estRentreeDansMur, estrentreeDansSerpent, 0, debugMode))
+	if (!action(snake, lastSnake, obstacle, obstacleNonMortels, nourriture, &direction, lastDirection, vie, score, 0, estRentreeDansMur, estrentreeDansSerpent, &crossWall, debugMode))
 		*lastDirection = direction;
 }
 
-void executeSnakeIntermediaire(element* snake, element* lastSnake, element obstacle, element *nourriture, int* vie, int* score, int* direction, int* lastDirection, int niveau, int* estRentreeDansMur, int* estrentreeDansSerpent, int* crossWall, int debugMode, int typeSnake)
+void executeSnakeIntermediaire(element* snake, element* lastSnake, element obstacle, element obstacleNonMortels, element *nourriture, int* vie, int* score, int* direction, int* lastDirection, int niveau, int* estRentreeDansMur, int* estrentreeDansSerpent, int* crossWall, int debugMode, int typeSnake, time_t* depart, time_t* actuelle)
 {
 	char frappe;
 	int modeDeJeu = 1;
@@ -420,8 +456,10 @@ void executeSnakeIntermediaire(element* snake, element* lastSnake, element obsta
 		if (directionTouche(frappe) != -1)
 			*direction = directionTouche(frappe);
 	}
-	if (!action(snake, lastSnake, obstacle, nourriture, direction, lastDirection, vie, score, modeDeJeu, estRentreeDansMur, estrentreeDansSerpent, crossWall, debugMode))
+	if (!action(snake, lastSnake, obstacle, obstacleNonMortels, nourriture, direction, lastDirection, vie, score, modeDeJeu, estRentreeDansMur, estrentreeDansSerpent, crossWall, debugMode))
 		*lastDirection = *direction;
+	time(actuelle);
+	refreshTime(*depart, *actuelle);
 	if (niveau == 1)
 	{
 		Sleep(100);

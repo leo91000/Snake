@@ -33,9 +33,9 @@
     <ClInclude Include="Source.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="score_niveau1.txt" />
-    <Text Include="score_niveau2.txt" />
-    <Text Include="score_niveau3.txt" />
+    <Text Include="Scores\score_niveau1.txt" />
+    <Text Include="Scores\score_niveau2.txt" />
+    <Text Include="Scores\score_niveau3.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{66B3F008-67D3-4442-B61E-4652AFE6557D}</ProjectGuid>

@@ -443,11 +443,12 @@ int snakeStandart()
 	*/
 	system("CLS");
 	genererCadre();
-	element snake, lastSnake, obstacles, nourriture;
-	initSnake(&snake), initLastSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, NOMBRE_FRUIT, NOURRITURE);
+	element snake, lastSnake, obstacles, obstaclesNonMortels, nourriture;
+	initSnake(&snake), initLastSnake(&lastSnake), initObstacle(&obstacles), initObstacleNonMortels(&obstaclesNonMortels), genererElement(obstacles, obstaclesNonMortels, snake, &nourriture, NOMBRE_FRUIT, NOURRITURE);
 	int score = 0, vies = 1, lastDirection = -1, rejouer = 0, estRentreeDansMur = 0, estRentreeDansSerpent = 0;
 	printfElement(nourriture, POINT);
 	printfElement(obstacles, PIQUE);
+	printfElement(obstaclesNonMortels, POINT);
 	printfElement(nourriture, POINT);
 	printfElement(snake, POINT);
 	/*
@@ -455,7 +456,7 @@ int snakeStandart()
 	*/
 	while (vies > 0 && score != NOMBRE_FRUIT)
 	{
-		executeSnakeStandart(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection, &estRentreeDansMur, &estRentreeDansSerpent, 0);
+		executeSnakeStandart(&snake, &lastSnake, obstacles, obstaclesNonMortels, &nourriture, &vies, &score, &lastDirection, &estRentreeDansMur, &estRentreeDansSerpent, 0);
 	}
 	
 	if(score == NOMBRE_FRUIT) {
@@ -478,8 +479,12 @@ int snakeIntermediaire(int niveau, int typeSnake)
 	*/
 	system("CLS");
 	genererCadre();
-	element snake, lastSnake, obstacles, nourriture;
-	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), genererElement(obstacles, snake, &nourriture, 1, NOURRITURE);
+
+	time_t depart = 0, actuelle = 0;
+	time(&depart), time(&actuelle);
+
+	element snake, lastSnake, obstacles, obstaclesNonMortels, nourriture;
+	initSnake(&snake), initSnake(&lastSnake), initObstacle(&obstacles), initObstacleNonMortels(&obstaclesNonMortels), genererElement(obstacles, obstaclesNonMortels, snake, &nourriture, 1, NOURRITURE);
 	int score = 0, vies = 0, lastDirection = GAUCHE, direction = GAUCHE, rejouer = 0, estRentreeDansMur = 0, estRentreeDansSerpent = 0, crossWall = 0;
 	if (typeSnake == 0) {
 		vies = 1;
@@ -488,21 +493,25 @@ int snakeIntermediaire(int niveau, int typeSnake)
 		vies = 5;
 	}
 	printfElement(obstacles, PIQUE);
+	printfElement(obstaclesNonMortels, POINT);
 	printfElement(nourriture, POINT);
 	printfElement(snake, POINT);
 	/*
 	FIN INITIALISATION SNAKE
 	*/
-	while (vies > 0)
+	int chronoActuelle = difftime(actuelle, depart);
+	while (vies > 0 && chronoActuelle < TEMPS_SNAKE)
 	{
-		executeSnakeIntermediaire(&snake, &lastSnake, obstacles, &nourriture, &vies, &score, &lastDirection, &direction, niveau, &estRentreeDansMur, &estRentreeDansSerpent, &crossWall, 0, typeSnake);
+		executeSnakeIntermediaire(&snake, &lastSnake, obstacles, obstaclesNonMortels, &nourriture, &vies, &score, &lastDirection, &direction, niveau, &estRentreeDansMur, &estRentreeDansSerpent, &crossWall, 0, typeSnake, &depart, &actuelle);
+		chronoActuelle = difftime(actuelle, depart);
 	}
 
-	if (score == NOMBRE_FRUIT) {
+	if (vies == 0) {
 		system("CLS");
-		menu_victoire();
+		menu_fin_intermediaire(score, niveau);
 	}
-	else if (vies == 0) {
+	else 
+	{
 		system("CLS");
 		menu_fin_intermediaire(score, niveau);
 	}

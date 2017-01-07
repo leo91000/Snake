@@ -383,7 +383,10 @@ void printfCase(int x, int y, char caractere, int couleurDuTexte, int couleurDeF
 {
 	color(couleurDuTexte, couleurDeFond);
 	gotoxy(2 * x + 2, y + 1);
-	printf("%c%c", caractere, caractere);
+	if(caractere != '<')
+		printf("%c%c", caractere, caractere);
+	else
+		printf("<>");
 }
 
 void printfElement(element e, char caractere)

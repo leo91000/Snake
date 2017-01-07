@@ -1,4 +1,16 @@
-﻿  Init.cpp
+﻿  Commandes_Calculs.cpp
+d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): warning C4005: '_CRT_SECURE_NO_WARNINGS' : redéfinition de macro
+  d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): note: arguments de ligne de commande : voir la définition précédente de '_CRT_SECURE_NO_WARNINGS'
+d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(190): warning C4101: 'c' : variable locale non référencée
+d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(358): warning C4309: 'argument' : troncation de valeur de constante
+  Génération de code en cours...
+d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(197): warning C4715: 'indiceElement' : les chemins de contrôle ne retournent pas tous une valeur
+  Compilation en cours...
+  Source.cpp
+d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): warning C4005: '_CRT_SECURE_NO_WARNINGS' : redéfinition de macro
+  d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): note: arguments de ligne de commande : voir la définition précédente de '_CRT_SECURE_NO_WARNINGS'
+d:\cloud\drive\programmation\c\snake\snake\snake\source.cpp(10): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  Init.cpp
 d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): warning C4005: '_CRT_SECURE_NO_WARNINGS' : redéfinition de macro
   d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): note: arguments de ligne de commande : voir la définition précédente de '_CRT_SECURE_NO_WARNINGS'
 d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(449): warning C4309: 'argument' : troncation de valeur de constante
@@ -12,5 +24,22 @@ d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(497): warning C4309: '
 d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(498): warning C4309: 'argument' : troncation de valeur de constante
 d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(502): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
 d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(506): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+  Fichiers.cpp
+d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): warning C4005: '_CRT_SECURE_NO_WARNINGS' : redéfinition de macro
+  d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): note: arguments de ligne de commande : voir la définition précédente de '_CRT_SECURE_NO_WARNINGS'
+  Affichage.cpp
+d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): warning C4005: '_CRT_SECURE_NO_WARNINGS' : redéfinition de macro
+  d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): note: arguments de ligne de commande : voir la définition précédente de '_CRT_SECURE_NO_WARNINGS'
+d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(423): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(441): warning C4244: 'initialisation' : conversion de 'double' en 'time_t', perte possible de données
+d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(442): warning C4477: 'printf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 1 est de type 'time_t'
+  d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(442): note: utilisez '%lld' dans la chaîne de format
+  d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(442): note: utilisez '%Id' dans la chaîne de format
+  d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(442): note: utilisez '%I64d' dans la chaîne de format
+d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(442): warning C4477: 'printf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 2 est de type 'time_t'
+  d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(442): note: utilisez '%lld' dans la chaîne de format
+  d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(442): note: utilisez '%Id' dans la chaîne de format
+  d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(442): note: utilisez '%I64d' dans la chaîne de format
+  Génération de code en cours...
   Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.exe
   Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.pdb (Full PDB)

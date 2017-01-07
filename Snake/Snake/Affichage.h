@@ -24,7 +24,7 @@
 #define CROSSWALL 2
 
 #define POINT 219
-#define PIQUE '<'
+#define PIQUE 178
 
 int affichageMenu(int position);
 int affichage_gameover(int rejouer);

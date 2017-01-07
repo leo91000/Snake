@@ -429,6 +429,31 @@ void executeSnakeIntermediaire(element* snake, element* lastSnake, element obsta
 	}
 }
 
+void executeSnakeIA(element* snake, element* lastSnake, element obstacle, element obstacleNonMortels, element *nourriture, int* vie, int* score, int* direction, int* lastDirection, int niveau, int* estRentreeDansMur, int* estrentreeDansSerpent, int* crossWall, int debugMode, int typeSnake, time_t* depart, time_t* actuelle)
+{
+	char frappe;
+	int modeDeJeu = 1;
+	if (typeSnake == 1)
+		modeDeJeu++;
+	if (!action(snake, lastSnake, obstacle, obstacleNonMortels, nourriture, direction, lastDirection, vie, score, modeDeJeu, estRentreeDansMur, estrentreeDansSerpent, crossWall, debugMode))
+		*lastDirection = *direction;
+	time(actuelle);
+	refreshTime(*depart, *actuelle);
+	if (niveau == 1)
+	{
+		Sleep(100);
+	}
+	else if (niveau == 2)
+	{
+		Sleep(60);
+	}
+	else if (niveau == 3)
+	{
+		Sleep(20);
+	}
+}
+
+
 int directionTouche(char frappe)
 {
 	int direction = -1;

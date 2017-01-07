@@ -36,6 +36,9 @@
     <ClCompile Include="Fichiers.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="IA.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Init.h">
@@ -51,6 +54,9 @@
       <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="Fichiers.h">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="IA.h">
       <Filter>Fichiers sources</Filter>
     </ClInclude>
   </ItemGroup>

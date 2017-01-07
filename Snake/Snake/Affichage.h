@@ -25,7 +25,7 @@
 #define CROSSWALL 2
 
 #define POINT 219
-#define PIQUE 178
+#define PIQUE 176
 
 #define TEMPS_SNAKE 120
 
@@ -37,6 +37,7 @@ int affichage_menuSnake_nocrosswall_crosswall(int niveau);
 void HideConsoleCursor(HANDLE hConsole);
 int affichage_menu_fin_intermediaire(int rejouer, int score);
 int affichage_menu_scores(int niveau);
+int affichage_menu_snakeavance(int niveau);
 void color(int couleurDuTexte, int couleurDeFond);
 void genererCadre();
 void gotoxy(int x, int y);

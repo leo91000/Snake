@@ -64,7 +64,7 @@ int launch(int selection)
 		menu_snakeintermediaire();
 		break;
 	case 2:
-		snakeAvance("Niveaux/test.txt", 0);
+		menu_snakeavance();
 		break;
 	case 3:
 		snakeTresAvance();
@@ -435,6 +435,56 @@ int menu_scores() {
 	return 1;
 }
 
+int menu_snakeavance() {
+	char frappe = 0;
+	int selection = 0, niveau = 0;
+	while (selection == 0)
+	{
+		affichage_menu_snakeavance(niveau);
+		frappe = bind();
+		switch (frappe)
+		{
+		case 'z':
+			niveau--;
+			break;
+		case 's':
+			niveau++;
+			break;
+		case 13:
+			selection = 1;
+			break;
+		default:
+			selection = 0;
+			break;
+		}
+
+		if (niveau < 0)
+			niveau = NOMBRE_SELECTION_NIVEAU;
+		else if (niveau > NOMBRE_SELECTION_NIVEAU)
+			niveau = 0;
+	}
+	launch_menu_snakeavance(niveau);
+	return 1;
+}
+
+int launch_menu_snakeavance(int selection) {
+	switch (selection)
+	{
+	case 0:
+		snakeAvance("Niveaux/niveau1.txt", 0);
+		break;
+	case 1:
+		snakeAvance("Niveaux/niveau2.txt",0);
+		break;
+	case 2:
+		snakeAvance("Niveaux/niveau3.txt",0);
+		break;
+	default:
+		fin(EXIT);
+		break;
+	}
+	return 0;
+}
 
 int snakeStandart()
 {

@@ -334,6 +334,35 @@ int affichage_menu_scores(int niveau) {
 	return 1;
 }
 
+int affichage_menu_snakeavance(int niveau) {
+	system("CLS");
+	switch (niveau)
+	{
+	case 0:
+		printf("           **SNAKE AVANCE** \n\n");
+		printf("           > Niveau 1 \n");
+		printf("             Niveau 2 \n");
+		printf("             Niveau 3 \n");
+		hideCursor();
+		break;
+	case 1:
+		printf("           **SNAKE AVANCE** \n\n");
+		printf("             Niveau 1 \n");
+		printf("           > Niveau 2 \n");
+		printf("             Niveau 3 \n");
+		hideCursor();
+		break;
+	case 2:
+		printf("           **SNAKE AVANCE** \n\n");
+		printf("             Niveau 1 \n");
+		printf("             Niveau 2 \n");
+		printf("           > Niveau 3 \n");
+		hideCursor();
+		break;
+	}
+	return 1;
+}
+
 void color(int couleurDuTexte, int couleurDeFond) // Fonction des couleurs
 {
 	HANDLE H = GetStdHandle(STD_OUTPUT_HANDLE);

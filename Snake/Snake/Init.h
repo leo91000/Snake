@@ -31,6 +31,8 @@ int launch_snakeintermediaire_crosswall(int selection);
 int menu_fin_intermediaire(int score, int niveau);
 int launch_menu_fin_intermediaire(int selection, int score, int niveau);
 int menu_scores();
+int menu_snakeavance();
+int launch_menu_snakeavance(int selection);
 int snakeStandart();
 int snakeIntermediaire(int niveau, int typeSnake);
 int snakeAvance(char levelName[], int IA);

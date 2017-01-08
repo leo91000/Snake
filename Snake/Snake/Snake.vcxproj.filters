@@ -38,23 +38,23 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Affichage.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Commandes_Calculs.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Fichiers.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="IA.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Init.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers sources</Filter>
     </ClInclude>
     <ClInclude Include="Source.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Affichage.h">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Commandes_Calculs.h">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="Fichiers.h">
+      <Filter>Fichiers sources</Filter>
+    </ClInclude>
+    <ClInclude Include="IA.h">
+      <Filter>Fichiers sources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -12,7 +12,6 @@ int affichageMenu(int position)
 		printf("                             > Snake standard\n");
 		printf("                               Snake intermediaire\n");
 		printf("                               Snake avance\n");
-		printf("                               Snake tres avance\n");
 		printf("                               Scores\n");
 		printf("                               Regles\n");
 		printf("                               Quitter\n");
@@ -22,7 +21,6 @@ int affichageMenu(int position)
 		printf("                               Snake standard\n");
 		printf("                             > Snake intermediaire\n");
 		printf("                               Snake avance\n");
-		printf("                               Snake tres avance\n");
 		printf("                               Scores\n");
 		printf("                               Regles\n");
 		printf("                               Quitter\n");
@@ -32,7 +30,6 @@ int affichageMenu(int position)
 		printf("                               Snake standard\n");
 		printf("                               Snake intermediaire\n");
 		printf("                             > Snake avance\n");
-		printf("                               Snake tres avance\n");
 		printf("                               Scores\n");
 		printf("                               Regles\n");
 		printf("                               Quitter\n");
@@ -42,8 +39,7 @@ int affichageMenu(int position)
 		printf("                               Snake standard\n");
 		printf("                               Snake intermediaire\n");
 		printf("                               Snake avance\n");
-		printf("                             > Snake tres avance\n");
-		printf("                               Scores\n");
+		printf("                             > Scores\n");
 		printf("                               Regles\n");
 		printf("                               Quitter\n");
 		break;
@@ -52,9 +48,8 @@ int affichageMenu(int position)
 		printf("                               Snake standard\n");
 		printf("                               Snake intermediaire\n");
 		printf("                               Snake avance\n");
-		printf("                               Snake tres avance\n");
-		printf("                             > Scores\n");
-		printf("                               Regles\n");
+		printf("                               Scores\n");
+		printf("                             > Regles\n");
 		printf("                               Quitter\n");
 		break;
 	case 5:
@@ -62,17 +57,6 @@ int affichageMenu(int position)
 		printf("                               Snake standard\n");
 		printf("                               Snake intermediaire\n");
 		printf("                               Snake avance\n");
-		printf("                               Snake tres avance\n");
-		printf("                               Scores\n");
-		printf("                             > Regles\n");
-		printf("                               Quitter\n");
-		break;
-	case 6:
-		printf("\n\n\n\n\n\n\n                             ****MENU PRINCIPAL****\n\n");
-		printf("                               Snake standard\n");
-		printf("                               Snake intermediaire\n");
-		printf("                               Snake avance\n");
-		printf("                               Snake tres avance\n");
 		printf("                               Scores\n");
 		printf("                               Regles\n");
 		printf("                             > Quitter\n");
@@ -432,15 +416,12 @@ int launch(int selection)
 		menu_snakeavance();
 		break;
 	case 3:
-		snakeTresAvance();
-		break;
-	case 4:
 		menu_scores();
 		break;
-	case 5:
+	case 4:
 		regle();
 		break;
-	case 6:
+	case 5:
 		quitter();
 		break;
 	default:

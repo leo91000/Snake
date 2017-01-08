@@ -39,6 +39,5 @@ int colorType(int type);
 void refreshSnake(element snake, element lastSnake, int score, int vies, int isFeeding);
 void refreshDebug(int direction, int lastDirection, element snake, element lastSnake);
 void refreshTime(time_t depart, time_t actuelle);
-void hideCursor();
 void afficher_score(int score);
 void afficher_vies(int vies);

@@ -24,6 +24,7 @@
     <ClCompile Include="Fichiers.cpp" />
     <ClCompile Include="IA.cpp" />
     <ClCompile Include="Init.cpp" />
+    <ClCompile Include="Menus.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -32,6 +33,7 @@
     <ClInclude Include="Fichiers.h" />
     <ClInclude Include="IA.h" />
     <ClInclude Include="Init.h" />
+    <ClInclude Include="Menus.h" />
     <ClInclude Include="Source.h" />
   </ItemGroup>
   <ItemGroup>

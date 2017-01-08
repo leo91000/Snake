@@ -1,6 +1,7 @@
 #include "Commandes_Calculs.h"
 #include "Affichage.h"
 #include "Init.h"
+#include "Menus.h"
 
 int bind()
 {	//Rentrer commande

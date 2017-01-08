@@ -8,6 +8,7 @@
 #include <time.h>
 #include "Commandes_Calculs.h"
 #include "Fichiers.h"
+#include "Menus.h"
 
 #define BLACK              0
 #define RED                12

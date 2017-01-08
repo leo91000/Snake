@@ -1,8 +1,10 @@
 #include "Menus.h"
 
+/*Cette fonction permet d'afficher le menu principal dès que le jeu est lancé
+avec un curseur permettant de sélectionner un mode*/
 int affichageMenu(int position)
 {
-	system("CLS");
+	system("CLS"); 
 	switch (position)
 	{
 	case 0:
@@ -14,7 +16,6 @@ int affichageMenu(int position)
 		printf("                               Scores\n");
 		printf("                               Regles\n");
 		printf("                               Quitter\n");
-		hideCursor();
 		break;
 	case 1:
 		printf("\n\n\n\n\n\n\n                             ****MENU PRINCIPAL****\n\n");
@@ -25,7 +26,6 @@ int affichageMenu(int position)
 		printf("                               Scores\n");
 		printf("                               Regles\n");
 		printf("                               Quitter\n");
-		hideCursor();
 		break;
 	case 2:
 		printf("\n\n\n\n\n\n\n                             ****MENU PRINCIPAL****\n\n");
@@ -36,7 +36,6 @@ int affichageMenu(int position)
 		printf("                               Scores\n");
 		printf("                               Regles\n");
 		printf("                               Quitter\n");
-		hideCursor();
 		break;
 	case 3:
 		printf("\n\n\n\n\n\n\n                             ****MENU PRINCIPAL****\n\n");
@@ -47,7 +46,6 @@ int affichageMenu(int position)
 		printf("                               Scores\n");
 		printf("                               Regles\n");
 		printf("                               Quitter\n");
-		hideCursor();
 		break;
 	case 4:
 		printf("\n\n\n\n\n\n\n                             ****MENU PRINCIPAL****\n\n");
@@ -58,7 +56,6 @@ int affichageMenu(int position)
 		printf("                             > Scores\n");
 		printf("                               Regles\n");
 		printf("                               Quitter\n");
-		hideCursor();
 		break;
 	case 5:
 		printf("\n\n\n\n\n\n\n                             ****MENU PRINCIPAL****\n\n");
@@ -69,7 +66,6 @@ int affichageMenu(int position)
 		printf("                               Scores\n");
 		printf("                             > Regles\n");
 		printf("                               Quitter\n");
-		hideCursor();
 		break;
 	case 6:
 		printf("\n\n\n\n\n\n\n                             ****MENU PRINCIPAL****\n\n");
@@ -80,12 +76,13 @@ int affichageMenu(int position)
 		printf("                               Scores\n");
 		printf("                               Regles\n");
 		printf("                             > Quitter\n");
-		hideCursor();
 		break;
 	}
 	return 1;
 }
 
+/*Cette fonction permet d'afficher un menu dès que la partie est perdue dans le mode de jeu 
+Snake Standard, on a le choix entre rejouer une partie, revenir au menu principal et quitter le jeu*/
 int affichage_gameover(int rejouer)
 {
 	system("CLS");
@@ -110,7 +107,6 @@ int affichage_gameover(int rejouer)
 		printf("           > Rejouer \n");
 		printf("             Retour au menu principal \n");
 		printf("             Quitter le jeu \n");
-		hideCursor();
 		break;
 	case 1:
 		printf("             OOOOOO    OOO    OO   OO  OOOOOO\n");
@@ -130,7 +126,6 @@ int affichage_gameover(int rejouer)
 		printf("             Rejouer \n");
 		printf("           > Retour au menu principal \n");
 		printf("             Quitter le jeu \n");
-		hideCursor();
 		break;
 	case 2:
 		printf("             OOOOOO    OOO    OO   OO  OOOOOO\n");
@@ -150,18 +145,19 @@ int affichage_gameover(int rejouer)
 		printf("             Rejouer \n");
 		printf("             Retour au menu principal \n");
 		printf("           > Quitter le jeu \n");
-		hideCursor();
 		break;
 	}
 	return 1;
 }
 
+/*Cette fonction permet d'afficher un menu dès que la partie est gagnée dans le mode de jeu
+Snake Standard, on a le choix entre rejouer une partie, revenir au menu principal et quitter le jeu*/
 int affichage_victoire(int rejouer) {
 	system("CLS");
 	switch (rejouer)
 	{
 	case 0:
-		color(RED, BLACK);
+		color(GREEN, BLACK);
 		printf("             OOOOOO    OOO     OOOOOO OO     OO OOOOOO\n");
 		printf("            OO        OO OO   OO      OOO    OO OO\n");
 		printf("           OO        OO   OO OO       OO O   OO OO\n");
@@ -172,7 +168,6 @@ int affichage_victoire(int rejouer) {
 		printf("           > Rejouer \n");
 		printf("             Retour au menu principal \n");
 		printf("             Quitter le jeu \n");
-		hideCursor();
 		break;
 	case 1:
 		printf("             OOOOOO    OOO     OOOOOO OO     OO OOOOOO\n");
@@ -185,7 +180,6 @@ int affichage_victoire(int rejouer) {
 		printf("             Rejouer \n");
 		printf("           > Retour au menu principal \n");
 		printf("             Quitter le jeu \n");
-		hideCursor();
 		break;
 	case 2:
 		printf("             OOOOOO    OOO     OOOOOO OO     OO OOOOOO\n");
@@ -198,12 +192,13 @@ int affichage_victoire(int rejouer) {
 		printf("             Rejouer \n");
 		printf("             Retour au menu principal \n");
 		printf("           > Quitter le jeu \n");
-		hideCursor();
 		break;
 	}
 	return 1;
 }
 
+/*Cette fonction permet d'afficher un menu permettant le choix entre le mode No crosswall ou le mode crosswall
+dans le mode de jeu Snake intermédiaire*/
 int affichage_menuSnakeintermediaire(int snake) {
 	system("CLS");
 	switch (snake)
@@ -212,18 +207,18 @@ int affichage_menuSnakeintermediaire(int snake) {
 		printf("      **SNAKE INTERMEDIAIRE** \n\n");
 		printf("           > No crosswall \n");
 		printf("             Crosswall \n");
-		hideCursor();
 		break;
 	case 1:
 		printf("      **SNAKE INTERMEDIAIRE** \n\n");
 		printf("             No crosswall \n");
 		printf("           > Crosswall \n");
-		hideCursor();
 		break;
 	}
 	return 1;
 }
 
+/*Cette fonction permet d'afficher un menu de sélection de niveau, une fois que le mode de jeu a été choisi
+(no crosswall ou crosswall)*/
 int affichage_menuSnake_nocrosswall_crosswall(int niveau) {
 	system("CLS");
 	switch (niveau)
@@ -233,34 +228,26 @@ int affichage_menuSnake_nocrosswall_crosswall(int niveau) {
 		printf("           > Niveau 1 \n");
 		printf("             Niveau 2 \n");
 		printf("             Niveau 3 \n");
-		hideCursor();
 		break;
 	case 1:
 		printf("      **SNAKE INTERMEDIAIRE** \n\n");
 		printf("             Niveau 1 \n");
 		printf("           > Niveau 2 \n");
 		printf("             Niveau 3 \n");
-		hideCursor();
 		break;
 	case 2:
 		printf("      **SNAKE INTERMEDIAIRE** \n\n");
 		printf("             Niveau 1 \n");
 		printf("             Niveau 2 \n");
 		printf("           > Niveau 3 \n");
-		hideCursor();
 		break;
 	}
 	return 1;
 }
 
-void HideConsoleCursor(HANDLE hConsole)
-{
-	CONSOLE_CURSOR_INFO info;
-	info.dwSize = 100;
-	info.bVisible = FALSE;
-	SetConsoleCursorInfo(hConsole, &info);
-}
-
+/*Cette fonction permet d'afficher un menu de fin de partie en mode Snake intermediaire
+Le score obtenu est affiché et on a le choix entre rejouer une partie, enregistrer le score, 
+revenir au menu principal ou quitter le jeu*/
 int affichage_menu_fin_intermediaire(int rejouer, int score) {
 	system("CLS");
 	switch (rejouer)
@@ -272,7 +259,6 @@ int affichage_menu_fin_intermediaire(int rejouer, int score) {
 		printf("             Enregistrer mon score \n");
 		printf("             Retour au menu principal \n");
 		printf("             Quitter le jeu \n");
-		hideCursor();
 		break;
 	case 1:
 		printf("         Merci d'avoir joue ! \n\n");
@@ -281,7 +267,6 @@ int affichage_menu_fin_intermediaire(int rejouer, int score) {
 		printf("           > Enregistrer mon score \n");
 		printf("             Retour au menu principal \n");
 		printf("             Quitter le jeu \n");
-		hideCursor();
 		break;
 	case 2:
 		printf("         Merci d'avoir joue ! \n\n");
@@ -290,7 +275,6 @@ int affichage_menu_fin_intermediaire(int rejouer, int score) {
 		printf("             Enregistrer mon score \n");
 		printf("           > Retour au menu principal \n");
 		printf("             Quitter le jeu \n");
-		hideCursor();
 		break;
 	case 3:
 		printf("         Merci d'avoir joue ! \n\n");
@@ -299,12 +283,12 @@ int affichage_menu_fin_intermediaire(int rejouer, int score) {
 		printf("             Enregistrer mon score \n");
 		printf("             Retour au menu principal \n");
 		printf("           > Quitter le jeu \n");
-		hideCursor();
 		break;
 	}
 	return 1;
 }
 
+/*Cette fonction permet d'afficher un menu de sélection du niveau pour obtenir les meilleurs scores du niveau choisi*/
 int affichage_menu_scores(int niveau) {
 	system("CLS");
 	switch (niveau)
@@ -314,26 +298,24 @@ int affichage_menu_scores(int niveau) {
 		printf("           > Niveau 1 \n");
 		printf("             Niveau 2 \n");
 		printf("             Niveau 3 \n");
-		hideCursor();
 		break;
 	case 1:
 		printf("      **MEILLEURS SCORES** \n\n");
 		printf("             Niveau 1 \n");
 		printf("           > Niveau 2 \n");
 		printf("             Niveau 3 \n");
-		hideCursor();
 		break;
 	case 2:
 		printf("      **MEILLEURS SCORES** \n\n");
 		printf("             Niveau 1 \n");
 		printf("             Niveau 2 \n");
 		printf("           > Niveau 3 \n");
-		hideCursor();
 		break;
 	}
 	return 1;
 }
 
+/*Cette fonction permet d'afficher un menu de sélection du niveau dans le mode de jeu Snake Avancé*/
 int affichage_menu_snakeavance(int niveau) {
 	system("CLS");
 	switch (niveau)
@@ -345,7 +327,6 @@ int affichage_menu_snakeavance(int niveau) {
 		printf("             Niveau 3 \n");
 		printf("             Niveau 4 \n");
 		printf("             Niveau 5 \n");
-		hideCursor();
 		break;
 	case 1:
 		printf("           **SNAKE AVANCE** \n\n");
@@ -354,7 +335,6 @@ int affichage_menu_snakeavance(int niveau) {
 		printf("             Niveau 3 \n");
 		printf("             Niveau 4 \n");
 		printf("             Niveau 5 \n");
-		hideCursor();
 		break;
 	case 2:
 		printf("           **SNAKE AVANCE** \n\n");
@@ -363,7 +343,6 @@ int affichage_menu_snakeavance(int niveau) {
 		printf("           > Niveau 3 \n");
 		printf("             Niveau 4 \n");
 		printf("             Niveau 5 \n");
-		hideCursor();
 		break;
 		break;
 	case 3:
@@ -373,7 +352,6 @@ int affichage_menu_snakeavance(int niveau) {
 		printf("             Niveau 3 \n");
 		printf("           > Niveau 4 \n");
 		printf("             Niveau 5 \n");
-		hideCursor();
 		break;
 	case 4:
 		printf("           **SNAKE AVANCE** \n\n");
@@ -382,7 +360,6 @@ int affichage_menu_snakeavance(int niveau) {
 		printf("             Niveau 3 \n");
 		printf("             Niveau 4 \n");
 		printf("           > Niveau 5 \n");
-		hideCursor();
 		break;
 	}
 	return 1;
@@ -390,7 +367,7 @@ int affichage_menu_snakeavance(int niveau) {
 
 /*
 Cette fonction lance le menu pour savoir quel mode de jeu choisir
-Un fois que l'utilisateur a choisis une option on execute la fonction launch
+Une fois que l'utilisateur a choisi une option on execute la fonction launch
 la variable en paramètre init permet de savoir si on execute le menu pour la première fois
 Si oui, on fixe la taille de la console, etc
 */
@@ -473,6 +450,8 @@ int launch(int selection)
 	return 0;
 }
 
+/*Cette fonction lance le menu GameOver et permet d'effectuer le choix entre rejouer une partie, 
+revenir au menu principal ou quitter le jeu.*/
 int menu_gameover() {
 	char frappe = 0;
 	int selection = 0, rejouer = 0;
@@ -506,6 +485,7 @@ int menu_gameover() {
 	return 1;
 }
 
+/*Cette fonction permet de lancer le choix effectué par l'utilisateur dans le menu GameOver*/
 int launch_gameover(int selection)
 {
 	switch (selection)
@@ -514,7 +494,7 @@ int launch_gameover(int selection)
 		snakeStandart();
 		break;
 	case 1:
-		fin(0);
+		fin(MAIN_MENU);
 		break;
 	case 2:
 		quitter();
@@ -525,6 +505,8 @@ int launch_gameover(int selection)
 	return 0;
 }
 
+/*Cette fonction lance le menu Victoire et permet d'effectuer le choix entre rejouer une partie,
+revenir au menu principal ou quitter le jeu.*/
 int menu_victoire() {
 	char frappe = 0;
 	int selection = 0, rejouer = 0;
@@ -557,6 +539,7 @@ int menu_victoire() {
 	return 1;
 }
 
+/*Cette fonction permet de lancer le choix effectué par l'utilisateur dans le menu Victoire*/
 int launch_victoire(int selection) {
 	switch (selection)
 	{
@@ -564,7 +547,7 @@ int launch_victoire(int selection) {
 		snakeStandart();
 		break;
 	case 1:
-		fin(0);
+		fin(MAIN_MENU);
 		break;
 	case 2:
 		quitter();
@@ -575,6 +558,8 @@ int launch_victoire(int selection) {
 	return 0;
 }
 
+/*Cette fonction lance le premier menu du mode Snake intermédiaire et permet d'effectuer 
+le choix entre le mode No crosswall et le mode crosswall*/
 int menu_snakeintermediaire() {
 	char frappe = 0;
 	int selection = 0, snake = 0;
@@ -607,6 +592,8 @@ int menu_snakeintermediaire() {
 	return 1;
 }
 
+/*Cette fonction permet de lancer le choix effectué par l'utilisateur dans le premier menu du snake intermédiaire
+(mode no crosswall ou crosswall)*/
 int launch_menu_snakeinterm(int selection) {
 	switch (selection)
 	{
@@ -625,6 +612,8 @@ int launch_menu_snakeinterm(int selection) {
 	return 0;
 }
 
+/*Cette fonction lance le second menu du mode Snake intermédiaire une fois le mode No crosswall choisi
+et permet d'effectuer le choix du niveau*/
 int menuSnakeIntermediaire_nocrosswall() {
 	char frappe = 0;
 	int selection = 0, niveau = 0;
@@ -659,6 +648,8 @@ int menuSnakeIntermediaire_nocrosswall() {
 	return 1;
 }
 
+/*Cette fonction permet de lancer le niveau choisi par l'utilisateur dans le mode No crosswall du 
+Snake Intermédiaire*/
 int launch_snakeintermediaire_nocrosswall(int selection)
 {
 	switch (selection)
@@ -679,6 +670,8 @@ int launch_snakeintermediaire_nocrosswall(int selection)
 	return 0;
 }
 
+/*Cette fonction lance le second menu du mode Snake intermédiaire une fois le mode Crosswall choisi
+et permet d'effectuer le choix du niveau*/
 int menuSnakeIntermediaire_crosswall() {
 	char frappe = 0;
 	int selection = 0, niveau = 0;
@@ -711,6 +704,8 @@ int menuSnakeIntermediaire_crosswall() {
 	return 1;
 }
 
+/*Cette fonction permet de lancer le niveau choisi par l'utilisateur dans le mode Crosswall du
+Snake Intermédiaire*/
 int launch_snakeintermediaire_crosswall(int selection) {
 	switch (selection)
 	{
@@ -730,6 +725,8 @@ int launch_snakeintermediaire_crosswall(int selection) {
 	return 0;
 }
 
+/*Cette fonction permet de lancer le menu de fin de partie en mode Snake Intermédiaire et on a le choix entre
+rejouer une partie, enregistrer son score, revenir au menu principal ou quitter le jeu*/
 int menu_fin_intermediaire(int score, int niveau) {
 	char frappe = 0;
 	int selection = 0, rejouer = 0;
@@ -762,6 +759,8 @@ int menu_fin_intermediaire(int score, int niveau) {
 	return 1;
 }
 
+/*Cette fonction permet de lancer le choix effectué par l'utilisateur en fin de partie du mode 
+Snake Intermédiaire (rejouer une partie, enregistrer son score, revenir au menu principal ou quitter le jeu)*/
 int launch_menu_fin_intermediaire(int selection, int score, int niveau) {
 	char nom[1000];
 	switch (selection)
@@ -777,7 +776,7 @@ int launch_menu_fin_intermediaire(int selection, int score, int niveau) {
 		fin(0);
 		break;
 	case 2:
-		fin(0);
+		fin(MAIN_MENU);
 		break;
 	case 3:
 		quitter();
@@ -788,6 +787,8 @@ int launch_menu_fin_intermediaire(int selection, int score, int niveau) {
 	return 0;
 }
 
+/*Cette fonction lance le menu Scores et permet de sélectionner le niveau pour lequel on désire 
+consulter les meilleurs scores*/
 int menu_scores() {
 	char frappe = 0;
 	int selection = 0, niveau = 0;
@@ -823,6 +824,7 @@ int menu_scores() {
 	return 1;
 }
 
+/*Cette fonction lance le menu du mode Snake Avancé et permet d'effectuer le choix du niveau */
 int menu_snakeavance() {
 	char frappe = 0;
 	int selection = 0, niveau = 0;
@@ -855,6 +857,7 @@ int menu_snakeavance() {
 	return 1;
 }
 
+/*Cette fonction permet lancer le niveau choisi par l'utilisateur dans le mode Snake Avancé*/
 int launch_menu_snakeavance(int selection) {
 	switch (selection)
 	{
@@ -878,4 +881,13 @@ int launch_menu_snakeavance(int selection) {
 		break;
 	}
 	return 0;
+}
+
+/*Cette fonction permet de cacher le curseur de la console (prise sur Internet)*/
+void HideConsoleCursor(HANDLE hConsole)
+{
+	CONSOLE_CURSOR_INFO info;
+	info.dwSize = 100;
+	info.bVisible = FALSE;
+	SetConsoleCursorInfo(hConsole, &info);
 }

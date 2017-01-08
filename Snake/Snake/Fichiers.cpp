@@ -4,6 +4,8 @@ void enregistrerScore(int score, char nom[], int niveau)
 {
 	FILE* fichier = NULL;
 	errno_t errorCode = 0;
+
+	//On ouvre le fichier correspondant au niveau choisis
 	switch (niveau)
 	{
 	case 1:
@@ -22,6 +24,7 @@ void enregistrerScore(int score, char nom[], int niveau)
 			inscrireScore(score, placementScore(score, fichier), fichier, nom, 3);
 		break;
 	}
+	//Si il y a eu une erreur on l'affiche
 	if (errorCode != 0)
 		perror("Une erreur est survenue lors de l'ouverture du fichier");
 	else
@@ -32,14 +35,14 @@ int placementScore(int scoreActuel, FILE* fichier)
 {
 	int score[NOMBRE_SCORE] = { 0 };
 	// Tableau des 10 meilleurs scores
-
+	//On récupère tout les scores
 	fscanf_s(fichier, "%d %d %d %d %d %d %d %d %d %d", &score[0], &score[1], &score[2], &score[3], &score[4], &score[5], &score[6], &score[7], &score[8], &score[9]);
+	//On cherche quel est le placement
 	for (int i = 0; i < NOMBRE_SCORE; i++)
 	{
 		if (scoreActuel > score[i])
 			return i;
 	}
-
 	return -1;
 }
 
@@ -60,13 +63,13 @@ void inscrireScore(int scoreActuel, int placement, FILE* fichier, char nom[], in
 			fscanf(fichier, "%s", nomScores[i]);
 			fseek(fichier, 1, SEEK_CUR);
 		}
-		memcpy(saveScore, score, NOMBRE_SCORE);//Sauvegarde de la copie
+		memcpy(saveScore, score, NOMBRE_SCORE);//Sauvegarde de la copie du tableau des scores
 		score[placement] = scoreActuel;//Placement du nouveau score
 		for (int i = placement; i < NOMBRE_SCORE - 1; i++)//Décalage des autre score
 		{
 			score[i + 1] = saveScore[i];
 		}
-		for (int i = 0; i < NOMBRE_SCORE; i++)//On sauvegarde ces copies
+		for (int i = 0; i < NOMBRE_SCORE; i++)//On sauvegarde de la copie du tableau des nom
 		{
 			strcpy_s(saveNomScores[i], SCORE_MAX, nomScores[i]);
 		}
@@ -75,6 +78,8 @@ void inscrireScore(int scoreActuel, int placement, FILE* fichier, char nom[], in
 		{
 			strcpy_s(nomScores[i + 1], SCORE_MAX, saveNomScores[i]);
 		}
+
+		//Pour inscrire les scores on ferme le fichier et on le réouvre en mode w+ pour tout effacer
 		fclose(fichier);
 		errno_t errorCode = 0;
 		switch (niveau)

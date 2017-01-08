@@ -459,8 +459,8 @@ int menu_snakeavance() {
 		}
 
 		if (niveau < 0)
-			niveau = NOMBRE_SELECTION_NIVEAU;
-		else if (niveau > NOMBRE_SELECTION_NIVEAU)
+			niveau = NOMBRE_SELECTION_NIVEAU_AVANCE;
+		else if (niveau > NOMBRE_SELECTION_NIVEAU_AVANCE)
 			niveau = 0;
 	}
 	launch_menu_snakeavance(niveau);
@@ -478,6 +478,12 @@ int launch_menu_snakeavance(int selection) {
 		break;
 	case 2:
 		snakeAvance("Niveaux/niveau3.txt",0);
+		break;
+	case 3:
+		snakeAvance("Niveaux/niveau4.txt", 0);
+		break;
+	case 4:
+		snakeAvance("Niveaux/niveau5.txt", 0);
 		break;
 	default:
 		fin(EXIT);

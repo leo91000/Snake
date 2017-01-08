@@ -15,6 +15,7 @@
 #define NOMBRE_SELECTION_NIVEAU 2
 #define NOMBRE_SELECTION_MENU_FIN_INTERM 3
 #define NOMBRE_SELECTION_MENU_INTERM 1
+#define NOMBRE_SELECTION_NIVEAU_AVANCE 4
 
 int mainMenu(int init);
 int launch(int selection);

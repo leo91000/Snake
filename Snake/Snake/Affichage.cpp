@@ -343,6 +343,8 @@ int affichage_menu_snakeavance(int niveau) {
 		printf("           > Niveau 1 \n");
 		printf("             Niveau 2 \n");
 		printf("             Niveau 3 \n");
+		printf("             Niveau 4 \n");
+		printf("             Niveau 5 \n");
 		hideCursor();
 		break;
 	case 1:
@@ -350,6 +352,8 @@ int affichage_menu_snakeavance(int niveau) {
 		printf("             Niveau 1 \n");
 		printf("           > Niveau 2 \n");
 		printf("             Niveau 3 \n");
+		printf("             Niveau 4 \n");
+		printf("             Niveau 5 \n");
 		hideCursor();
 		break;
 	case 2:
@@ -357,6 +361,27 @@ int affichage_menu_snakeavance(int niveau) {
 		printf("             Niveau 1 \n");
 		printf("             Niveau 2 \n");
 		printf("           > Niveau 3 \n");
+		printf("             Niveau 4 \n");
+		printf("             Niveau 5 \n");
+		hideCursor();
+		break;
+		break;
+	case 3:
+		printf("           **SNAKE AVANCE** \n\n");
+		printf("             Niveau 1 \n");
+		printf("             Niveau 2 \n");
+		printf("             Niveau 3 \n");
+		printf("           > Niveau 4 \n");
+		printf("             Niveau 5 \n");
+		hideCursor();
+		break;
+	case 4:
+		printf("           **SNAKE AVANCE** \n\n");
+		printf("             Niveau 1 \n");
+		printf("             Niveau 2 \n");
+		printf("             Niveau 3 \n");
+		printf("             Niveau 4 \n");
+		printf("           > Niveau 5 \n");
 		hideCursor();
 		break;
 	}

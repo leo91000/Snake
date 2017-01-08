@@ -319,6 +319,7 @@ int action(element* snake, element* lastSnake, element obstacle, element obstacl
 			(*crossWall)++;
 			copyElement(snake, &snakeTest), copyElement(lastSnake, &lastSnakeTest);
 			transposeSnake(&snakeTest, &lastSnakeTest, *direction);
+			(*vie)--;
 		}
 
 		int eventAvancement = verificationAvancement(snakeTest, obstacle, obstacleNonMortels, *nourriture, *direction, *lastDirection, modeDeJeu);

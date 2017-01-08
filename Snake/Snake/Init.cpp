@@ -513,7 +513,7 @@ int snakeStandart()
 		system("CLS");
 		menu_victoire();
 	}
-	else if (vies == 0) {
+	else if (vies <= 0) {
 		system("CLS");
 		menu_gameover();
 	}

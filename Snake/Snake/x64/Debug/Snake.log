@@ -1,22 +1,49 @@
 ﻿  Init.cpp
 d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): warning C4005: '_CRT_SECURE_NO_WARNINGS' : redéfinition de macro
   d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): note: arguments de ligne de commande : voir la définition précédente de '_CRT_SECURE_NO_WARNINGS'
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(499): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(500): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(501): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(502): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(503): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(545): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(546): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(547): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(548): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(552): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(556): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(594): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(596): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(597): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(598): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(599): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(607): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(505): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(506): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(507): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(508): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(509): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(551): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(552): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(553): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(554): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(558): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(562): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(600): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(602): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(603): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(604): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(605): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(613): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+  Affichage.cpp
+d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): warning C4005: '_CRT_SECURE_NO_WARNINGS' : redéfinition de macro
+  d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): note: arguments de ligne de commande : voir la définition précédente de '_CRT_SECURE_NO_WARNINGS'
+d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(477): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(495): warning C4244: 'initialisation' : conversion de 'double' en 'time_t', perte possible de données
+d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(496): warning C4477: 'printf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 1 est de type 'time_t'
+  d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(496): note: utilisez '%lld' dans la chaîne de format
+  d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(496): note: utilisez '%Id' dans la chaîne de format
+  d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(496): note: utilisez '%I64d' dans la chaîne de format
+d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(496): warning C4477: 'printf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 2 est de type 'time_t'
+  d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(496): note: utilisez '%lld' dans la chaîne de format
+  d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(496): note: utilisez '%Id' dans la chaîne de format
+  d:\cloud\drive\programmation\c\snake\snake\snake\affichage.cpp(496): note: utilisez '%I64d' dans la chaîne de format
+  Génération de code en cours...
+  Compilation en cours...
+  Source.cpp
+d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): warning C4005: '_CRT_SECURE_NO_WARNINGS' : redéfinition de macro
+  d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): note: arguments de ligne de commande : voir la définition précédente de '_CRT_SECURE_NO_WARNINGS'
+d:\cloud\drive\programmation\c\snake\snake\snake\source.cpp(10): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+  Commandes_Calculs.cpp
+d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): warning C4005: '_CRT_SECURE_NO_WARNINGS' : redéfinition de macro
+  d:\cloud\drive\programmation\c\snake\snake\snake\fichiers.h(11): note: arguments de ligne de commande : voir la définition précédente de '_CRT_SECURE_NO_WARNINGS'
+d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(190): warning C4101: 'c' : variable locale non référencée
+d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(359): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(435): warning C4101: 'frappe' : variable locale non référencée
+  Génération de code en cours...
+d:\cloud\drive\programmation\c\snake\snake\snake\commandes_calculs.cpp(197): warning C4715: 'indiceElement' : les chemins de contrôle ne retournent pas tous une valeur
   Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.exe
   Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.pdb (Full PDB)

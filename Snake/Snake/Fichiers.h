@@ -1,4 +1,8 @@
+//Pragma once permet de ne pas inclure plusieurs fois le même fichier à la compilition
+//+ Permet de ne pas à avoir à gérer les ifndef
+//- Ne marche pas sur tout les compilateurs
 #pragma once
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>

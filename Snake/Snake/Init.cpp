@@ -570,11 +570,20 @@ int snakeIntermediaire(int niveau, int typeSnake)
 
 int snakeAvance(char levelName[], int IA)
 {
+
+
+	int scoreIA = prototype1(levelName);
+	system("CLS");
+	gotoxy(30, 20);
+	printf("Score de l'IA : %d", scoreIA);
+	_getch();
+
 	/*
 	DEBUT INITIALISATION SNAKE
 	*/
 	system("CLS");
 	genererCadre();
+
 
 	time_t depart = 0, actuelle = 0;
 	time(&depart), time(&actuelle);
@@ -598,8 +607,23 @@ int snakeAvance(char levelName[], int IA)
 		chronoActuelle = difftime(actuelle, depart);
 	}
 
-	fin(0);
-
+	system("CLS");
+	gotoxy(30, 15);
+	if (score > scoreIA)
+	{
+		printf("Victoire !");
+	}
+	else if (score == scoreIA)
+	{
+		printf("Egalite");
+	}
+	else
+	{
+		printf("Defaite :( !");
+	}
+	Sleep(2000);
+	_getch();
+	fin(MAIN_MENU);
 	return 0;
 }
 

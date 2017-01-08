@@ -12,11 +12,11 @@ d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(547): warning C4309: '
 d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(548): warning C4309: 'argument' : troncation de valeur de constante
 d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(552): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
 d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(556): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(585): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(587): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(588): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(589): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(590): warning C4309: 'argument' : troncation de valeur de constante
-d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(598): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(594): warning C4244: 'initialisation' : conversion de 'double' en 'int', perte possible de données
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(596): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(597): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(598): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(599): warning C4309: 'argument' : troncation de valeur de constante
+d:\cloud\drive\programmation\c\snake\snake\snake\init.cpp(607): warning C4244: '=' : conversion de 'double' en 'int', perte possible de données
   Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.exe
   Snake.vcxproj -> D:\Cloud\Drive\Programmation\C\Snake\Snake\x64\Debug\Snake.pdb (Full PDB)

@@ -8,12 +8,8 @@
 #include "Commandes_Calculs.h"
 #include "Affichage.h"
 
-int startIA(int prototype, char levelName[]);
-
 int prototype1(char levelName[]);
 
 int uneDirectionPossible(element snake, element obstacle1, element obstacle2, element nourriture, int * direction);
 
 int indiceSnake(element snake, coordonnee p);
-
-int prototype2(char levelName[]);

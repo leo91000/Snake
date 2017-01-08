@@ -63,6 +63,7 @@ int snakeIntermediaire(int niveau, int typeSnake)
 	/*
 	FIN INITIALISATION SNAKE
 	*/
+
 	int chronoActuelle = difftime(actuelle, depart);
 	while (vies > 0 && chronoActuelle < TEMPS_SNAKE)
 	{
@@ -141,11 +142,6 @@ int snakeAvance(char levelName[], int IA)
 	return 0;
 }
 
-int snakeTresAvance()
-{
-	return 0;
-}
-
 int regle()
 {
 	system("CLS");
@@ -157,11 +153,6 @@ int regle()
 	printf("Appuyez sur une touche pour revenir au menu principal\n");
 	_getch();
 	fin(MAIN_MENU);
-	return 0;
-}
-
-int menuScores()
-{
 	return 0;
 }
 

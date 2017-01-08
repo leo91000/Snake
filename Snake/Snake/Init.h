@@ -21,7 +21,6 @@
 int snakeStandart();
 int snakeIntermediaire(int niveau, int typeSnake);
 int snakeAvance(char levelName[], int IA);
-int snakeTresAvance();
 int regle();
 int scores(int modeDeJeu);
 int quitter();

@@ -3,8 +3,9 @@
 #include "Init.h"
 #include "Menus.h"
 
+//Cette fonction tourne en boucle tant que l'utilisateur n'a pas appuyé sur une touche
 int bind()
-{	//Rentrer commande
+{
 	int frappe, reponse;
 	do {
 		if (_kbhit())
@@ -12,7 +13,6 @@ int bind()
 			frappe = _getch();
 			reponse = 1;
 		}
-		//Sinon
 		else
 		{
 			reponse = 0;
@@ -22,14 +22,14 @@ int bind()
 	return frappe;
 }
 
-
-
+//Cette fonction genere aléatoirement un point d'un élément
 void genererCase(int numero, element* element)
 {
 	element->point[numero].X = random(0, 37);
 	element->point[numero].Y = random(0, 37);
 }
 
+//Cette fonction genere aléatoirement tout les points d'un élément ET verifie que cette élément n'est pas sur un obstacle ou sur le snake
 void genererElement(element obstacle, element obstacleNonMortel, element snake, element* element, int taille, int type)
 {
 	element->taille = taille;
@@ -38,10 +38,11 @@ void genererElement(element obstacle, element obstacleNonMortel, element snake, 
 	{
 		do {
 			genererCase(i, element);
-		} while (check1((*element), i, obstacle, obstacleNonMortel, snake));
+		} while (check1((*element), i, obstacle, obstacleNonMortel, snake));//Condition de vérification
 	}
 }
 
+//Cette fonction renvoie 1 si le l'élément n est confondus avec un obstacle ou le snake, 0 sinon
 int check1(element e, int numero, element obstacle, element ObstacleNonMortel, element snake)
 {
 	//On vérifie que la position n'existe pas déja
@@ -54,7 +55,7 @@ int check1(element e, int numero, element obstacle, element ObstacleNonMortel, e
 	if (verifPointExistant(e, numero, obstacle))
 		return 1;
 
-	//
+	//On verifie que la position n'existe pas deja en tant qu'obstacle non mortel
 	if (verifPointExistant(e, numero, ObstacleNonMortel))
 		return 1;
 
@@ -65,6 +66,7 @@ int check1(element e, int numero, element obstacle, element ObstacleNonMortel, e
 	return 0;
 }
 
+//Cette fonction verifie qu'un élément n n'est pas présent dans un autre élément
 int verifPointExistant(element e1, int numero, element e2)
 {
 	for (int i = 0; i < e2.taille; i++)
@@ -75,6 +77,7 @@ int verifPointExistant(element e1, int numero, element e2)
 	return 0;
 }
 
+//Fonction qui insère les coordonnées du snake intiale
 void initSnake(element * e)
 {
 	e->type = 0;
@@ -82,6 +85,8 @@ void initSnake(element * e)
 	e->point[0].X = 18, e->point[0].Y = 18, e->point[1].X = 19, e->point[1].Y = 18, e->point[2].X = 20, e->point[2].Y = 18, e->point[3].X = 21, e->point[3].Y = 18;
 }
 
+//Fonction qui insère les coordonnées du lastSnake initiale
+//Le lastSnake est l'ancienne position du snake
 void initLastSnake(element * e)
 {
 	e->type = 0;
@@ -89,6 +94,7 @@ void initLastSnake(element * e)
 	e->point[0].X = 19, e->point[0].Y = 18, e->point[1].X = 20, e->point[1].Y = 18, e->point[2].X = 21, e->point[2].Y = 18, e->point[3].X = 22, e->point[3].Y = 18;
 }
 
+//Fonction qui insère les coordonnées des obstacles initiaux
 void initObstacle(element * o)
 {
 	o->type = 2;
@@ -97,6 +103,7 @@ void initObstacle(element * o)
 	o->point[4].X = 25, o->point[4].Y = 22, o->point[5].X = 32, o->point[5].Y = 15, o->point[6].X = 2, o->point[6].Y = 27, o->point[7].X = 17, o->point[7].Y = 34;
 }
 
+//Fonction qui insère les coordonnées des obstacles non mortels initiaux
 void initObstacleNonMortels(element * o)
 {
 	o->type = 2;
@@ -105,12 +112,13 @@ void initObstacleNonMortels(element * o)
 	o->point[4].X = 24, o->point[4].Y = 25, o->point[5].X = 37, o->point[5].Y = 37, o->point[6].X = 0, o->point[6].Y = 0, o->point[7].X = 0, o->point[7].Y = 37;
 }
 
-
+//Fonction qui renvoie un nombre aléatoire entre iMin et iMax (principe pris sur internet et légèrement modifié pour pouvoir en faire une fonction)
 int random(int iMin, int iMax)
 {
 	return (iMin + (rand() % (iMax - iMin + 1)));
 }
 
+//Fonction qui copie un élément dans un autre
 void copyElement(element* source, element* target)
 {
 	target->taille = source->taille;
@@ -122,6 +130,7 @@ void copyElement(element* source, element* target)
 	}
 }
 
+//Fonction qui renvoie 1 si le point est à l'intérieur du cadre
 int positiondansCadre(coordonnee point)
 {
 	if (point.X < 0 || point.Y < 0 || point.X > 37 || point.Y > 37)
@@ -133,6 +142,7 @@ int positiondansCadre(coordonnee point)
 	}
 }
 
+//Fonction qui renvoie 1 si deux direction sont considérés comme opposés
 int estOppose(int direction1, int direction2)
 {
 	if (directionOppose(direction1) == direction2)
@@ -144,7 +154,13 @@ int estOppose(int direction1, int direction2)
 	}
 }
 
-int verificationAvancement(element snake, element obstacle, element obstacleNonMortels, element nourriture, int direction, int lastDirection, int modeDeJeu)
+//Fonction qui renvoie un nombre en fonction des différents event
+//0 : Le snake peut avancer
+//1 : Le snake renccontre un obstacle mortel
+//2 : Le snake rencontre de la nourriture
+//3 : Le snake sort du cadre
+//4 : le snake rencontre un obstacle non mortel
+int verificationAvancement(element snake, element obstacle, element obstacleNonMortels, element nourriture)
 {
 	int rep = 0;
 	element snakeModif;
@@ -154,7 +170,7 @@ int verificationAvancement(element snake, element obstacle, element obstacleNonM
 	{
 		rep = 1;
 	}
-	else if (verifPointExistant(snake, 0, nourriture))//Si il rencontre la nourriture
+	else if (verifPointExistant(snake, 0, nourriture))
 	{
 		rep = 2;
 	}
@@ -177,6 +193,7 @@ int verificationAvancement(element snake, element obstacle, element obstacleNonM
 	return rep;
 }
 
+//Supprime une nourriture de son élément
 void supprimerNourriture(element* nourriture, int indice)
 {
 	(nourriture->taille)--;
@@ -186,6 +203,8 @@ void supprimerNourriture(element* nourriture, int indice)
 	}
 }
 
+//Renvoie l'indice n d'un élément pour une coordonnée
+//La fonction renvoie -1 si elle ne trouve rien
 int indiceElement(coordonnee a, element e)
 {
 	coordonnee c;
@@ -194,9 +213,10 @@ int indiceElement(coordonnee a, element e)
 		if (e.point[i].X == a.X && e.point[i].Y == a.Y)
 			return i;
 	}
-
+	return -1;
 }
 
+//Avance le snake dans une direction donnée
 void avancer(element* snake, element* lastSnake, int direction)
 {
 	copyElement(snake, lastSnake);
@@ -232,6 +252,8 @@ void avancer(element* snake, element* lastSnake, int direction)
 	}
 }
 
+//Transpose le Snake dans une direction donnée
+//Transposer signifie passer d'un coté à l'autre (lorsque que l'on sort du cadre on réapparait de l'autre coté
 void transposeSnake(element* snake, element* lastSnake, int direction)
 {
 	copyElement(snake, lastSnake);
@@ -256,6 +278,7 @@ void transposeSnake(element* snake, element* lastSnake, int direction)
 	}
 }
 
+//Fonction qui augmente la taille du snake
 void feedSnake(element* snake, element* lastSnake, element *nourriture, int direction, int crossWall)
 {
 	if (crossWall != 1)
@@ -267,6 +290,8 @@ void feedSnake(element* snake, element* lastSnake, element *nourriture, int dire
 	supprimerNourriture(nourriture, indiceElement(snake->point[0], *nourriture));
 }
 
+//Fonction qui renvoie la direction opposé
+//Cette fonction renvoie -1 si le nombre envoyé n'est pas une direction
 int directionOppose(int direction)
 {
 	int directionOp = -1;
@@ -288,25 +313,35 @@ int directionOppose(int direction)
 	return directionOp;
 }
 
-int action(element* snake, element* lastSnake, element obstacle, element obstacleNonMortels, element *nourriture, int *direction, int *lastDirection, int* vie, int* score, int modeDeJeu, int * estRentreeDansMur, int * estRentreeDansSerpent, int* crossWall, int debugMode)
+//Cette fonction est la plus importante du snake, elle permet d'effectuer les actions en fonction d'event
+//C'est la fonction la plus longue de ce fichier car elle doit prendre en compte les modesDeJeu et vérifier qu'il n'y a aucun problème
+void action(element* snake, element* lastSnake, element obstacle, element obstacleNonMortels, element *nourriture, int *direction, int *lastDirection, int* vie, int* score, int modeDeJeu, int * estRentreeDansMur, int * estRentreeDansSerpent, int* crossWall, int debugMode)
 {
-	int directionInv = 0, valeurDeRetour = 0;;
+	int directionInv = 0;
 	if (*direction != -1 && *lastDirection != -1)
 	{
+		//On envoie une sonde snake dans la direction indiqué
 		element snakeTest, lastSnakeTest;
 		copyElement(snake, &snakeTest), copyElement(lastSnake, &lastSnakeTest);
 		avancer(&snakeTest, &lastSnakeTest, *direction);
 
+		//La condition suivante vérifie que le snake n'est pas en train de franchir un mur
 		if (*crossWall != 0)
 		{
+			//Si oui on incremente crossWall tant que le corps entier du snake n'est pas passé
 			if (*crossWall < snake->taille)
 				(*crossWall)++;
+			//Sinon on le remet à 0
 			else
 			{
 				*crossWall = 0;
 			}
 		}
 
+		//La condition suivante vérifie que la sonde snake ne vas pas dans la direction inverse
+		//En mode crossWall on verifie si le 3e élément n'est pas confondus avec la tête du lastSnake
+		//En mode non crosswall on verfie que la tête du snake n'est pas confondus avec celle du lastSnake
+		//Si la condition est vrai on annule le mouvement de la sonde et on l'envoie dans l'ancienne direction
 		if ((snakeTest.point[0].X == lastSnake->point[0].X && snakeTest.point[0].Y == lastSnake->point[0].Y &&*crossWall != 2) || (snakeTest.point[2].X == lastSnake->point[0].X && snakeTest.point[2].Y == lastSnake->point[0].Y && *crossWall == 2))
 		{
 			directionInv = 1;
@@ -315,6 +350,8 @@ int action(element* snake, element* lastSnake, element obstacle, element obstacl
 			avancer(&snakeTest, &lastSnakeTest, *direction);
 		}
 
+		//La condition suivante regarde si la sonde snake vas sortir du cadre de jeu
+		//Si oui on annule le mouvement de la sonde et on la transpose
 		if (!positiondansCadre(snakeTest.point[0]) && modeDeJeu == 2)
 		{
 			(*crossWall)++;
@@ -323,8 +360,10 @@ int action(element* snake, element* lastSnake, element obstacle, element obstacl
 			(*vie)--;
 		}
 
-		int eventAvancement = verificationAvancement(snakeTest, obstacle, obstacleNonMortels, *nourriture, *direction, *lastDirection, modeDeJeu);
+		//On récupere l'event de la sonde
+		int eventAvancement = verificationAvancement(snakeTest, obstacle, obstacleNonMortels, *nourriture);
 
+		//En fonction de l'event on effectue des actions
 		switch (eventAvancement)
 		{
 
@@ -379,7 +418,7 @@ int action(element* snake, element* lastSnake, element obstacle, element obstacl
 				(*vie)--;
 			}
 			break;
-		case 5:
+		case 5://Event : obstacle non mortels
 			if (!(*estRentreeDansMur))
 			{
 				*estRentreeDansMur = 1;
@@ -387,20 +426,23 @@ int action(element* snake, element* lastSnake, element obstacle, element obstacl
 			break;
 		}
 	}
+
+	//La condtition suivante permet d'afficher des informations utile au débogage
 	if (debugMode)
 		refreshDebug(*direction, *lastDirection, *snake, *lastSnake);
-	return valeurDeRetour;
 }
 
+//Fonction qui lance le snake standart (pas de boucle)
 void executeSnakeStandart(element* snake, element* lastSnake, element obstacle, element obstacleNonMortels, element *nourriture, int* vie, int* score, int* lastDirection, int* estRentreeDansMur, int* estrentreeDansSerpent, int debugMode)
 {
 	char frappe = bind();
 	int crossWall = 0;
 	int direction = directionTouche(frappe);
-	if (!action(snake, lastSnake, obstacle, obstacleNonMortels, nourriture, &direction, lastDirection, vie, score, 0, estRentreeDansMur, estrentreeDansSerpent, &crossWall, debugMode))
-		*lastDirection = direction;
+	action(snake, lastSnake, obstacle, obstacleNonMortels, nourriture, &direction, lastDirection, vie, score, 0, estRentreeDansMur, estrentreeDansSerpent, &crossWall, debugMode);
+	*lastDirection = direction;
 }
 
+//Fonction qui lance le snakeIntermediaire
 void executeSnakeIntermediaire(element* snake, element* lastSnake, element obstacle, element obstacleNonMortels, element *nourriture, int* vie, int* score, int* direction, int* lastDirection, int niveau, int* estRentreeDansMur, int* estrentreeDansSerpent, int* crossWall, int debugMode, int typeSnake, time_t* depart, time_t* actuelle)
 {
 	char frappe;
@@ -413,8 +455,8 @@ void executeSnakeIntermediaire(element* snake, element* lastSnake, element obsta
 		if (directionTouche(frappe) != -1)
 			*direction = directionTouche(frappe);
 	}
-	if (!action(snake, lastSnake, obstacle, obstacleNonMortels, nourriture, direction, lastDirection, vie, score, modeDeJeu, estRentreeDansMur, estrentreeDansSerpent, crossWall, debugMode))
-		*lastDirection = *direction;
+	action(snake, lastSnake, obstacle, obstacleNonMortels, nourriture, direction, lastDirection, vie, score, modeDeJeu, estRentreeDansMur, estrentreeDansSerpent, crossWall, debugMode);
+	*lastDirection = *direction;
 	time(actuelle);
 	refreshTime(*depart, *actuelle);
 	if (niveau == 1)
@@ -431,14 +473,15 @@ void executeSnakeIntermediaire(element* snake, element* lastSnake, element obsta
 	}
 }
 
+//Fonction qui lance l'IA du snake
 void executeSnakeIA(element* snake, element* lastSnake, element obstacle, element obstacleNonMortels, element *nourriture, int* vie, int* score, int* direction, int* lastDirection, int niveau, int* estRentreeDansMur, int* estrentreeDansSerpent, int* crossWall, int debugMode, int typeSnake, time_t* depart, time_t* actuelle)
 {
 	char frappe;
 	int modeDeJeu = 1;
 	if (typeSnake == 1)
 		modeDeJeu++;
-	if (!action(snake, lastSnake, obstacle, obstacleNonMortels, nourriture, direction, lastDirection, vie, score, modeDeJeu, estRentreeDansMur, estrentreeDansSerpent, crossWall, debugMode))
-		*lastDirection = *direction;
+	action(snake, lastSnake, obstacle, obstacleNonMortels, nourriture, direction, lastDirection, vie, score, modeDeJeu, estRentreeDansMur, estrentreeDansSerpent, crossWall, debugMode);
+	*lastDirection = *direction;
 	time(actuelle);
 	refreshTime(*depart, *actuelle);
 	if (niveau == 1)
@@ -455,7 +498,7 @@ void executeSnakeIA(element* snake, element* lastSnake, element obstacle, elemen
 	}
 }
 
-
+//Fonction qui associe à chaque touche une direction
 int directionTouche(char frappe)
 {
 	int direction = -1;
